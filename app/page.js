@@ -9,7 +9,20 @@ const services=[
 ["⌕","SEO","Build long-term visibility in your service area."]
 ];
 export default function Home(){
- const [job,setJob]=useState(8000),[count,setCount]=useState(4);\n useEffect(()=>{\n  const els=[...document.querySelectorAll(".reveal")];\n  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -5% 0px"});\n  els.forEach(el=>io.observe(el));\n  const onScroll=()=>document.documentElement.style.setProperty("--scrollY",window.scrollY+"px");\n  window.addEventListener("scroll",onScroll,{passive:true});onScroll();\n  return()=>{io.disconnect();window.removeEventListener("scroll",onScroll)};\n },[]);
+ const [job,setJob]=useState(8000),[count,setCount]=useState(4);
+ useEffect(()=>{
+  const els=[...document.querySelectorAll(".reveal")];
+  const io=new IntersectionObserver((entries)=>{
+   entries.forEach((e)=>{
+    if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target);}
+   });
+  },{threshold:0.12,rootMargin:"0px 0px -5% 0px"});
+  els.forEach((el)=>io.observe(el));
+  const onScroll=()=>document.documentElement.style.setProperty("--scrollY",window.scrollY+"px");
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+  return()=>{io.disconnect();window.removeEventListener("scroll",onScroll);};
+ },[]);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  return <main>
  <header><a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a><nav><a href="#">Home</a><a href="#services">Services</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a className="pinkBtn top" href="#contact">GET MORE JOBS&nbsp; →</a></header>
