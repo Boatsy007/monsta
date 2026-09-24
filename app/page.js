@@ -11,17 +11,28 @@ const services=[
 export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  useEffect(()=>{
-  const els=[...document.querySelectorAll(".reveal")];
+  const revealEls=[...document.querySelectorAll(".reveal")];
   const io=new IntersectionObserver((entries)=>{
-   entries.forEach((e)=>{
-    if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target);}
+   entries.forEach((entry)=>{
+    if(entry.isIntersecting) entry.target.classList.add("is-visible");
    });
-  },{threshold:0.12,rootMargin:"0px 0px -5% 0px"});
-  els.forEach((el)=>io.observe(el));
-  const onScroll=()=>document.documentElement.style.setProperty("--scrollY",window.scrollY+"px");
+  },{threshold:0.08,rootMargin:"0px 0px -8% 0px"});
+  revealEls.forEach((el)=>io.observe(el));
+
+  let target=window.scrollY,current=window.scrollY,raf=0;
+  const tick=()=>{
+   current += (target-current)*0.085;
+   if(Math.abs(target-current)<0.1) current=target;
+   document.documentElement.style.setProperty("--smoothY",current.toFixed(2));
+   document.documentElement.style.setProperty("--heroShift",(current*0.10).toFixed(2)+"px");
+   document.documentElement.style.setProperty("--heroCopyShift",(current*0.055).toFixed(2)+"px");
+   document.documentElement.style.setProperty("--tradeShift",(current*0.018).toFixed(2)+"px");
+   raf=requestAnimationFrame(tick);
+  };
+  const onScroll=()=>{target=window.scrollY;};
   window.addEventListener("scroll",onScroll,{passive:true});
-  onScroll();
-  return()=>{io.disconnect();window.removeEventListener("scroll",onScroll);};
+  raf=requestAnimationFrame(tick);
+  return()=>{io.disconnect();window.removeEventListener("scroll",onScroll);cancelAnimationFrame(raf);};
  },[]);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  return <main>
