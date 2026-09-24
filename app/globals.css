@@ -2081,3 +2081,34 @@ footer{padding:0 0 46px}
   }
   .logo img{width:112px}
 }
+
+/* Keep the mobile promo strip + header visible while scrolling */
+@media(max-width:640px){
+  .promoTicker{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:60;
+  }
+
+  .siteHeader{
+    position:fixed;
+    top:30px;
+    left:0;
+    right:0;
+    z-index:55;
+    background:rgba(5,5,6,.96);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+  }
+
+  .hero{
+    padding-top:124px;
+  }
+
+  .mobileMenu{
+    max-height:calc(100vh - 112px);
+    overflow-y:auto;
+  }
+}
