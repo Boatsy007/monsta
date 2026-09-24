@@ -38,9 +38,9 @@ export default function Home(){
 
 
   return <>
-        <header className="siteHeader site-header">
-          <div className="shell headerInner header-inner">
-            <a className="logo header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
+        <header className="site-header">
+          <div className="header-inner">
+            <a className="header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
             <nav className={`desktop-nav ${menuOpen?"mobile-open":""}`}>
               <a href="#services" onClick={()=>setMenuOpen(false)}>Services</a>
               <a href="#results" onClick={()=>setMenuOpen(false)}>Results</a>
@@ -53,7 +53,7 @@ export default function Home(){
 
             </div>
             <button
-              className={`mobileMenuButton menu-button ${menuOpen?"isOpen":""}`}
+              className={`menu-button ${menuOpen?"isOpen":""}`}
               type="button"
               aria-label="Open menu"
               aria-expanded={menuOpen}
@@ -71,8 +71,8 @@ export default function Home(){
     <main id="top">
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
-      <div className="heroGrid hero-inner">
-        <div className="heroCopy hero-copy">
+      <div className="hero-inner">
+        <div className="hero-copy">
           <div className="eyebrow">Digital marketing for tradies</div>
           <h1>More jobs.<br/><span>Less chasing.</span></h1>
           <p>We help tradies get found, generate more enquiries and turn them into booked work.</p>
