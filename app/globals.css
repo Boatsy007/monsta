@@ -1222,16 +1222,13 @@ footer{padding:0 0 46px}
   .tradeWordmark{width:116px}
 }
 
-.mobileViewportTop{display:none}
-
-/* Mobile: normal document flow plus iOS/Chrome visual-viewport top compensation */
+/* Mobile header: mirror Storeman’s proven sticky viewport behaviour */
 @media(max-width:640px){
   html,body{margin:0;padding:0;min-width:0}
-  .mobileViewportTop{display:block;height:var(--mobile-viewport-top,0px);pointer-events:none}
   .promoTicker{position:static;width:100%;max-width:100%;height:30px}
   .promoTrack{will-change:auto}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .siteHeader{position:static;width:100%;max-width:100%;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
+  .siteHeader{height:64px;position:sticky!important;top:0!important;left:auto!important;right:auto!important;width:100%!important;max-width:100%;z-index:999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;backdrop-filter:none!important;transform:none!important;visibility:visible!important;opacity:1!important;overflow:visible}
   .headerInner{position:relative;height:64px;display:flex;align-items:center;gap:12px}
   .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
