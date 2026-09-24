@@ -107,6 +107,7 @@ export default function Home(){
             <div>
               <div className="heroCalcEyebrow">Make the spend make sense.</div>
               <h2>What does your marketing need to return?</h2>
+              <p>See what your investment needs to generate to pay for itself.</p>
             </div>
             <span className="heroCalcIcon">↗</span>
           </div>
@@ -143,25 +144,33 @@ export default function Home(){
             </label>
           </div>
 
-          <div className="heroCalcResult roiResult">
-            <div>
-              <span>Jobs needed to cover that investment</span>
-              <strong>{breakEvenJobs}<small>{breakEvenJobs===1?" job":" jobs"}</small></strong>
+          <div className="breakEvenTarget">
+            <span className="breakEvenLabel">Your break-even target</span>
+            <div className="breakEvenPrimary">
+              <strong>{breakEvenJobs}</strong>
+              <span>{breakEvenJobs===1?"booked job":"booked jobs"}</span>
             </div>
-            <div>
-              <span>Qualified leads needed at {closeRate}% close rate</span>
-              <strong>{leadsNeeded}<small>{leadsNeeded===1?" lead":" leads"}</small></strong>
+            <div className="breakEvenSecondary">
+              or approximately <b>{leadsNeeded} {leadsNeeded===1?"qualified lead":"qualified leads"}</b>
             </div>
+            <p>Based on a ${Number(spend).toLocaleString()} investment, ${Number(job).toLocaleString()} average job and {closeRate}% close rate.</p>
           </div>
 
           <div className="heroPlan">
-            <span className="heroPlanLabel">What we build around that investment</span>
-            <div className="heroPlanItems">
-              <span>Google Ads</span>
-              <span>Landing pages</span>
-              <span>Lead tracking</span>
-              <span>Automated follow-up</span>
-              <span>Ongoing optimisation</span>
+            <span className="heroPlanLabel">Your plan includes</span>
+            <div className="heroPlanColumns">
+              <div>
+                <b>Acquire</b>
+                <span>Google + Meta</span>
+              </div>
+              <div>
+                <b>Convert</b>
+                <span>Landing pages + tracking</span>
+              </div>
+              <div>
+                <b>Follow up</b>
+                <span>Automation + optimisation</span>
+              </div>
             </div>
           </div>
 
