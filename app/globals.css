@@ -2151,3 +2151,27 @@ footer{padding:0 0 46px}
     padding-top:124px;
   }
 }
+
+
+/* Mobile scroll-up header: reveal navigation without covering hero/content */
+@media(max-width:640px){
+  .siteHeader{
+    position:fixed;
+    top:30px;
+    transition:transform .24s cubic-bezier(.22,1,.36,1),opacity .18s ease;
+    will-change:transform;
+  }
+  .siteHeader.mobileHeaderVisible{
+    transform:translateY(0);
+    opacity:1;
+  }
+  .siteHeader.mobileHeaderHidden{
+    transform:translateY(calc(-100% - 30px));
+    opacity:0;
+    pointer-events:none;
+  }
+  /* Reserve the complete promo + header height at the top so the hero is never obscured. */
+  .hero{
+    padding-top:124px;
+  }
+}
