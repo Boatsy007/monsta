@@ -1177,3 +1177,8 @@ footer{padding:0 0 46px}
 @media(prefers-reduced-motion:reduce){
   .hero:after{animation:none;transform:none}
 }
+
+/* Lift hero copy slightly to match the raised calculator */
+@media(min-width:901px){
+  .heroCopy{transform:translateY(-18px)}
+}
