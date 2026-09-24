@@ -1226,8 +1226,9 @@ footer{padding:0 0 46px}
    MOBILE — clean, single-source responsive layout
    ========================================================= */
 @media(max-width:640px){
-  html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
-  body{margin:0;overflow-x:hidden}
+  html{scroll-behavior:auto;-webkit-text-size-adjust:100%;overflow:visible}
+  body{margin:0;overflow:visible}
+  .mobileTop{display:block;position:static;width:100%;height:auto;overflow:visible}
   .shell{width:calc(100% - 32px);margin:0 auto}
   .section{padding:68px 0}
 
