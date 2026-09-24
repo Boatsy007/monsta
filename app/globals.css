@@ -27,3 +27,38 @@ header{transition:background-color .35s ease,border-color .35s ease}
 .serviceGrid article:nth-child(4),.resultCards article:nth-child(4){transition-delay:.14s}
 .serviceGrid article:nth-child(5){transition-delay:.18s}
 @media(prefers-reduced-motion:reduce){.heroCopy,.tradebar{transform:none!important}.reveal,.reveal.is-visible{opacity:1!important;transform:none!important;filter:none!important}}
+
+/* per-section scroll-linked motion */
+.dynamic-section{--section-progress:1;--section-visible:0;position:relative;will-change:transform,opacity}
+.dynamic-section:not(.hero):not(.tradebar){
+ opacity:calc(.28 + (var(--section-visible) * .72));
+ transform:translate3d(0,calc(var(--section-progress) * 46px),0) scale(calc(.975 + (var(--section-visible) * .025)));
+}
+.dynamic-section .sectionTitle,
+.dynamic-section .calcIntro,
+.dynamic-section .calcBox,
+.dynamic-section .resultsHead,
+.dynamic-section .resultCards,
+.dynamic-section .leadCopy,
+.dynamic-section form,
+.dynamic-section.process>small,
+.dynamic-section.process>h3,
+.dynamic-section.process>div,
+.dynamic-section.finalCta>div{
+ transform:translate3d(0,calc(var(--section-progress) * 24px),0);
+ will-change:transform;
+}
+.hero.dynamic-section{background-position:center calc(48% + (var(--section-progress) * -70px))!important}
+.hero.dynamic-section .heroCopy{transform:translate3d(0,calc(var(--section-progress) * 55px),0)!important}
+.tradebar.dynamic-section{transform:translate3d(0,calc(var(--section-progress) * 16px),0)!important}
+.calculator.dynamic-section .calcBox,
+.results.dynamic-section .resultCards,
+.leadSection.dynamic-section form{transform:translate3d(0,calc(var(--section-progress) * -28px),0)}
+.services.dynamic-section .serviceGrid article,
+.results.dynamic-section .resultCards article,
+.process.dynamic-section article{transform:translate3d(0,calc(var(--section-progress) * 18px),0);transition:transform .12s linear,border-color .3s ease,box-shadow .3s ease}
+.dynamic-section,.dynamic-section *{backface-visibility:hidden}
+@media(prefers-reduced-motion:reduce){
+ .dynamic-section,.dynamic-section *{transform:none!important;opacity:1!important}
+ .hero.dynamic-section{background-position:center 48%!important}
+}
