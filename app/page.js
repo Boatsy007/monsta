@@ -50,6 +50,17 @@ export default function Home(){
   },[]);
 
   return <main>
+    <div className="promoTicker" aria-label="Current promotion">
+      <div className="promoTrack">
+        {[0,1].map((group)=><div className="promoGroup" key={group}>
+          <span className="promoPink">GET MORE LEADS</span><span className="promoDot">•</span>
+          <span className="promoOffer">FREE MONTH OFFER</span><span className="promoDot">•</span>
+          <span className="promoPink">GET MORE LEADS</span><span className="promoDot">•</span>
+          <span className="promoOffer">FREE MONTH OFFER</span><span className="promoDot">•</span>
+        </div>)}
+      </div>
+    </div>
+
     <header className="siteHeader">
       <div className="shell headerInner">
         <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
