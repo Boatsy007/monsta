@@ -718,6 +718,7 @@ footer{padding:0 0 46px}
 .heroCopy>p{max-width:525px}
 .heroCalculator{
   position:relative;
+  top:-16px;
   overflow:hidden;
   padding:30px;
   border-radius:22px;
@@ -951,4 +952,8 @@ footer{padding:0 0 46px}
       0 0 42px 10px rgba(255,0,140,.18);
     border-color:rgba(255,255,255,.86);
   }
+}
+
+@media(max-width:900px){
+  .heroCalculator{top:0}
 }
