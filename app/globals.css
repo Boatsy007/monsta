@@ -2,3 +2,15 @@
 @media(max-width:850px){.logo{width:145px;height:58px}.logo img{width:140px}}
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
+/* premium smooth motion */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.reveal{opacity:0;transform:translate3d(0,38px,0) scale(.992);filter:blur(3px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform 1.05s cubic-bezier(.16,1,.3,1),filter .9s ease;will-change:opacity,transform,filter}
+.reveal.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+.hero{background-position:center calc(48% + min(35px,calc(var(--scrollY,0px)*.035)));background-attachment:scroll}
+.heroCopy{transform:translate3d(0,calc(var(--scrollY,0px)*.035),0);will-change:transform}
+.pinkBtn,button,.resultsHead>a,.calcResult a,.serviceGrid article,.resultCards article{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease,border-color .35s ease,filter .35s ease}
+.pinkBtn:hover,button:hover,.resultsHead>a:hover,.calcResult a:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(245,0,135,.28)}
+.serviceGrid article:hover,.resultCards article:hover{transform:translateY(-7px);border-color:#555;box-shadow:0 20px 45px rgba(0,0,0,.35)}
+header{transition:background-color .35s ease,border-color .35s ease}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal.is-visible,.heroCopy{opacity:1;filter:none;transform:none;transition:none}.hero{background-position:center 48%}.pinkBtn,button,.resultsHead>a,.calcResult a,.serviceGrid article,.resultCards article{transition:none}}
