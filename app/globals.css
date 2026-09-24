@@ -3,16 +3,13 @@
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
 
-/* Scroll reveal — intentionally minimal */
+/* Scroll reveal */
 [data-reveal="true"]{
   opacity:0;
-  transform:translateY(48px);
-  transition:opacity 800ms ease,transform 800ms cubic-bezier(.22,1,.36,1);
+  transform:translateY(72px);
+  transition:opacity 700ms ease-out,transform 700ms cubic-bezier(.22,1,.36,1);
 }
 [data-reveal="true"][data-visible="true"]{
   opacity:1;
   transform:translateY(0);
-}
-@media(prefers-reduced-motion:reduce){
-  [data-reveal="true"]{opacity:1;transform:none;transition:none}
 }
