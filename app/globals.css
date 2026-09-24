@@ -542,3 +542,58 @@ footer{padding:0 0 46px}
   .heroActions{align-items:flex-start;flex-wrap:wrap}
   .offerButton{min-height:48px}
 }
+
+/* Moving promo banner */
+.promoTicker{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:30;
+  height:36px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:#000;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.promoTrack{
+  display:flex;
+  width:max-content;
+  min-width:200%;
+  will-change:transform;
+  animation:promoMarquee 30s linear infinite;
+}
+.promoGroup{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  gap:28px;
+  padding-right:28px;
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+}
+.promoPink{color:var(--pink)}
+.promoOffer{color:#fff}
+.promoDot{color:#555;letter-spacing:0}
+@keyframes promoMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* Make room for the promo banner above navigation */
+.siteHeader{top:36px}
+.hero{padding-top:186px}
+
+@media(max-width:900px){
+  .promoTicker{height:32px}
+  .promoGroup{gap:20px;padding-right:20px;font-size:10px}
+  .siteHeader{top:32px}
+  .hero{padding-top:148px}
+}
+@media(max-width:640px){
+  .promoGroup{gap:16px;padding-right:16px;font-size:9px}
+  .hero{padding-top:136px}
+}
