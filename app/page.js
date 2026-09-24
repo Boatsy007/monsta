@@ -39,7 +39,6 @@ export default function Home(){
 
 
   return <>
-    <div className="mobileTop">
       <div className="promoTicker" aria-label="Current promotion">
         <div className="tickerEdge tickerEmail">
           <span className="mailIcon">✉</span>
@@ -96,7 +95,6 @@ export default function Home(){
           </div>
         </div>
       </header>
-    </div>
 
     <main>
     <section className="hero">
