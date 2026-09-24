@@ -1236,7 +1236,7 @@ footer{padding:0 0 46px}
   /* Promo strip — keep the offer moving, remove desktop edge clutter */
   .promoTicker{
     height:30px;
-    position:absolute;
+    position:relative;
   }
   .tickerEmail,
   .tickerSocials,
@@ -1253,7 +1253,8 @@ footer{padding:0 0 46px}
 
   /* Mobile header */
   .siteHeader{
-    top:30px;
+    position:relative;
+    top:auto;
     background:rgba(5,5,6,.94);
     backdrop-filter:blur(18px);
   }
@@ -2070,7 +2071,7 @@ footer{padding:0 0 46px}
   }
 
   .hero{
-    padding-top:124px;
+    padding-top:30px;
   }
 }
 
