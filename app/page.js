@@ -13,21 +13,21 @@ export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  useEffect(()=>{
-   const reveal=()=>{
-     document.querySelectorAll("[data-reveal='true']").forEach((el)=>{
-       const top=el.getBoundingClientRect().top;
-       if(top < window.innerHeight * 0.88){
-         el.setAttribute("data-visible","true");
+   const revealSections=()=>{
+     const sections=document.querySelectorAll("[data-reveal]");
+     sections.forEach((section)=>{
+       const position=section.getBoundingClientRect();
+       if(position.top < window.innerHeight * 0.88){
+         section.setAttribute("data-visible","true");
        }
      });
    };
-
-   reveal();
-   window.addEventListener("scroll",reveal,{passive:true});
-   window.addEventListener("resize",reveal);
+   revealSections();
+   window.addEventListener("scroll",revealSections,{passive:true});
+   window.addEventListener("resize",revealSections);
    return()=>{
-     window.removeEventListener("scroll",reveal);
-     window.removeEventListener("resize",reveal);
+     window.removeEventListener("scroll",revealSections);
+     window.removeEventListener("resize",revealSections);
    };
  },[]);
 
