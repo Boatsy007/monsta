@@ -29,7 +29,8 @@ const steps=[
 
 export default function Home(){
   const [menuOpen,setMenuOpen]=useState(false);
-  const [planOpen,setPlanOpen]=useState(false);\n  const [mobileHeaderVisible,setMobileHeaderVisible]=useState(true);
+  const [planOpen,setPlanOpen]=useState(false);
+  const [mobileHeaderVisible,setMobileHeaderVisible]=useState(true);
   const [job,setJob]=useState(8000);
   const [spend,setSpend]=useState(2500);
   const [closeRate,setCloseRate]=useState(25);
