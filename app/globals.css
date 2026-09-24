@@ -2171,3 +2171,38 @@ footer{padding:0 0 46px}
     padding-top:30px;
   }
 }
+
+
+/* Final mobile document-scroll reset: browser owns the vertical scroll */
+@media(max-width:640px){
+  html{
+    overflow-x:hidden;
+    overflow-y:visible;
+    overscroll-behavior-y:auto;
+  }
+  body{
+    overflow-x:hidden;
+    overflow-y:visible;
+    min-height:100%;
+    overscroll-behavior-y:auto;
+    -webkit-overflow-scrolling:auto;
+  }
+  main{
+    overflow:visible;
+    min-height:0;
+  }
+  .promoTicker{
+    position:relative;
+    inset:auto;
+    top:auto;
+  }
+  .siteHeader{
+    position:relative;
+    inset:auto;
+    top:auto;
+    transform:none;
+  }
+  .hero{
+    padding-top:30px;
+  }
+}
