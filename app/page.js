@@ -1,5 +1,5 @@
 "use client";
-// deploy: simple dynamic scroll reveal verified
+// homepage scroll reveal
 import {useEffect,useMemo,useState} from "react";
 const trades=["Roofing","Plumbing","Electrical","HVAC","Fencing","Building","Landscaping"];
 const services=[
@@ -13,27 +13,22 @@ export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  useEffect(()=>{
-   const elements=Array.from(document.querySelectorAll("[data-reveal]"));
-
-   const observer=new IntersectionObserver((entries)=>{
-     for(const entry of entries){
-       if(entry.isIntersecting){
-         entry.target.setAttribute("data-visible","true");
-         observer.unobserve(entry.target);
+   const reveal=()=>{
+     document.querySelectorAll("[data-reveal='true']").forEach((el)=>{
+       const top=el.getBoundingClientRect().top;
+       if(top < window.innerHeight * 0.88){
+         el.setAttribute("data-visible","true");
        }
-     }
-   },{root:null,threshold:0,rootMargin:"0px 0px -80px 0px"});
+     });
+   };
 
-   elements.forEach((element)=>{
-     const rect=element.getBoundingClientRect();
-     if(rect.top < window.innerHeight - 80){
-       element.setAttribute("data-visible","true");
-     }else{
-       observer.observe(element);
-     }
-   });
-
-   return()=>observer.disconnect();
+   reveal();
+   window.addEventListener("scroll",reveal,{passive:true});
+   window.addEventListener("resize",reveal);
+   return()=>{
+     window.removeEventListener("scroll",reveal);
+     window.removeEventListener("resize",reveal);
+   };
  },[]);
 
  return <main>
