@@ -85,12 +85,16 @@ export default function Home(){
           <a href="#process">Process</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div className="headerActions"><a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a><a className="offerButton" href="#contact">Free Month Offer</a></div>
+        <div className="headerActions"><a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a><a className="offerButton headerOffer" href="#contact">Free Month Offer</a></div>
       </div>
     </header>
 
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
+      <svg className="offerGuide" viewBox="0 0 360 190" aria-hidden="true">
+        <path className="offerGuidePath" pathLength="1" d="M28 168 C 92 168, 76 72, 166 54 C 228 42, 276 40, 322 30"/>
+        <path className="offerGuideHead" d="M309 22 L324 30 L312 42"/>
+      </svg>
       <div className="shell heroGrid">
         <div className="heroCopy">
           <div className="eyebrow">Digital marketing for tradies</div>
