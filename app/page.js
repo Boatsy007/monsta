@@ -181,7 +181,11 @@ export default function Home(){
 
     <section className="tradeSection">
       <div className="shell tradebar">
-        {trades.map(([icon,name])=><div className="tradeItem" key={name}><b>{icon}</b><span>{name}</span></div>)}
+        {trades.map(([icon,name])=><div className="tradeItem" key={name}>
+          {name==="Roofing"
+            ? <img className="tradeWordmark" src={roofingSrc} alt="Roofing"/>
+            : <><b>{icon}</b><span>{name}</span></>}
+        </div>)}
       </div>
     </section>
 
