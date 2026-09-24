@@ -1222,18 +1222,15 @@ footer{padding:0 0 46px}
   .tradeWordmark{width:116px}
 }
 
-.mobileTop{display:contents}
-
-/* Mobile: keep the complete Monsta top chrome as one sticky unit */
+/* Mobile: Storeman-style direct sticky header */
 @media(max-width:640px){
   html,body{margin:0;padding:0;min-width:0;max-width:100%;overflow-x:hidden}
   body{background:#050506;padding-top:0!important}
-  .mobileTop{display:flex;position:sticky;top:0;z-index:999;width:100%;flex-direction:column;background:#050506}
-  .promoTicker{order:1;position:relative;top:auto;left:auto;right:auto;width:100%;max-width:100%;height:30px;z-index:1}
+  .promoTicker{display:none!important}
   .promoTrack{will-change:auto}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .siteHeader{order:2;height:64px!important;position:relative!important;top:auto!important;left:auto!important;right:auto!important;inset:auto!important;width:100%!important;max-width:100%;z-index:2!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;backdrop-filter:none!important;transform:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
-  .headerInner{position:relative;height:64px;display:flex;align-items:center;gap:12px}
+  .siteHeader{height:78px!important;position:sticky!important;top:0!important;left:auto!important;right:auto!important;inset:auto!important;width:100%!important;max-width:100%;z-index:999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;backdrop-filter:none!important;transform:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+  .headerInner{position:relative;height:78px!important;display:flex!important;align-items:center!important;gap:12px!important;margin:0 auto!important}
   .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
   .logo img{width:118px;height:48px}
@@ -1242,7 +1239,7 @@ footer{padding:0 0 46px}
   .headerActions .primaryCta,.headerActions .offerButton{display:none}
   .mobileMenuButton{display:flex;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#0d0e12;flex-direction:column;align-items:center;justify-content:center;gap:4px}
   .mobileMenuButton span{width:18px;height:2px;background:#fff}
-  .mobileMenu{position:absolute;left:16px;right:16px;top:64px;z-index:50;display:none;padding:8px;background:#08080a}
+  .mobileMenu{position:absolute;left:16px;right:16px;top:78px;z-index:50;display:none;padding:8px;background:#08080a}
   .mobileMenu.isOpen{display:grid}
   .mobileMenu a{min-height:50px;display:flex;align-items:center;padding:0 14px}
   main{display:block;width:100%;max-width:100%;overflow:hidden}
