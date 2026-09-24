@@ -2248,3 +2248,52 @@ footer{padding:0 0 46px}
     overflow-anchor:none;
   }
 }
+
+
+/* iOS Chrome viewport-collapse fix: preserve normal document flow and stable top offset */
+@media(max-width:640px){
+  html,body{
+    margin:0!important;
+    padding:0!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow-x:hidden!important;
+  }
+  html{
+    overflow-y:scroll!important;
+    scroll-behavior:auto!important;
+    -webkit-text-size-adjust:100%;
+  }
+  body{
+    overflow-y:visible!important;
+    position:relative!important;
+  }
+  main{
+    display:block!important;
+    position:relative!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+    contain:none!important;
+  }
+  .promoTicker{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    height:30px!important;
+  }
+  .siteHeader{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    height:64px!important;
+    transform:none!important;
+  }
+  .headerInner{height:64px!important;}
+  .hero{
+    min-height:0!important;
+    padding-top:30px!important;
+  }
+}
