@@ -3,46 +3,70 @@
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
 
-/* Dynamic scrolling: native viewport-driven section reveals */
-@keyframes pfRevealUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
+/* Monsta Miami motion system */
+.siteHeader{animation:mmHeader .65s cubic-bezier(.22,1,.36,1) both}
+.heroEntrance{animation:mmHero .9s .08s cubic-bezier(.16,1,.3,1) both}
+.tradeEntrance{animation:mmTrade .75s .22s cubic-bezier(.22,1,.36,1) both}
+@keyframes mmHeader{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes mmHero{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes mmTrade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Below-fold content is revealed only when it actually enters the viewport */
+.scroll-reveal{
+ opacity:0;
+ transform:translate3d(0,34px,0);
+ filter:blur(3px);
+ transition:
+   opacity .85s cubic-bezier(.22,1,.36,1),
+   transform .95s cubic-bezier(.16,1,.3,1),
+   filter .7s ease;
+ will-change:opacity,transform,filter;
 }
-@keyframes pfCardReveal{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
+.scroll-reveal.is-visible{
+ opacity:1;
+ transform:translate3d(0,0,0);
+ filter:blur(0);
 }
-@supports (animation-timeline:view()){
-  .scroll-reveal{
-    animation-name:pfRevealUp;
-    animation-duration:1ms;
-    animation-timing-function:linear;
-    animation-fill-mode:both;
-    animation-timeline:view();
-    animation-range:entry 0% cover 24%;
-  }
-  .reveal-stagger>article{
-    animation-name:pfCardReveal;
-    animation-duration:1ms;
-    animation-timing-function:linear;
-    animation-fill-mode:both;
-    animation-timeline:view();
-    animation-range:entry 0% cover 20%;
-  }
-  .reveal-stagger>article:nth-child(2){animation-range:entry 3% cover 23%}
-  .reveal-stagger>article:nth-child(3){animation-range:entry 6% cover 26%}
-  .reveal-stagger>article:nth-child(4){animation-range:entry 9% cover 29%}
-  .reveal-stagger>article:nth-child(5){animation-range:entry 12% cover 32%}
+
+/* Cards animate independently so the movement is unmistakable and elegant */
+.reveal-stagger>article{
+ opacity:0;
+ transform:translate3d(0,30px,0) scale(.985);
+ transition:
+   opacity .72s cubic-bezier(.22,1,.36,1),
+   transform .82s cubic-bezier(.16,1,.3,1);
+ will-change:opacity,transform;
 }
-/* Fallback: ordinary load-in for browsers without view timelines */
-@supports not (animation-timeline:view()){
-  .scroll-reveal{animation:pfRevealUp .7s cubic-bezier(.22,1,.36,1) both}
-  .reveal-stagger>article{animation:pfCardReveal .65s cubic-bezier(.22,1,.36,1) both}
-  .reveal-stagger>article:nth-child(2){animation-delay:.08s}
-  .reveal-stagger>article:nth-child(3){animation-delay:.16s}
-  .reveal-stagger>article:nth-child(4){animation-delay:.24s}
-  .reveal-stagger>article:nth-child(5){animation-delay:.32s}
+.reveal-stagger>article.is-visible{
+ opacity:1;
+ transform:translate3d(0,0,0) scale(1);
 }
+.reveal-stagger>article:nth-child(2){transition-delay:.07s}
+.reveal-stagger>article:nth-child(3){transition-delay:.14s}
+.reveal-stagger>article:nth-child(4){transition-delay:.21s}
+.reveal-stagger>article:nth-child(5){transition-delay:.28s}
+
+/* Refined hover motion for interactive surfaces */
+.serviceGrid article,.resultCards article,.process article{
+ transition-property:opacity,transform,border-color,box-shadow;
+}
+.serviceGrid article:hover,.resultCards article:hover{
+ transform:translateY(-5px);
+ border-color:#4a4a4a;
+ box-shadow:0 18px 44px rgba(0,0,0,.28);
+}
+.pinkBtn,.leadSection button,.calcResult a,.resultsHead>a{
+ transition:transform .25s cubic-bezier(.22,1,.36,1),filter .25s ease,box-shadow .25s ease;
+}
+.pinkBtn:hover,.leadSection button:hover,.calcResult a:hover,.resultsHead>a:hover{
+ transform:translateY(-2px);
+ filter:brightness(1.08);
+ box-shadow:0 10px 28px rgba(245,0,135,.22);
+}
+
 @media(prefers-reduced-motion:reduce){
- .scroll-reveal,.reveal-stagger>article{animation:none!important;opacity:1!important;transform:none!important}
+ .siteHeader,.heroEntrance,.tradeEntrance{animation:none}
+ .scroll-reveal,.scroll-reveal.is-visible,.reveal-stagger>article,.reveal-stagger>article.is-visible{
+   opacity:1;transform:none;filter:none;transition:none
+ }
 }
