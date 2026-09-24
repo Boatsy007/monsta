@@ -1,4 +1,5 @@
 "use client";
+// deploy: simple dynamic scroll reveal verified
 import {useEffect,useMemo,useState} from "react";
 const trades=["Roofing","Plumbing","Electrical","HVAC","Fencing","Building","Landscaping"];
 const services=[
