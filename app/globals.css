@@ -2115,3 +2115,11 @@ footer{padding:0 0 46px}
   }
   .hero{padding-top:30px;}
 }
+
+
+/* iOS Chrome: keep the document start below expanded browser chrome without fixing the header */
+@media(max-width:640px){
+  body{
+    padding-top:var(--browser-top-inset,0px);
+  }
+}
