@@ -603,3 +603,102 @@ footer{padding:0 0 46px}
   .promoGroup{gap:16px;padding-right:16px;font-size:9px}.promoPair{gap:16px}
   .hero{padding-top:136px}
 }
+
+/* Fixed contact + social edges over promo ticker */
+.promoTicker{isolation:isolate}
+.promoTrack{
+  position:relative;
+  z-index:1;
+}
+.tickerEdge{
+  position:absolute;
+  top:0;
+  bottom:0;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  background:#000;
+}
+.tickerEmail{
+  left:0;
+  gap:9px;
+  min-width:280px;
+  padding:0 22px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.mailIcon{
+  color:#fff;
+  font-size:13px;
+  opacity:.82;
+}
+.tickerEmail a{
+  color:var(--pink);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.tickerSocials{
+  right:0;
+  gap:0;
+  border-left:1px solid rgba(255,255,255,.08);
+}
+.socialIcon{
+  width:42px;
+  height:100%;
+  display:grid;
+  place-items:center;
+  border-left:1px solid rgba(255,255,255,.07);
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  opacity:.8;
+  transition:opacity .2s ease,color .2s ease,background .2s ease;
+}
+.socialIcon:first-child{border-left:0}
+.socialIcon:hover{
+  opacity:1;
+  color:var(--pink);
+  background:rgba(255,255,255,.035);
+}
+.socialInstagram{font-size:18px;font-weight:500}
+.socialLinkedin{font-size:11px;text-transform:lowercase}
+
+/* Let the marquee disappear cleanly beneath the fixed edge panels */
+.promoTicker:before,
+.promoTicker:after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  z-index:3;
+  pointer-events:none;
+}
+.promoTicker:before{
+  left:280px;
+  width:42px;
+  background:linear-gradient(90deg,#000,transparent);
+}
+.promoTicker:after{
+  right:126px;
+  width:42px;
+  background:linear-gradient(270deg,#000,transparent);
+}
+
+@media(max-width:900px){
+  .tickerEmail{min-width:220px;padding:0 14px}
+  .tickerEmail a{font-size:10px}
+  .promoTicker:before{left:220px}
+  .socialIcon{width:36px}
+  .promoTicker:after{right:108px}
+}
+@media(max-width:640px){
+  .tickerEmail{min-width:178px;padding:0 10px;gap:6px}
+  .tickerEmail a{font-size:8px}
+  .mailIcon{font-size:10px}
+  .promoTicker:before{left:178px;width:24px}
+  .socialIcon{width:30px;font-size:10px}
+  .socialInstagram{font-size:14px}
+  .socialLinkedin{font-size:9px}
+  .promoTicker:after{right:90px;width:24px}
+}
