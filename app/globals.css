@@ -560,20 +560,26 @@ footer{padding:0 0 46px}
 .promoTrack{
   display:flex;
   width:max-content;
-  min-width:200%;
   will-change:transform;
-  animation:promoMarquee 30s linear infinite;
+  animation:promoMarquee 36s linear infinite;
 }
 .promoGroup{
   display:flex;
   align-items:center;
   flex-shrink:0;
+  min-width:100vw;
   gap:28px;
   padding-right:28px;
   white-space:nowrap;
   font-size:12px;
   font-weight:800;
   letter-spacing:.16em;
+}
+.promoPair{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  gap:28px;
 }
 .promoPink{color:var(--pink)}
 .promoOffer{color:#fff}
@@ -589,11 +595,11 @@ footer{padding:0 0 46px}
 
 @media(max-width:900px){
   .promoTicker{height:32px}
-  .promoGroup{gap:20px;padding-right:20px;font-size:10px}
+  .promoGroup{gap:20px;padding-right:20px;font-size:10px}.promoPair{gap:20px}
   .siteHeader{top:32px}
   .hero{padding-top:148px}
 }
 @media(max-width:640px){
-  .promoGroup{gap:16px;padding-right:16px;font-size:9px}
+  .promoGroup{gap:16px;padding-right:16px;font-size:9px}.promoPair{gap:16px}
   .hero{padding-top:136px}
 }
