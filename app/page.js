@@ -1,6 +1,6 @@
 "use client";
 
-import {useMemo,useState} from "react";
+import {useEffect,useMemo,useState} from "react";
 
 const trades=[
   ["⌂","Roofing"],
@@ -35,6 +35,23 @@ export default function Home(){
   const [closeRate,setCloseRate]=useState(25);
   const breakEvenJobs=useMemo(()=>Math.max(1,Math.ceil(Number(spend||0)/Math.max(1,Number(job||0)))),[spend,job]);
   const leadsNeeded=useMemo(()=>Math.max(1,Math.ceil(breakEvenJobs/(Math.max(1,Number(closeRate||0))/100))),[breakEvenJobs,closeRate]);
+
+  useEffect(()=>{
+    const syncBrowserTopInset=()=>{
+      const vv=window.visualViewport;
+      if(!vv) return;
+      const inset=Math.max(0,Math.round(vv.offsetTop));
+      document.documentElement.style.setProperty("--browser-top-inset", inset+"px");
+    };
+    syncBrowserTopInset();
+    window.visualViewport?.addEventListener("resize",syncBrowserTopInset);
+    window.visualViewport?.addEventListener("scroll",syncBrowserTopInset);
+    return()=>{
+      window.visualViewport?.removeEventListener("resize",syncBrowserTopInset);
+      window.visualViewport?.removeEventListener("scroll",syncBrowserTopInset);
+      document.documentElement.style.removeProperty("--browser-top-inset");
+    };
+  },[]);
 
 
 
