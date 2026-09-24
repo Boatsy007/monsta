@@ -1222,9 +1222,12 @@ footer{padding:0 0 46px}
   .tradeWordmark{width:116px}
 }
 
-/* Mobile: plain document flow — no special scrolling behavior */
+.mobileViewportTop{display:none}
+
+/* Mobile: normal document flow plus iOS/Chrome visual-viewport top compensation */
 @media(max-width:640px){
   html,body{margin:0;padding:0;min-width:0}
+  .mobileViewportTop{display:block;height:var(--mobile-viewport-top,0px);pointer-events:none}
   .promoTicker{position:static;width:100%;max-width:100%;height:30px}
   .promoTrack{will-change:auto}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
