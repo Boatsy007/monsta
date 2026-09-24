@@ -1222,17 +1222,13 @@ footer{padding:0 0 46px}
   .tradeWordmark{width:116px}
 }
 
-/* Mobile: ordinary document flow */
+/* Mobile: plain document flow — no special scrolling behavior */
 @media(max-width:640px){
-  html{margin:0;padding:0;width:100%;min-width:0;scroll-behavior:auto;overflow-anchor:none}
-  body{margin:0;padding:0;width:100%;min-width:0;overflow:visible;overflow-anchor:none}
-  .promoTicker{position:relative;inset:auto;width:100%;height:30px;overflow-anchor:none}
+  html,body{margin:0;padding:0;width:100%;min-width:0}
+  .promoTicker{position:static;width:100%;height:30px}
   .promoTrack{will-change:auto}
-  .siteHeader{overflow-anchor:none}
-  .hero{overflow-anchor:none}
-  .promoTicker{position:relative;inset:auto;width:100%;height:30px}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;width:100%;z-index:20;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
+  .siteHeader{position:static;width:100%;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
   .headerInner{position:relative;height:64px;display:flex;align-items:center;gap:12px}
   .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
@@ -1242,11 +1238,12 @@ footer{padding:0 0 46px}
   .headerActions .primaryCta,.headerActions .offerButton{display:none}
   .mobileMenuButton{display:flex;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#0d0e12;flex-direction:column;align-items:center;justify-content:center;gap:4px}
   .mobileMenuButton span{width:18px;height:2px;background:#fff}
-  .mobileMenu{position:absolute;left:16px;right:16px;top:70px;z-index:50;display:none;padding:8px;background:#08080a}
+  .mobileMenu{position:absolute;left:16px;right:16px;top:64px;z-index:50;display:none;padding:8px;background:#08080a}
   .mobileMenu.isOpen{display:grid}
   .mobileMenu a{min-height:50px;display:flex;align-items:center;padding:0 14px}
   main{display:block;width:100%}
   .hero{position:relative;min-height:0;padding:30px 0 54px;align-items:flex-start}
+  .hero:after{display:none}
   .heroGrid{grid-template-columns:1fr;gap:26px}
   .heroCopy{max-width:none;transform:none}
   .heroCopy h1{font-size:clamp(46px,14vw,62px)}
