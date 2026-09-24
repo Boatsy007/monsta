@@ -2,99 +2,25 @@
 @media(max-width:850px){.logo{width:145px;height:58px}.logo img{width:140px}}
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
-/* premium smooth motion */
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.reveal{opacity:0;transform:translate3d(0,38px,0) scale(.992);filter:blur(3px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform 1.05s cubic-bezier(.16,1,.3,1),filter .9s ease;will-change:opacity,transform,filter}
-.reveal.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
-.hero{background-position:center calc(48% + min(35px,calc(var(--scrollY,0px)*.035)));background-attachment:scroll}
-.heroCopy{transform:translate3d(0,calc(var(--scrollY,0px)*.035),0);will-change:transform}
-.pinkBtn,button,.resultsHead>a,.calcResult a,.serviceGrid article,.resultCards article{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease,border-color .35s ease,filter .35s ease}
-.pinkBtn:hover,button:hover,.resultsHead>a:hover,.calcResult a:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(245,0,135,.28)}
-.serviceGrid article:hover,.resultCards article:hover{transform:translateY(-7px);border-color:#555;box-shadow:0 20px 45px rgba(0,0,0,.35)}
-header{transition:background-color .35s ease,border-color .35s ease}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal.is-visible,.heroCopy{opacity:1;filter:none;transform:none;transition:none}.hero{background-position:center 48%}.pinkBtn,button,.resultsHead>a,.calcResult a,.serviceGrid article,.resultCards article{transition:none}}
 
-/* visible dynamic scroll motion */
-.hero{background-position:center calc(48% + var(--heroShift,0px))!important;overflow:hidden}
-.heroCopy{transform:translate3d(0,var(--heroCopyShift,0px),0)!important;transition:none!important}
-.tradebar{transform:translate3d(0,calc(var(--tradeShift,0px) * -1),0);will-change:transform}
-.reveal{opacity:.12!important;transform:translate3d(0,70px,0) scale(.975)!important;filter:blur(8px)!important;transition:opacity 1.05s cubic-bezier(.16,1,.3,1),transform 1.15s cubic-bezier(.16,1,.3,1),filter 1s ease!important}
-.reveal.is-visible{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important;filter:blur(0)!important}
-.serviceGrid article:nth-child(1),.resultCards article:nth-child(1){transition-delay:.02s}
-.serviceGrid article:nth-child(2),.resultCards article:nth-child(2){transition-delay:.06s}
-.serviceGrid article:nth-child(3),.resultCards article:nth-child(3){transition-delay:.10s}
-.serviceGrid article:nth-child(4),.resultCards article:nth-child(4){transition-delay:.14s}
-.serviceGrid article:nth-child(5){transition-delay:.18s}
-@media(prefers-reduced-motion:reduce){.heroCopy,.tradebar{transform:none!important}.reveal,.reveal.is-visible{opacity:1!important;transform:none!important;filter:none!important}}
-
-/* per-section scroll-linked motion */
-.dynamic-section{--section-progress:1;--section-visible:0;position:relative;will-change:transform,opacity}
-.dynamic-section:not(.hero):not(.tradebar){
- opacity:calc(.28 + (var(--section-visible) * .72));
- transform:translate3d(0,calc(var(--section-progress) * 46px),0) scale(calc(.975 + (var(--section-visible) * .025)));
-}
-.dynamic-section .sectionTitle,
-.dynamic-section .calcIntro,
-.dynamic-section .calcBox,
-.dynamic-section .resultsHead,
-.dynamic-section .resultCards,
-.dynamic-section .leadCopy,
-.dynamic-section form,
-.dynamic-section.process>small,
-.dynamic-section.process>h3,
-.dynamic-section.process>div,
-.dynamic-section.finalCta>div{
- transform:translate3d(0,calc(var(--section-progress) * 24px),0);
- will-change:transform;
-}
-.hero.dynamic-section{background-position:center calc(48% + (var(--section-progress) * -70px))!important}
-.hero.dynamic-section .heroCopy{transform:translate3d(0,calc(var(--section-progress) * 55px),0)!important}
-.tradebar.dynamic-section{transform:translate3d(0,calc(var(--section-progress) * 16px),0)!important}
-.calculator.dynamic-section .calcBox,
-.results.dynamic-section .resultCards,
-.leadSection.dynamic-section form{transform:translate3d(0,calc(var(--section-progress) * -28px),0)}
-.services.dynamic-section .serviceGrid article,
-.results.dynamic-section .resultCards article,
-.process.dynamic-section article{transform:translate3d(0,calc(var(--section-progress) * 18px),0);transition:transform .12s linear,border-color .3s ease,box-shadow .3s ease}
-.dynamic-section,.dynamic-section *{backface-visibility:hidden}
-@media(prefers-reduced-motion:reduce){
- .dynamic-section,.dynamic-section *{transform:none!important;opacity:1!important}
- .hero.dynamic-section{background-position:center 48%!important}
-}
-
-/* TRUE SCROLL REVEALS — sections visibly enter as you scroll */
+/* Scroll-triggered section entrances */
+html{scroll-behavior:smooth;scroll-padding-top:78px}
 .reveal-block{
- opacity:0!important;
- transition:
-   opacity .85s cubic-bezier(.16,1,.3,1),
-   transform .95s cubic-bezier(.16,1,.3,1),
-   filter .85s ease!important;
- will-change:opacity,transform,filter;
- filter:blur(5px)!important;
-}
-.reveal-up{transform:translate3d(0,90px,0)!important}
-.reveal-left{transform:translate3d(-90px,45px,0)!important}
-.reveal-right{transform:translate3d(90px,45px,0)!important}
-.reveal-fade{transform:scale(.97)!important}
-.reveal-block.in-view{
- opacity:1!important;
- transform:translate3d(0,0,0) scale(1)!important;
- filter:blur(0)!important;
-}
-.stagger-children>article{
  opacity:0;
- transform:translate3d(0,55px,0)!important;
- transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)!important;
+ filter:blur(4px);
+ will-change:transform,opacity,filter;
+ transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1),filter .8s ease;
 }
-.in-view .stagger-children>article{opacity:1;transform:translate3d(0,0,0)!important}
-.in-view .stagger-children>article:nth-child(1){transition-delay:.08s!important}
-.in-view .stagger-children>article:nth-child(2){transition-delay:.16s!important}
-.in-view .stagger-children>article:nth-child(3){transition-delay:.24s!important}
-.in-view .stagger-children>article:nth-child(4){transition-delay:.32s!important}
-.in-view .stagger-children>article:nth-child(5){transition-delay:.40s!important}
-@media(prefers-reduced-motion:reduce){
- .reveal-block,.reveal-block.in-view,.stagger-children>article,.in-view .stagger-children>article{
-  opacity:1!important;transform:none!important;filter:none!important;transition:none!important
- }
-}
+.reveal-up{transform:translateY(85px)}
+.reveal-left{transform:translate(-95px,35px)}
+.reveal-right{transform:translate(95px,35px)}
+.reveal-fade{transform:translateY(35px) scale(.975)}
+.reveal-block.in-view{opacity:1;filter:blur(0);transform:translate(0,0) scale(1)}
+.stagger-children>article{opacity:0;transform:translateY(55px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.in-view .stagger-children>article{opacity:1;transform:translateY(0)}
+.in-view .stagger-children>article:nth-child(1){transition-delay:.08s}
+.in-view .stagger-children>article:nth-child(2){transition-delay:.16s}
+.in-view .stagger-children>article:nth-child(3){transition-delay:.24s}
+.in-view .stagger-children>article:nth-child(4){transition-delay:.32s}
+.in-view .stagger-children>article:nth-child(5){transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal-block,.reveal-block.in-view,.stagger-children>article,.in-view .stagger-children>article{opacity:1;filter:none;transform:none;transition:none}}
