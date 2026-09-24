@@ -2151,3 +2151,23 @@ footer{padding:0 0 46px}
     padding-top:124px;
   }
 }
+
+
+/* Mobile: true normal document flow for promo, header and hero */
+@media(max-width:640px){
+  .promoTicker{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+  }
+  .siteHeader{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+  }
+  .hero{
+    padding-top:30px;
+  }
+}
