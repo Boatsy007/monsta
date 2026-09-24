@@ -23,7 +23,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
-main{overflow-x:hidden}
+main{overflow-x:clip}
 .shell{width:min(calc(100% - 64px),var(--shell));margin:0 auto}
 .section{padding:104px 0}
 .eyebrow{
@@ -1228,7 +1228,7 @@ footer{padding:0 0 46px}
    ========================================================= */
 @media(max-width:640px){
 
-  html,body{overflow-x:hidden}
+  html,body{overflow-x:clip}
   body{font-size:16px}
   .shell{width:calc(100% - 32px)}
   .section{padding:68px 0}
@@ -2102,9 +2102,9 @@ footer{padding:0 0 46px}
 
 /* Canonical mobile page flow */
 @media(max-width:640px){
-  html{overflow-x:hidden;scroll-behavior:auto;}
-  body{margin:0;overflow-x:hidden;}
-  main{overflow-x:hidden;}
+  html{scroll-behavior:auto;}
+  body{margin:0;}
+  main{overflow-x:clip;}
   .promoTicker{position:relative;top:auto;left:auto;right:auto;height:30px;}
   .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;}
   .hero{padding-top:30px;}
