@@ -3,16 +3,16 @@
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
 
-/* Simple dynamic scrolling */
-.scroll-reveal{
+/* SIMPLE DYNAMIC SECTION SCROLLING */
+.motion-ready .dynamic-section{
   opacity:0;
-  transform:translateY(50px);
-  transition:opacity 1s ease,transform 1s ease;
+  transform:translateY(70px);
+  transition:opacity 900ms cubic-bezier(.22,1,.36,1),transform 900ms cubic-bezier(.22,1,.36,1);
 }
-.scroll-reveal.show{
+.motion-ready .dynamic-section.in-view{
   opacity:1;
   transform:translateY(0);
 }
 @media(prefers-reduced-motion:reduce){
-  .scroll-reveal{opacity:1;transform:none;transition:none}
+  .motion-ready .dynamic-section{opacity:1;transform:none;transition:none}
 }
