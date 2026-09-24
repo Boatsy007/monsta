@@ -29,8 +29,10 @@ const steps=[
 
 export default function Home(){
   const [job,setJob]=useState(8000);
-  const [count,setCount]=useState(4);
-  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
+  const [spend,setSpend]=useState(2500);
+  const [closeRate,setCloseRate]=useState(25);
+  const breakEvenJobs=useMemo(()=>Math.max(1,Math.ceil(Number(spend||0)/Math.max(1,Number(job||0)))),[spend,job]);
+  const leadsNeeded=useMemo(()=>Math.max(1,Math.ceil(breakEvenJobs/(Math.max(1,Number(closeRate||0))/100))),[breakEvenJobs,closeRate]);
 
   useEffect(()=>{
     const reveal=()=>{
@@ -103,33 +105,67 @@ export default function Home(){
         <div className="heroCalculator">
           <div className="heroCalcTop">
             <div>
-              <div className="heroCalcEyebrow">See what more jobs could be worth.</div>
-              <h2>Calculate your opportunity.</h2>
+              <div className="heroCalcEyebrow">Make the spend make sense.</div>
+              <h2>What does your marketing need to return?</h2>
             </div>
             <span className="heroCalcIcon">↗</span>
           </div>
 
-          <div className="heroCalcFields">
+          <div className="heroCalcFields heroCalcFieldsThree">
+            <label>Monthly marketing investment
+              <select value={spend} onChange={e=>setSpend(e.target.value)}>
+                <option value="1500">$1,500</option>
+                <option value="2500">$2,500</option>
+                <option value="4000">$4,000</option>
+                <option value="6000">$6,000</option>
+                <option value="10000">$10,000</option>
+              </select>
+            </label>
             <label>Average job value
               <select value={job} onChange={e=>setJob(e.target.value)}>
-                <option value="2000">$2,000</option>
+                <option value="1000">$1,000</option>
+                <option value="2500">$2,500</option>
                 <option value="5000">$5,000</option>
                 <option value="8000">$8,000</option>
                 <option value="12000">$12,000</option>
                 <option value="20000">$20,000</option>
               </select>
             </label>
-            <label>Extra jobs per month
-              <input type="number" min="1" max="50" value={count} onChange={e=>setCount(e.target.value)}/>
+            <label>Your lead-to-job close rate
+              <select value={closeRate} onChange={e=>setCloseRate(e.target.value)}>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="25">25%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+              </select>
             </label>
           </div>
 
-          <div className="heroCalcResult">
-            <span>Potential additional work</span>
-            <strong>${total.toLocaleString()}<small>/ month</small></strong>
+          <div className="heroCalcResult roiResult">
+            <div>
+              <span>Jobs needed to cover that investment</span>
+              <strong>{breakEvenJobs}<small>{breakEvenJobs===1?" job":" jobs"}</small></strong>
+            </div>
+            <div>
+              <span>Qualified leads needed at {closeRate}% close rate</span>
+              <strong>{leadsNeeded}<small>{leadsNeeded===1?" lead":" leads"}</small></strong>
+            </div>
           </div>
 
-          <a className="heroCalcCta" href="#contact">Show me how <span>→</span></a>
+          <div className="heroPlan">
+            <span className="heroPlanLabel">What we build around that investment</span>
+            <div className="heroPlanItems">
+              <span>Google Ads</span>
+              <span>Landing pages</span>
+              <span>Lead tracking</span>
+              <span>Automated follow-up</span>
+              <span>Ongoing optimisation</span>
+            </div>
+          </div>
+
+          <a className="heroCalcCta" href="#contact">Build my plan <span>→</span></a>
         </div>
       </div>
     </section>
