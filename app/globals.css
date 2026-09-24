@@ -1625,3 +1625,95 @@ footer{padding:0 0 46px}
   .heroCalcTop h2{font-size:25px}
   .tradeItem{flex-basis:132px}
 }
+
+/* Mobile menu */
+.mobileMenuButton,
+.mobileMenu{display:none}
+
+@media(max-width:640px){
+  .headerInner{position:relative}
+
+  .mobileMenuButton{
+    width:42px;
+    height:42px;
+    margin-left:8px;
+    padding:0;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:10px;
+    background:#111217;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    cursor:pointer;
+  }
+  .mobileMenuButton span{
+    width:17px;
+    height:2px;
+    border-radius:999px;
+    background:#fff;
+    transition:transform .2s ease,opacity .2s ease;
+  }
+  .mobileMenuButton.isOpen span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .mobileMenuButton.isOpen span:nth-child(2){opacity:0}
+  .mobileMenuButton.isOpen span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+  .mobileMenu{
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:74px;
+    z-index:50;
+    display:grid;
+    gap:0;
+    padding:8px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;
+    background:rgba(8,8,10,.98);
+    box-shadow:0 24px 60px rgba(0,0,0,.42);
+    opacity:0;
+    transform:translateY(-8px);
+    pointer-events:none;
+    transition:opacity .2s ease,transform .2s ease;
+  }
+  .mobileMenu.isOpen{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .mobileMenu a{
+    min-height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 14px;
+    border-radius:10px;
+    color:#e8e9ec;
+    font-size:14px;
+    font-weight:650;
+  }
+  .mobileMenu a+a{border-top:1px solid rgba(255,255,255,.055)}
+  .mobileMenuCta{
+    margin-top:6px;
+    border-top:0!important;
+    background:var(--pink);
+    color:#fff!important;
+    box-shadow:
+      0 0 16px rgba(255,0,140,.28),
+      0 0 34px rgba(255,0,140,.14);
+  }
+
+  .headerActions{
+    margin-left:auto;
+    gap:8px;
+  }
+  .headerActions .offerButton{
+    padding:0 12px;
+  }
+}
+
+@media(max-width:390px){
+  .headerActions .offerButton{display:none}
+  .mobileMenuButton{margin-left:auto}
+}
