@@ -30,7 +30,6 @@ const steps=[
 export default function Home(){
   const [menuOpen,setMenuOpen]=useState(false);
   const [planOpen,setPlanOpen]=useState(false);
-  const [mobileHeaderVisible,setMobileHeaderVisible]=useState(true);
   const [job,setJob]=useState(8000);
   const [spend,setSpend]=useState(2500);
   const [closeRate,setCloseRate]=useState(25);
@@ -79,7 +78,7 @@ export default function Home(){
       </div>
     </div>
 
-    <header className={`siteHeader ${mobileHeaderVisible?"mobileHeaderVisible":"mobileHeaderHidden"}`}>
+    <header className="siteHeader">
       <div className="shell headerInner">
         <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
         <nav>
