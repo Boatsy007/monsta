@@ -65,7 +65,6 @@ export default function Home(){
 
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
-      <div className="heroGlow heroGlowTwo"></div>
       <div className="shell heroGrid">
         <div className="heroCopy">
           <div className="eyebrow">Digital marketing for tradies</div>
@@ -73,21 +72,11 @@ export default function Home(){
           <p>We build the marketing system around your trade business so more of the right people find you, enquire and book.</p>
           <div className="heroActions">
             <a className="button" href="#contact">Get More Jobs <span>→</span></a>
-            <a className="textLink" href="#process">See how it works <span>↗</span></a>
-          </div>
-          <div className="proofRow">
-            <span>● More calls</span>
-            <span>● More quotes</span>
-            <span>● More booked jobs</span>
           </div>
         </div>
 
         <div className="heroVisual">
           <div className="heroPhoto"></div>
-          <div className="floatingCard">
-            <span className="floatingIcon">↗</span>
-            <div><b>Built for tradies</b><small>Clear strategy. Better follow-up. More opportunity.</small></div>
-          </div>
         </div>
       </div>
     </section>
@@ -172,14 +161,12 @@ export default function Home(){
         </div>
 
         <div className="resultFeature">
-          <div className="resultGlow"></div>
-          <div className="resultTop">
-            <span className="quoteMark">“</span>
-            <span className="stars">★★★★★</span>
+          <div className="resultLabel">What we optimise</div>
+          <div className="optimiseList">
+            <div><span>01</span><div><b>Visibility</b><p>Show up when local customers are actively looking for your trade.</p></div></div>
+            <div><span>02</span><div><b>Conversion</b><p>Turn more of that attention into genuine enquiries and quoting opportunities.</p></div></div>
+            <div><span>03</span><div><b>Follow-up</b><p>Respond faster and keep valuable leads moving instead of going cold.</p></div></div>
           </div>
-          <h3>Your verified client story belongs here.</h3>
-          <p>Keep this area for a real testimonial and real numbers once they are ready. The design is built so proof can sit here without making the page feel busy.</p>
-          <div className="clientLine"><span className="avatar">MM</span><div><b>Real client</b><small>Trade business · Australia</small></div></div>
         </div>
       </div>
     </section>
