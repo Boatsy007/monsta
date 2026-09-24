@@ -38,61 +38,63 @@ export default function Home(){
 
 
   return <>
-      <header className="siteHeader">
-        <div className="shell headerInner">
-          <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <nav>
-            <a href="#services">Services</a>
-            <a href="#results">Results</a>
-            <a href="#process">Process</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <div className="headerActions">
-            <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
-            <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
-            <button
-              className={`mobileMenuButton ${menuOpen?"isOpen":""}`}
-              type="button"
-              aria-label="Open menu"
-              aria-expanded={menuOpen}
-              onClick={()=>setMenuOpen(v=>!v)}
-            >
-              <span></span><span></span><span></span>
-            </button>
+      <div className="mobileTop">
+        <header className="siteHeader">
+          <div className="shell headerInner">
+            <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
+            <nav>
+              <a href="#services">Services</a>
+              <a href="#results">Results</a>
+              <a href="#process">Process</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <div className="headerActions">
+              <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
+              <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
+              <button
+                className={`mobileMenuButton ${menuOpen?"isOpen":""}`}
+                type="button"
+                aria-label="Open menu"
+                aria-expanded={menuOpen}
+                onClick={()=>setMenuOpen(v=>!v)}
+              >
+                <span></span><span></span><span></span>
+              </button>
+            </div>
+
+            <div className={`mobileMenu ${menuOpen?"isOpen":""}`}>
+              <a href="#services" onClick={()=>setMenuOpen(false)}>Services</a>
+              <a href="#results" onClick={()=>setMenuOpen(false)}>Results</a>
+              <a href="#process" onClick={()=>setMenuOpen(false)}>Process</a>
+              <a href="#contact" onClick={()=>setMenuOpen(false)}>Contact</a>
+              <a className="mobileMenuCta" href="#contact" onClick={()=>setMenuOpen(false)}>Get More Jobs <span>→</span></a>
+            </div>
+          </div>
+        </header>
+
+        <div className="promoTicker" aria-label="Current promotion">
+          <div className="tickerEdge tickerEmail">
+            <span className="mailIcon">✉</span>
+            <a href="mailto:Rohan@Monstagroup.com">Rohan@Monstagroup.com</a>
           </div>
 
-          <div className={`mobileMenu ${menuOpen?"isOpen":""}`}>
-            <a href="#services" onClick={()=>setMenuOpen(false)}>Services</a>
-            <a href="#results" onClick={()=>setMenuOpen(false)}>Results</a>
-            <a href="#process" onClick={()=>setMenuOpen(false)}>Process</a>
-            <a href="#contact" onClick={()=>setMenuOpen(false)}>Contact</a>
-            <a className="mobileMenuCta" href="#contact" onClick={()=>setMenuOpen(false)}>Get More Jobs <span>→</span></a>
+          <div className="promoTrack">
+            {[0,1].map((group)=><div className="promoGroup" key={group}>
+              {Array.from({length:6}).map((_,i)=><span className="promoPair" key={i}>
+                <span className="promoPink">GET MORE LEADS</span>
+                <span className="promoDot">•</span>
+                <span className="promoOffer">FREE MONTH OFFER</span>
+                <span className="promoDot">•</span>
+              </span>)}
+            </div>)}
           </div>
-        </div>
-      </header>
 
-      <div className="promoTicker" aria-label="Current promotion">
-        <div className="tickerEdge tickerEmail">
-          <span className="mailIcon">✉</span>
-          <a href="mailto:Rohan@Monstagroup.com">Rohan@Monstagroup.com</a>
-        </div>
-
-        <div className="promoTrack">
-          {[0,1].map((group)=><div className="promoGroup" key={group}>
-            {Array.from({length:6}).map((_,i)=><span className="promoPair" key={i}>
-              <span className="promoPink">GET MORE LEADS</span>
-              <span className="promoDot">•</span>
-              <span className="promoOffer">FREE MONTH OFFER</span>
-              <span className="promoDot">•</span>
-            </span>)}
-          </div>)}
-        </div>
-
-        <div className="tickerEdge tickerSocials" aria-label="Social media">
-          <a href="#" aria-label="Facebook" className="socialIcon socialFacebook">f</a>
-          <a href="#" aria-label="Instagram" className="socialIcon socialInstagram">◎</a>
-          <a href="#" aria-label="LinkedIn" className="socialIcon socialLinkedin">in</a>
-        </div>
+          <div className="tickerEdge tickerSocials" aria-label="Social media">
+            <a href="#" aria-label="Facebook" className="socialIcon socialFacebook">f</a>
+            <a href="#" aria-label="Instagram" className="socialIcon socialInstagram">◎</a>
+            <a href="#" aria-label="LinkedIn" className="socialIcon socialLinkedin">in</a>
+          </div>
+      </div>
       </div>
 
 
