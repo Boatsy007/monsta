@@ -1222,81 +1222,35 @@ footer{padding:0 0 46px}
   .tradeWordmark{width:116px}
 }
 
-/* =========================================================
-   MOBILE — clean, single-source responsive layout
-   ========================================================= */
+/* Mobile: ordinary document flow */
 @media(max-width:640px){
-  html{scroll-behavior:auto;-webkit-text-size-adjust:100%;overflow:visible}
-  body{margin:0;overflow:visible}
-  .mobileTop{display:block;position:static;width:100%;height:auto;overflow:visible}
-  .shell{width:calc(100% - 32px);margin:0 auto}
-  .section{padding:68px 0}
-
-  .promoTicker{position:static;height:30px;width:100%;overflow:hidden}
+  html,body{margin:0;padding:0;width:100%;min-width:0}
+  body{overflow-x:hidden}
+  .mobileTop{display:block;width:100%}
+  .promoTicker{position:relative;inset:auto;width:100%;height:30px}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .promoTrack{animation-duration:28s}
-  .promoGroup,.promoPair{gap:18px;padding-right:18px;font-size:9px;letter-spacing:.14em}
-
-  .siteHeader{position:static;inset:auto;width:100%;background:rgba(5,5,6,.94);backdrop-filter:blur(18px)}
+  .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;width:100%;z-index:20;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
   .headerInner{position:relative;height:64px;display:flex;align-items:center;gap:12px}
+  .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
   .logo img{width:118px;height:48px}
   nav{display:none}
-  .headerActions{margin-left:auto;gap:0}
+  .headerActions{margin-left:auto}
   .headerActions .primaryCta,.headerActions .offerButton{display:none}
-  .mobileMenuButton{display:flex;width:42px;height:42px;margin-left:auto;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#0d0e12;flex-direction:column;align-items:center;justify-content:center;gap:4px}
-  .mobileMenuButton span{width:18px;height:2px;border-radius:999px;background:#fff}
-  .mobileMenuButton.isOpen span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-  .mobileMenuButton.isOpen span:nth-child(2){opacity:0}
-  .mobileMenuButton.isOpen span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-  .mobileMenu{position:absolute;left:16px;right:16px;top:70px;z-index:50;display:grid;padding:8px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#08080a;opacity:0;transform:translateY(-8px);pointer-events:none}
-  .mobileMenu.isOpen{opacity:1;transform:none;pointer-events:auto}
-  .mobileMenu a{min-height:50px;display:flex;align-items:center;padding:0 14px;color:#e8e9ec;font-size:14px;font-weight:650}
-  .mobileMenuCta{margin-top:6px;background:var(--pink);color:#fff!important}
-
+  .mobileMenuButton{display:flex;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#0d0e12;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+  .mobileMenuButton span{width:18px;height:2px;background:#fff}
+  .mobileMenu{position:absolute;left:16px;right:16px;top:70px;z-index:50;display:none;padding:8px;background:#08080a}
+  .mobileMenu.isOpen{display:grid}
+  .mobileMenu a{min-height:50px;display:flex;align-items:center;padding:0 14px}
   main{display:block;width:100%}
-  .hero{position:relative;min-height:auto;padding:30px 0 54px;align-items:flex-start}
+  .hero{position:relative;min-height:0;padding:30px 0 54px;align-items:flex-start}
   .heroGrid{grid-template-columns:1fr;gap:26px}
   .heroCopy{max-width:none;transform:none}
-  .heroCopy .eyebrow{margin-bottom:13px;font-size:9px}
-  .heroCopy h1{font-size:clamp(46px,14vw,62px);line-height:.92}
-  .heroCopy>p{max-width:34ch;margin-top:20px;font-size:15px;line-height:1.65}
-  .heroActions{align-items:flex-start;flex-wrap:wrap;margin-top:26px}
-  .heroActions .button,.heroActions .offerButton{min-height:48px}
-
+  .heroCopy h1{font-size:clamp(46px,14vw,62px)}
   .heroCalculatorFlip{top:0}
-  .heroCalculator,.heroCalculatorBack{padding:16px;border-radius:16px}
-  .heroCalcTop{margin-bottom:15px}
-  .heroCalcTop h2{font-size:24px;line-height:1;max-width:250px}
-  .heroCalcTop p{margin-top:6px;font-size:10px;line-height:1.4}
-  .heroCalcFieldsThree,.heroCalcFields{grid-template-columns:1fr;gap:9px}
+  .heroCalcFieldsThree,.heroCalcFields{grid-template-columns:1fr}
   .heroCalcFieldsThree label:last-child{grid-column:auto}
-  .heroCalcFields select,.heroCalcFields input{height:46px;margin-top:5px;font-size:16px}
-  .breakEvenTarget{margin-top:14px;padding:14px 0 13px 15px}
-  .breakEvenPrimary strong{font-size:42px}
-  .heroPlanColumns{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
-  .heroPlanColumns>div,.heroPlanColumns>div+div{padding:9px 8px}
-  .heroCalcCta{min-height:48px;margin-top:11px}
-
-  .tradebar{width:calc(100% - 32px);margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}
-  .tradeItem,.tradeItem:nth-child(n){min-width:0;min-height:58px;border-right:0;border-left:0;border-bottom:1px solid var(--line-soft)}
-  .tradeItem:nth-child(even){border-left:1px solid var(--line-soft)}
-  .tradeItem:last-child{grid-column:1/-1;border-left:0}
-
-  .sectionHeader,.split,.resultsGrid,.contactCard{grid-template-columns:1fr;gap:28px}
+  .tradebar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sectionHeader,.split,.resultsGrid,.contactCard{grid-template-columns:1fr}
   .serviceGrid,.processGrid,.metricRow{grid-template-columns:1fr}
-  .sectionCopy h2,.sectionHeader h2,.resultsCopy h2,.contactCopy h2,.processHeader h2{font-size:38px}
-  .serviceCard,.serviceCard:nth-child(n){border-right:0;border-bottom:1px solid var(--line-soft)}
-  .contactCard{padding:32px 0}
-  .leadForm{padding:0;border-left:0}
-  .processCard,.processCard+ .processCard,.processCard:nth-child(n){padding:24px 0;border-left:0;border-top:1px solid var(--line-soft)}
-  .finalCard{align-items:flex-start;flex-direction:column;padding:28px 0}
-  .finalCard h2{font-size:28px}
-  .footerInner{align-items:flex-start;flex-direction:column}
-  .footerLinks{margin-left:0;flex-wrap:wrap}
-  .footerCta{margin-left:0}
-}
-@media(max-width:390px){
-  .logo{width:116px;flex-basis:116px}
-  .logo img{width:112px}
 }
