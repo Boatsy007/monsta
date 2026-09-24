@@ -12,27 +12,23 @@ export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  useEffect(()=>{
-   const targets=[...document.querySelectorAll(".scroll-reveal, .reveal-stagger > article")];
-   if(!("IntersectionObserver" in window)){
-     targets.forEach(el=>el.classList.add("is-visible"));
-     return;
-   }
+   const items=document.querySelectorAll(".scroll-reveal");
    const observer=new IntersectionObserver((entries)=>{
      entries.forEach(entry=>{
        if(entry.isIntersecting){
-         entry.target.classList.add("is-visible");
+         entry.target.classList.add("show");
          observer.unobserve(entry.target);
        }
      });
-   },{threshold:0.16,rootMargin:"0px 0px -8% 0px"});
-   targets.forEach(el=>observer.observe(el));
+   },{threshold:0.1});
+   items.forEach(item=>observer.observe(item));
    return()=>observer.disconnect();
  },[]);
 
  return <main>
- <header className="siteHeader"><a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a><nav><a href="#">Home</a><a href="#services">Services</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a className="pinkBtn top" href="#contact">GET MORE JOBS&nbsp; →</a></header>
- <section className="hero heroMotion"><div className="heroShade"></div><div className="heroCopy heroEntrance"><h1><span>MORE JOBS.</span><br/>LESS CHASING.</h1><h2>Digital marketing built for tradies.</h2><p>We bring you high-quality leads so you<br/>can get on with what you do best.</p><a className="pinkBtn heroBtn" href="#contact">GET MORE JOBS&nbsp; →</a></div></section>
- <div className="tradebar tradeEntrance">{[["⌂","ROOFING"],["⌕","PLUMBING"],["ϟ","ELECTRICAL"],["❄","HVAC"],["♜","FENCING"],["▦","BUILDING"],["◒","LANDSCAPING"]].map(([i,t])=><div key={t}><b>{i}</b>{t}</div>)}</div>
+ <header><a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a><nav><a href="#">Home</a><a href="#services">Services</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a className="pinkBtn top" href="#contact">GET MORE JOBS&nbsp; →</a></header>
+ <section className="hero"><div className="heroShade"></div><div className="heroCopy"><h1><span>MORE JOBS.</span><br/>LESS CHASING.</h1><h2>Digital marketing built for tradies.</h2><p>We bring you high-quality leads so you<br/>can get on with what you do best.</p><a className="pinkBtn heroBtn" href="#contact">GET MORE JOBS&nbsp; →</a></div></section>
+ <div className="tradebar">{[["⌂","ROOFING"],["⌕","PLUMBING"],["ϟ","ELECTRICAL"],["❄","HVAC"],["♜","FENCING"],["▦","BUILDING"],["◒","LANDSCAPING"]].map(([i,t])=><div key={t}><b>{i}</b>{t}</div>)}</div>
  <section className="calculator"><div className="calcIntro scroll-reveal"><small>HOW MANY MORE JOBS DO YOU WANT?</small><h3>TURN MORE<br/>OPPORTUNITY<br/>INTO <em>REAL WORK.</em></h3><p>See what a few extra jobs could be worth for your business.</p><span className="arrow">↗</span></div><div className="calcBox scroll-reveal"><div className="inputs"><label>YOUR TRADE<select><option>Roofing</option>{trades.slice(1).map(t=><option key={t}>{t}</option>)}</select></label><label>AVERAGE JOB VALUE<select value={job} onChange={e=>setJob(e.target.value)}><option value="2000">$2,000</option><option value="5000">$5,000</option><option value="8000">$8,000</option><option value="12000">$12,000</option><option value="20000">$20,000</option></select></label><label>EXTRA JOBS PER MONTH<input type="number" min="1" value={count} onChange={e=>setCount(e.target.value)}/></label></div><div className="calcResult"><div>That’s <strong>${total.toLocaleString()}</strong><span>in potential additional work<br/>for your business each month.</span></div><a href="#contact">SEE HOW WE’D TARGET IT&nbsp; →</a></div></div></section>
  <section id="services" className="services"><div className="sectionTitle scroll-reveal"><h3>WE BUILD YOUR <em>JOB PIPELINE.</em></h3><p>The right mix of digital strategies to bring you consistent, high-quality leads.</p><span>DIFFERENT TOOLS.<br/><b>ONE GOAL. MORE WORK.</b></span></div><div className="serviceGrid scroll-reveal reveal-stagger">{services.map(([i,n,d],x)=><article key={n}><b className="serviceIcon">{i}</b><div><h4>{n}</h4><p>{d}</p></div><div className={"servicePhoto p"+x}></div></article>)}</div></section>
  <section id="results" className="results"><div className="resultsHead scroll-reveal"><div><h3>REAL TRADIES. <em>REAL RESULTS.</em></h3><p>Results belong here once they are verified. No made-up numbers or fake testimonials.</p></div><a href="#contact">SEE MORE RESULTS&nbsp; →</a></div><div className="resultCards scroll-reveal reveal-stagger"><article><b>↗</b><h4>LEADS</h4><p>Qualified enquiries from people looking for your trade.</p></article><article><b>☎</b><h4>QUOTES</h4><p>Turn enquiries into real quoting opportunities.</p></article><article><b>$</b><h4>JOBS</h4><p>Measure marketing by the work it helps create.</p></article><article className="quote"><b>“</b><p>Your verified client testimonial will sit here.</p><small>REAL CLIENT — REAL RESULT</small></article></div></section>
