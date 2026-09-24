@@ -243,7 +243,9 @@ export default function Home(){
         {trades.map(([icon,name])=><div className="tradeItem" key={name}>
           {name==="Roofing"
             ? <img className="tradeWordmark" src="/roofing-wordmark.svg" alt="Roofing"/>
-            : <><b>{icon}</b><span>{name}</span></>}
+            : name==="Plumbing"
+              ? <img className="tradeWordmark" src="/plumbing-wordmark.webp" alt="Plumbing"/>
+              : <><b>{icon}</b><span>{name}</span></>}
         </div>)}
       </div>
     </section>
