@@ -1901,3 +1901,124 @@ footer{padding:0 0 46px}
     max-width:86%;
   }
 }
+
+/* Compress mobile calculator without losing the result/CTA */
+@media(max-width:640px){
+  .heroGrid{gap:26px}
+
+  .heroCalculator,
+  .heroCalculatorBack{
+    padding:16px 16px 17px;
+    border-radius:16px;
+  }
+
+  .heroCalcTop{
+    margin-bottom:15px;
+  }
+  .heroCalcTop h2{
+    font-size:24px;
+    line-height:1;
+    max-width:250px;
+  }
+  .heroCalcTop p{
+    margin-top:6px;
+    font-size:10px;
+    line-height:1.4;
+  }
+  .heroCalcEyebrow{
+    margin-bottom:5px;
+    font-size:10px;
+  }
+  .heroCalcIcon{
+    width:34px;
+    height:34px;
+    font-size:15px;
+  }
+
+  .heroCalcFieldsThree{
+    gap:9px;
+  }
+  .heroCalcFields label{
+    font-size:9px;
+  }
+  .heroCalcFields select,
+  .heroCalcFields input{
+    height:46px;
+    margin-top:5px;
+    padding:0 12px;
+    font-size:15px;
+  }
+
+  .breakEvenTarget{
+    margin-top:14px;
+    padding:14px 0 13px 15px;
+  }
+  .breakEvenTarget:before{
+    top:12px;
+    bottom:12px;
+  }
+  .breakEvenLabel{
+    font-size:8px;
+    letter-spacing:.12em;
+  }
+  .breakEvenPrimary{
+    margin-top:4px;
+    gap:7px;
+  }
+  .breakEvenPrimary strong{
+    font-size:42px;
+  }
+  .breakEvenPrimary span{
+    font-size:14px;
+  }
+  .breakEvenSecondary{
+    margin-top:4px;
+    font-size:11px;
+  }
+  .breakEvenTarget p{
+    margin-top:5px;
+    font-size:8px;
+    line-height:1.35;
+  }
+
+  .heroPlan{
+    padding-top:12px;
+  }
+  .heroPlanLabel{
+    margin-bottom:7px;
+    font-size:8px;
+  }
+  .heroPlanColumns{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+    margin-top:7px;
+    border:0;
+  }
+  .heroPlanColumns>div,
+  .heroPlanColumns>div+div{
+    padding:9px 8px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:9px;
+    background:rgba(255,255,255,.018);
+    text-align:left;
+  }
+  .heroPlanColumns b{
+    font-size:9px;
+  }
+  .heroPlanColumns span{
+    margin-top:3px;
+    font-size:8px;
+    line-height:1.25;
+  }
+
+  .heroCalcCta{
+    min-height:48px;
+    margin-top:11px;
+    font-size:11px;
+  }
+
+  .callTrustRow{
+    margin-top:11px;
+    padding-top:11px;
+  }
+}
