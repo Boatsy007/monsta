@@ -492,7 +492,7 @@ footer{padding:0 0 46px}
   padding:0 22px;
   border-radius:10px;
   border:1px solid rgba(255,255,255,.48);
-  background:rgba(255,0,140,.92);
+  background:#d90078;
   color:#fff;
   font-size:13px;
   font-weight:700;
@@ -506,8 +506,18 @@ footer{padding:0 0 46px}
   border-color:rgba(255,255,255,.78);
 }
 @keyframes offerPulse{
-  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,0,140,0)}
-  50%{transform:scale(1.022);box-shadow:0 0 22px 2px rgba(255,0,140,.16)}
+  0%,100%{
+    background:#d90078;
+    border-color:rgba(255,255,255,.42);
+    box-shadow:0 0 0 0 rgba(255,0,140,0);
+    filter:brightness(1);
+  }
+  50%{
+    background:#ff1498;
+    border-color:rgba(255,255,255,.72);
+    box-shadow:0 0 24px 3px rgba(255,0,140,.20);
+    filter:brightness(1.18);
+  }
 }
 @media(max-width:640px){
   .heroActions{flex-direction:column;align-items:flex-start}
