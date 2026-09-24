@@ -13,22 +13,35 @@ export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
  useEffect(()=>{
-   document.documentElement.classList.add("motion-ready");
    const sections=[...document.querySelectorAll(".dynamic-section")];
-   const reveal=(section)=>section.classList.add("in-view");
+   document.documentElement.classList.add("motion-ready");
+
+   // Sections already visible on first paint stay visible.
+   // Everything below the viewport waits for scroll entry.
+   const viewportHeight=window.innerHeight;
+   sections.forEach(section=>{
+     if(section.getBoundingClientRect().top < viewportHeight * 0.92){
+       section.classList.add("in-view");
+     }
+   });
+
    if(!("IntersectionObserver" in window)){
-     sections.forEach(reveal);
+     sections.forEach(section=>section.classList.add("in-view"));
      return;
    }
+
    const observer=new IntersectionObserver((entries)=>{
      entries.forEach(entry=>{
        if(entry.isIntersecting){
-         reveal(entry.target);
+         entry.target.classList.add("in-view");
          observer.unobserve(entry.target);
        }
      });
-   },{threshold:0.08,rootMargin:"0px 0px -60px 0px"});
-   sections.forEach(section=>observer.observe(section));
+   },{threshold:0,rootMargin:"0px 0px -12% 0px"});
+
+   sections.forEach(section=>{
+     if(!section.classList.contains("in-view")) observer.observe(section);
+   });
    return()=>observer.disconnect();
  },[]);
 
