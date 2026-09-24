@@ -38,7 +38,7 @@ export default function Home(){
 
 
 
-  return <main>
+  return <>
     <div className="promoTicker" aria-label="Current promotion">
       <div className="tickerEdge tickerEmail">
         <span className="mailIcon">✉</span>
@@ -96,6 +96,7 @@ export default function Home(){
       </div>
     </header>
 
+    <main>
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
       <div className="shell heroGrid">
@@ -331,5 +332,6 @@ export default function Home(){
         <a className="footerCta" href="#contact">Get More Jobs →</a>
       </div>
     </footer>
-  </main>;
+    </main>
+  </>;
 }
