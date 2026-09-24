@@ -3,33 +3,46 @@
 /* logo sizing correction */
 header .logo{position:relative!important;width:190px!important;height:66px!important;display:flex!important;align-items:center!important;overflow:visible!important;flex:0 0 190px!important}header .logo img{position:static!important;display:block!important;width:165px!important;height:58px!important;max-width:165px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important} @media(max-width:850px){header .logo{width:145px!important;height:58px!important;flex-basis:145px!important}header .logo img{width:135px!important;height:52px!important;max-width:135px!important;max-height:52px!important}}
 
-/* Simple one-shot scroll reveals */
-.scroll-reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity 700ms ease,transform 700ms cubic-bezier(.22,1,.36,1);
-  will-change:opacity,transform;
+/* Dynamic scrolling: native viewport-driven section reveals */
+@keyframes pfRevealUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
 }
-.scroll-reveal.scroll-visible{
-  opacity:1;
-  transform:translateY(0);
+@keyframes pfCardReveal{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
 }
-.reveal-stagger>article{
-  opacity:0;
-  transform:translateY(16px);
-  transition:opacity 600ms ease,transform 650ms cubic-bezier(.22,1,.36,1);
+@supports (animation-timeline:view()){
+  .scroll-reveal{
+    animation-name:pfRevealUp;
+    animation-duration:1ms;
+    animation-timing-function:linear;
+    animation-fill-mode:both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 24%;
+  }
+  .reveal-stagger>article{
+    animation-name:pfCardReveal;
+    animation-duration:1ms;
+    animation-timing-function:linear;
+    animation-fill-mode:both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 20%;
+  }
+  .reveal-stagger>article:nth-child(2){animation-range:entry 3% cover 23%}
+  .reveal-stagger>article:nth-child(3){animation-range:entry 6% cover 26%}
+  .reveal-stagger>article:nth-child(4){animation-range:entry 9% cover 29%}
+  .reveal-stagger>article:nth-child(5){animation-range:entry 12% cover 32%}
 }
-.reveal-stagger.scroll-visible>article{
-  opacity:1;
-  transform:translateY(0);
+/* Fallback: ordinary load-in for browsers without view timelines */
+@supports not (animation-timeline:view()){
+  .scroll-reveal{animation:pfRevealUp .7s cubic-bezier(.22,1,.36,1) both}
+  .reveal-stagger>article{animation:pfCardReveal .65s cubic-bezier(.22,1,.36,1) both}
+  .reveal-stagger>article:nth-child(2){animation-delay:.08s}
+  .reveal-stagger>article:nth-child(3){animation-delay:.16s}
+  .reveal-stagger>article:nth-child(4){animation-delay:.24s}
+  .reveal-stagger>article:nth-child(5){animation-delay:.32s}
 }
-.reveal-stagger.scroll-visible>article:nth-child(1){transition-delay:0ms}
-.reveal-stagger.scroll-visible>article:nth-child(2){transition-delay:80ms}
-.reveal-stagger.scroll-visible>article:nth-child(3){transition-delay:160ms}
-.reveal-stagger.scroll-visible>article:nth-child(4){transition-delay:240ms}
-.reveal-stagger.scroll-visible>article:nth-child(5){transition-delay:320ms}
 @media(prefers-reduced-motion:reduce){
- .scroll-reveal,.scroll-reveal.scroll-visible,.reveal-stagger>article,.reveal-stagger.scroll-visible>article{
-  opacity:1;transform:none;transition:none
- }
+ .scroll-reveal,.reveal-stagger>article{animation:none!important;opacity:1!important;transform:none!important}
 }
