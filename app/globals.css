@@ -2248,25 +2248,3 @@ footer{padding:0 0 46px}
     overflow-anchor:none;
   }
 }
-
-
-/* Mobile reliability: keep top navigation reachable regardless of browser chrome resizing */
-@media(max-width:640px){
-  .promoTicker{
-    position:sticky!important;
-    top:0!important;
-    z-index:100!important;
-  }
-  .siteHeader{
-    position:sticky!important;
-    top:30px!important;
-    z-index:99!important;
-    transform:none!important;
-    opacity:1!important;
-    visibility:visible!important;
-    background:rgba(5,5,6,.97)!important;
-  }
-  .hero{
-    padding-top:30px!important;
-  }
-}
