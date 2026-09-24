@@ -28,6 +28,7 @@ const steps=[
 ];
 
 export default function Home(){
+  const [menuOpen,setMenuOpen]=useState(false);
   const [job,setJob]=useState(8000);
   const [spend,setSpend]=useState(2500);
   const [closeRate,setCloseRate]=useState(25);
@@ -85,7 +86,27 @@ export default function Home(){
           <a href="#process">Process</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div className="headerActions"><a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a><a className="offerButton headerOffer" href="#contact">Free Month Offer</a></div>
+        <div className="headerActions">
+          <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
+          <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
+          <button
+            className={`mobileMenuButton ${menuOpen?"isOpen":""}`}
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            onClick={()=>setMenuOpen(v=>!v)}
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+        <div className={`mobileMenu ${menuOpen?"isOpen":""}`}>
+          <a href="#services" onClick={()=>setMenuOpen(false)}>Services</a>
+          <a href="#results" onClick={()=>setMenuOpen(false)}>Results</a>
+          <a href="#process" onClick={()=>setMenuOpen(false)}>Process</a>
+          <a href="#contact" onClick={()=>setMenuOpen(false)}>Contact</a>
+          <a className="mobileMenuCta" href="#contact" onClick={()=>setMenuOpen(false)}>Get More Jobs <span>→</span></a>
+        </div>
       </div>
     </header>
 
