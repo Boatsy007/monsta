@@ -11,16 +11,13 @@ const services=[
 export default function Home(){
  const [job,setJob]=useState(8000),[count,setCount]=useState(4);
  useEffect(()=>{
+  if(CSS.supports("animation-timeline: view()")) return;
   const els=Array.from(document.querySelectorAll(".scroll-reveal"));
-  if(!("IntersectionObserver" in window)){els.forEach(el=>el.classList.add("scroll-visible"));return;}
   const io=new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("scroll-visible");
-        io.unobserve(entry.target);
-      }
+      if(entry.isIntersecting) entry.target.classList.add("scroll-visible");
     });
-  },{threshold:0.10,rootMargin:"0px 0px -45px 0px"});
+  },{threshold:0.08,rootMargin:"0px 0px -8% 0px"});
   els.forEach(el=>io.observe(el));
   return()=>io.disconnect();
  },[]);
