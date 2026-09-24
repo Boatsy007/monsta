@@ -91,10 +91,6 @@ export default function Home(){
 
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
-      <svg className="offerGuide" viewBox="0 0 360 190" aria-hidden="true">
-        <path className="offerGuidePath" pathLength="1" d="M28 168 C 92 168, 76 72, 166 54 C 228 42, 276 40, 322 30"/>
-        <path className="offerGuideHead" d="M309 22 L324 30 L312 42"/>
-      </svg>
       <div className="shell heroGrid">
         <div className="heroCopy">
           <div className="eyebrow">Digital marketing for tradies</div>
