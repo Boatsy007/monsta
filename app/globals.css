@@ -1229,7 +1229,7 @@ footer{padding:0 0 46px}
   .mobileTop{display:block;width:100%}
   .promoTicker{position:relative;inset:auto;width:100%;height:30px}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;width:100%;z-index:20;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
+  .siteHeader{position:sticky;inset:auto;top:0;left:auto;right:auto;width:100%;z-index:1000;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
   .headerInner{position:relative;height:64px;display:flex;align-items:center;gap:12px}
   .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
