@@ -59,7 +59,7 @@ export default function Home(){
           <a href="#process">Process</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="button buttonSmall" href="#contact">Get More Jobs <span>→</span></a>
+        <div className="headerActions"><a className="button buttonSmall" href="#contact">Get More Jobs <span>→</span></a><a className="offerButton" href="#contact">Free Month Offer</a></div>
       </div>
     </header>
 
