@@ -1865,3 +1865,39 @@ footer{padding:0 0 46px}
 @media(prefers-reduced-motion:reduce){
   .heroCalculatorInner{transition:none}
 }
+
+/* Mobile trades: show every trade without horizontal scrolling */
+@media(max-width:640px){
+  .tradeSection{overflow:visible}
+  .tradebar{
+    width:calc(100% - 32px);
+    margin:0 auto;
+    padding-left:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    overflow:visible;
+  }
+  .tradeItem,
+  .tradeItem:nth-child(n){
+    min-width:0;
+    min-height:58px;
+    flex:none;
+    border-right:0;
+    border-left:0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .tradeItem:nth-child(even){
+    border-left:1px solid var(--line-soft);
+  }
+  .tradeItem:nth-last-child(-n+2){
+    border-bottom:0;
+  }
+  .tradeItem:last-child{
+    grid-column:1/-1;
+    border-left:0;
+  }
+  .tradeWordmark{
+    width:108px;
+    max-width:86%;
+  }
+}
