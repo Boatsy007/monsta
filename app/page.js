@@ -38,36 +38,29 @@ export default function Home(){
 
 
   return <>
-        <header className="siteHeader">
-          <div className="shell headerInner">
-            <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-            <nav>
-              <a href="#services">Services</a>
-              <a href="#results">Results</a>
-              <a href="#process">Process</a>
-              <a href="#contact">Contact</a>
-            </nav>
-            <div className="headerActions">
-              <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
-              <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
-              <button
-                className={`mobileMenuButton ${menuOpen?"isOpen":""}`}
-                type="button"
-                aria-label="Open menu"
-                aria-expanded={menuOpen}
-                onClick={()=>setMenuOpen(v=>!v)}
-              >
-                <span></span><span></span><span></span>
-              </button>
-            </div>
-
-            <div className={`mobileMenu ${menuOpen?"isOpen":""}`}>
+        <header className="siteHeader site-header">
+          <div className="shell headerInner header-inner">
+            <a className="logo header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
+            <nav className={`desktop-nav ${menuOpen?"mobile-open":""}`}>
               <a href="#services" onClick={()=>setMenuOpen(false)}>Services</a>
               <a href="#results" onClick={()=>setMenuOpen(false)}>Results</a>
               <a href="#process" onClick={()=>setMenuOpen(false)}>Process</a>
               <a href="#contact" onClick={()=>setMenuOpen(false)}>Contact</a>
-              <a className="mobileMenuCta" href="#contact" onClick={()=>setMenuOpen(false)}>Get More Jobs <span>→</span></a>
+            </nav>
+            <div className="headerActions">
+              <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
+              <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
+
             </div>
+            <button
+              className={`mobileMenuButton menu-button ${menuOpen?"isOpen":""}`}
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={()=>setMenuOpen(v=>!v)}
+            >
+              <span></span><span></span><span></span>
+            </button>
           </div>
         </header>
 
@@ -75,11 +68,11 @@ export default function Home(){
 
 
 
-    <main>
+    <main id="top">
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
-      <div className="shell heroGrid">
-        <div className="heroCopy">
+      <div className="heroGrid hero-inner">
+        <div className="heroCopy hero-copy">
           <div className="eyebrow">Digital marketing for tradies</div>
           <h1>More jobs.<br/><span>Less chasing.</span></h1>
           <p>We help tradies get found, generate more enquiries and turn them into booked work.</p>
