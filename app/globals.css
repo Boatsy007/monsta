@@ -13,3 +13,22 @@ header .logo{position:relative!important;width:190px!important;height:66px!impor
   opacity:1;
   transform:translateY(0);
 }
+
+/* Reference-match pass */
+body{background:#030303}
+header{height:56px;padding:0 4.8vw;background:rgba(3,3,3,.88);position:absolute;top:0;left:0;right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+header .logo{width:145px!important;height:52px!important;flex-basis:145px!important}
+header .logo img{width:125px!important;height:48px!important;max-width:125px!important;max-height:48px!important}
+nav{gap:28px;font-size:10px}.top{padding:13px 20px;font-size:10px}
+.hero{height:410px;background-image:url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2200&q=90");background-position:center 45%}
+.heroShade{background:linear-gradient(90deg,#020202 0%,rgba(2,2,2,.96) 30%,rgba(2,2,2,.68) 48%,rgba(2,2,2,.08) 78%)}
+.heroCopy{left:4.8vw;top:118px}.heroCopy>small{display:block;margin-bottom:12px}.hero h1{font-size:58px;line-height:.84;letter-spacing:-3.5px;margin-bottom:17px}.hero h2{display:none}.hero p{font-size:16px;line-height:1.35;margin-bottom:19px}.heroBtn{padding:14px 23px;font-size:12px}
+.heroProof{display:flex;gap:24px;margin-top:18px;font-size:11px}.heroProof span{white-space:nowrap}.heroProof span::first-letter{color:#f50087}
+.tradebar{height:56px;padding:0 2.8vw}.tradebar div{font-size:10px}.tradebar b{font-size:22px}
+.calculator{grid-template-columns:40% 60%;padding:32px 3.8vw 24px;gap:18px}.calcIntro h3{font-size:35px}.calcBox{padding:14px}.calcResult{padding:12px 14px}.calcResult strong{font-size:31px}
+.services{padding:17px 3.8vw 26px}.sectionTitle h3{font-size:32px}.sectionTitle p{font-size:13px}.serviceGrid{gap:7px;margin-top:15px}.serviceGrid article{min-height:220px;padding:14px}.serviceGrid p{font-size:10px}.servicePhoto{height:112px;margin:9px -14px -14px}
+.results{padding:22px 3.8vw 25px}.results h3{font-size:32px}.resultsHead p{font-size:12px;line-height:1.35}.resultCards{gap:9px;margin-top:14px}.resultCards article{min-height:108px;padding:14px}.resultCards h4{font-size:23px}.resultCards p{margin:4px 0 9px}.resultCards small{display:inline-block;background:#292929;color:#bbb;border-radius:10px;padding:3px 7px;font-size:7px;letter-spacing:0}
+.leadSection{grid-template-columns:33% 39% 28%;min-height:270px}.leadCopy{padding:35px 18px}.leadCopy h3{font-size:42px}.leadCopy p{font-size:14px}.leadSection form{margin:26px 3vw 26px 0}
+.process{padding:42px 5vw 48px}.process h3{font-size:32px}.process>div{margin-top:26px}.process article{min-height:120px}.process article:not(:last-child)::after{content:"→";color:#f50087;position:absolute;right:-7px;top:30px}.process article{position:relative}
+.finalCta{min-height:305px}.finalCta>div:last-child{padding:55px}.finalCta h3{font-size:40px}
+@media(max-width:850px){header{position:relative}.heroCopy{top:70px}.hero{height:500px}.hero h1{font-size:47px}.heroProof{flex-wrap:wrap;gap:10px}.calculator{grid-template-columns:1fr}.serviceGrid,.resultCards{grid-template-columns:1fr}.resultsHead{align-items:flex-start;gap:15px}.leadSection{grid-template-columns:1fr}.process>div{grid-template-columns:1fr}.process article:not(:last-child)::after{display:none}}
