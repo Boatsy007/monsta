@@ -1224,8 +1224,12 @@ footer{padding:0 0 46px}
 
 /* Mobile: ordinary document flow */
 @media(max-width:640px){
-  html,body{margin:0;padding:0;width:100%;min-width:0}
-  body{overflow-x:hidden}
+  html{margin:0;padding:0;width:100%;min-width:0;scroll-behavior:auto;overflow-anchor:none}
+  body{margin:0;padding:0;width:100%;min-width:0;overflow:visible;overflow-anchor:none}
+  .promoTicker{position:relative;inset:auto;width:100%;height:30px;overflow-anchor:none}
+  .promoTrack{will-change:auto}
+  .siteHeader{overflow-anchor:none}
+  .hero{overflow-anchor:none}
   .promoTicker{position:relative;inset:auto;width:100%;height:30px}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
   .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;width:100%;z-index:20;background:#050506;border-bottom:1px solid var(--line-soft);backdrop-filter:none}
