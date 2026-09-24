@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title">
+  <title id="title">Roofing</title>
+  <g transform="translate(18 18)">
+    <path d="M26 76 92 16l66 60v66H26Z" fill="none" stroke="#ff008c" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M125 46V25h20v39" fill="none" stroke="#ff008c" stroke-width="18" stroke-linejoin="round"/>
+  </g>
+  <text x="205" y="124" fill="#ffffff" font-family="Inter,Arial,Helvetica,sans-serif" font-size="98" font-weight="800" letter-spacing="-4">Roofing</text>
+</svg>
