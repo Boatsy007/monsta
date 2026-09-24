@@ -71,29 +71,7 @@ export default function Home(){
           </div>
         </header>
 
-        <div className="promoTicker" aria-label="Current promotion">
-          <div className="tickerEdge tickerEmail">
-            <span className="mailIcon">✉</span>
-            <a href="mailto:Rohan@Monstagroup.com">Rohan@Monstagroup.com</a>
-          </div>
 
-          <div className="promoTrack">
-            {[0,1].map((group)=><div className="promoGroup" key={group}>
-              {Array.from({length:6}).map((_,i)=><span className="promoPair" key={i}>
-                <span className="promoPink">GET MORE LEADS</span>
-                <span className="promoDot">•</span>
-                <span className="promoOffer">FREE MONTH OFFER</span>
-                <span className="promoDot">•</span>
-              </span>)}
-            </div>)}
-          </div>
-
-          <div className="tickerEdge tickerSocials" aria-label="Social media">
-            <a href="#" aria-label="Facebook" className="socialIcon socialFacebook">f</a>
-            <a href="#" aria-label="Instagram" className="socialIcon socialInstagram">◎</a>
-            <a href="#" aria-label="LinkedIn" className="socialIcon socialLinkedin">in</a>
-          </div>
-      </div>
 
 
 
