@@ -1067,12 +1067,12 @@ footer{padding:0 0 46px}
 
 /* MOBILE STRUCTURE — copied from Storeman, Monsta styling only */
 @media(max-width:680px){
-  html{max-width:100%;overflow-x:clip}
-  body{max-width:100%;overflow-x:clip;background:#050506;padding-top:0!important}
-  main{padding-top:78px!important}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{background:#050506;padding-top:0!important}
+  main{padding-top:0!important}
   .shell,.header-inner{width:calc(100% - 28px)!important}
 
-  .site-header{height:78px!important;position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;z-index:9999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;transform:none!important;visibility:visible!important;opacity:1!important}
+  .site-header{height:78px!important;position:sticky!important;top:0!important;left:auto!important;right:auto!important;width:100%!important;z-index:999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;transform:none!important;visibility:visible!important;opacity:1!important}
   .header-inner{height:78px!important;gap:12px!important;display:flex!important;align-items:center!important;margin:0 auto!important;position:relative}
   .header-brand{width:124px!important;max-width:68vw!important;display:flex!important;align-items:center!important;height:auto!important;flex:0 0 auto!important}
   .header-logo{display:block!important;width:100%!important;height:auto!important;max-height:56px!important;object-fit:contain!important;object-position:left center!important}
@@ -1130,4 +1130,68 @@ footer{padding:0 0 46px}
 @media(max-width:680px){
   .calculatorLeadForm{grid-template-columns:1fr}
   .bookCallCta{grid-column:auto}
+}
+
+/* Mobile compositor reset: keep Storeman's simple sticky document flow */
+@media(max-width:680px){
+  .site-header{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    will-change:auto!important;
+  }
+
+  .heroGlow,
+  .hero:after,
+  .heroCalculator:after{
+    display:none!important;
+  }
+
+  .heroCalculator{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+
+  .heroCalculatorFlip{
+    perspective:none!important;
+    transform:none!important;
+  }
+
+  .heroCalculatorInner{
+    display:block!important;
+    transform:none!important;
+    transform-style:flat!important;
+  }
+
+  .heroCalculatorFront,
+  .heroCalculatorBack{
+    grid-area:auto!important;
+    transform:none!important;
+    transition:none!important;
+    backface-visibility:visible!important;
+    -webkit-backface-visibility:visible!important;
+  }
+
+  .heroCalculatorFront{
+    display:block!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+  }
+
+  .heroCalculatorBack{
+    display:none!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+  }
+
+  .heroCalculatorFlip.isFlipped .heroCalculatorFront{
+    display:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+
+  .heroCalculatorFlip.isFlipped .heroCalculatorBack{
+    display:block!important;
+    transform:none!important;
+    opacity:1!important;
+  }
 }
