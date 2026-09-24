@@ -2115,3 +2115,35 @@ footer{padding:0 0 46px}
   }
   .hero{padding-top:30px;}
 }
+
+
+/* Mobile viewport baseline */
+@media(max-width:640px){
+  html{
+    width:100%;
+    min-width:0;
+    height:auto;
+    overflow-x:clip;
+    -webkit-text-size-adjust:100%;
+  }
+  body{
+    width:100%;
+    min-width:0;
+    min-height:100svh;
+    overflow-x:clip;
+  }
+  main{
+    width:100%;
+    min-width:0;
+    overflow-x:clip;
+  }
+  .promoTicker,
+  .siteHeader,
+  .hero{
+    max-width:100%;
+  }
+  .shell{
+    width:calc(100% - 32px);
+    max-width:100%;
+  }
+}
