@@ -2082,218 +2082,29 @@ footer{padding:0 0 46px}
   .logo img{width:112px}
 }
 
-/* Keep the mobile promo strip + header visible while scrolling */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Canonical mobile page flow */
 @media(max-width:640px){
-  .promoTicker{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:60;
-  }
-
-  .siteHeader{
-    position:fixed;
-    top:30px;
-    left:0;
-    right:0;
-    z-index:55;
-    background:rgba(5,5,6,.96);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-  }
-
-  .hero{
-    padding-top:124px;
-  }
-
-  .mobileMenu{
-    max-height:calc(100vh - 112px);
-    overflow-y:auto;
-  }
-}
-
-/* Correct mobile scroll behaviour: header belongs at the top of the page, not sticky */
-@media(max-width:640px){
-  html,
-  body{
-    overflow-x:clip;
-    overflow-y:auto;
-    overscroll-behavior-y:auto;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  main{
-    overflow-x:clip;
-    overflow-y:visible;
-  }
-
-  .promoTicker{
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    z-index:30;
-  }
-
-  .siteHeader{
-    position:absolute;
-    top:30px;
-    left:0;
-    right:0;
-    z-index:20;
-    background:rgba(5,5,6,.94);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-  }
-
-  .hero{
-    padding-top:124px;
-  }
-}
-
-
-/* Mobile: true normal document flow for promo, header and hero */
-@media(max-width:640px){
-  .promoTicker{
-    position:relative;
-    top:auto;
-    left:auto;
-    right:auto;
-  }
-  .siteHeader{
-    position:relative;
-    top:auto;
-    left:auto;
-    right:auto;
-  }
-  .hero{
-    padding-top:30px;
-  }
-}
-
-
-/* Final mobile document-scroll reset: browser owns the vertical scroll */
-@media(max-width:640px){
-  html{
-    overflow-x:hidden;
-    overflow-y:visible;
-    overscroll-behavior-y:auto;
-  }
-  body{
-    overflow-x:hidden;
-    overflow-y:visible;
-    min-height:100%;
-    overscroll-behavior-y:auto;
-    -webkit-overflow-scrolling:auto;
-  }
-  main{
-    overflow:visible;
-    min-height:0;
-  }
-  .promoTicker{
-    position:relative;
-    inset:auto;
-    top:auto;
-  }
-  .siteHeader{
-    position:relative;
-    inset:auto;
-    top:auto;
-    transform:none;
-  }
-  .hero{
-    padding-top:30px;
-  }
-}
-
-
-/* iOS/Chrome mobile: one native page scroller, no scroll anchoring jump */
-@media(max-width:640px){
-  html{
-    overflow-x:hidden!important;
-    overflow-y:auto!important;
-    height:auto!important;
-    min-height:100%!important;
-    scroll-behavior:auto!important;
-    overflow-anchor:none;
-  }
-  body{
-    position:static!important;
-    overflow:visible!important;
-    height:auto!important;
-    min-height:100%!important;
-    max-height:none!important;
-    overscroll-behavior-y:auto!important;
-    -webkit-overflow-scrolling:auto!important;
-    overflow-anchor:none;
-  }
-  main{
-    position:static!important;
-    overflow:visible!important;
-    height:auto!important;
-    max-height:none!important;
-    transform:none!important;
-    overflow-anchor:none;
-  }
-  .promoTicker,
-  .siteHeader{
-    position:relative!important;
-    inset:auto!important;
-    top:auto!important;
-    transform:none!important;
-  }
-  .hero{
-    padding-top:30px!important;
-    overflow-anchor:none;
-  }
-}
-
-
-/* iOS Chrome viewport-collapse fix: preserve normal document flow and stable top offset */
-@media(max-width:640px){
-  html,body{
-    margin:0!important;
-    padding:0!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    overflow-x:hidden!important;
-  }
-  html{
-    overflow-y:scroll!important;
-    scroll-behavior:auto!important;
-    -webkit-text-size-adjust:100%;
-  }
-  body{
-    overflow-y:visible!important;
-    position:relative!important;
-  }
-  main{
-    display:block!important;
-    position:relative!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    overflow:visible!important;
-    contain:none!important;
-  }
-  .promoTicker{
-    position:relative!important;
-    inset:auto!important;
-    width:100%!important;
-    height:30px!important;
-  }
-  .siteHeader{
-    position:relative!important;
-    inset:auto!important;
-    width:100%!important;
-    height:64px!important;
-    transform:none!important;
-  }
-  .headerInner{height:64px!important;}
-  .hero{
-    min-height:0!important;
-    padding-top:30px!important;
-  }
+  html{overflow-x:hidden;scroll-behavior:auto;}
+  body{margin:0;overflow-x:hidden;}
+  main{overflow-x:hidden;}
+  .promoTicker{position:relative;top:auto;left:auto;right:auto;height:30px;}
+  .siteHeader{position:relative;inset:auto;top:auto;left:auto;right:auto;}
+  .hero{padding-top:30px;}
 }
