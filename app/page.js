@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect,useMemo,useState} from "react";
+import {useMemo,useState} from "react";
 
 const trades=[
   ["⌂","Roofing"],
@@ -36,35 +36,8 @@ export default function Home(){
   const breakEvenJobs=useMemo(()=>Math.max(1,Math.ceil(Number(spend||0)/Math.max(1,Number(job||0)))),[spend,job]);
   const leadsNeeded=useMemo(()=>Math.max(1,Math.ceil(breakEvenJobs/(Math.max(1,Number(closeRate||0))/100))),[breakEvenJobs,closeRate]);
 
-  useEffect(()=>{
-    const root=document.documentElement;
-    if("scrollRestoration" in history) history.scrollRestoration="manual";
-
-    const syncViewportTop=()=>{
-      const vv=window.visualViewport;
-      const atTop=(window.scrollY||document.documentElement.scrollTop||0)<=1;
-      const hiddenTop=atTop&&vv ? Math.max(0,Math.round(vv.offsetTop||0)) : 0;
-      root.style.setProperty("--mobile-viewport-top", hiddenTop+"px");
-    };
-
-    syncViewportTop();
-    window.addEventListener("scroll",syncViewportTop,{passive:true});
-    window.addEventListener("pageshow",syncViewportTop);
-    window.visualViewport?.addEventListener("scroll",syncViewportTop);
-    window.visualViewport?.addEventListener("resize",syncViewportTop);
-    return ()=>{
-      window.removeEventListener("scroll",syncViewportTop);
-      window.removeEventListener("pageshow",syncViewportTop);
-      window.visualViewport?.removeEventListener("scroll",syncViewportTop);
-      window.visualViewport?.removeEventListener("resize",syncViewportTop);
-      root.style.removeProperty("--mobile-viewport-top");
-    };
-  },[]);
-
-
 
   return <>
-      <div className="mobileViewportTop" aria-hidden="true"></div>
       <div className="promoTicker" aria-label="Current promotion">
         <div className="tickerEdge tickerEmail">
           <span className="mailIcon">✉</span>
