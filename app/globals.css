@@ -1229,7 +1229,7 @@ footer{padding:0 0 46px}
   .promoTicker{display:none!important}
   .promoTrack{will-change:auto}
   .tickerEmail,.tickerSocials,.promoTicker:before,.promoTicker:after{display:none}
-  .siteHeader{height:78px!important;position:sticky!important;top:0!important;left:auto!important;right:auto!important;inset:auto!important;width:100%!important;max-width:100%;z-index:999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;backdrop-filter:none!important;transform:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+  .siteHeader{height:78px!important;position:relative!important;top:auto!important;left:auto!important;right:auto!important;inset:auto!important;width:100%!important;max-width:100%;z-index:20!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;backdrop-filter:none!important;transform:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
   .headerInner{position:relative;height:78px!important;display:flex!important;align-items:center!important;gap:12px!important;margin:0 auto!important}
   .shell{width:calc(100% - 32px);margin-left:auto;margin-right:auto}
   .logo{width:124px;height:50px;flex:0 0 124px}
