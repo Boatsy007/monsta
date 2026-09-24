@@ -38,7 +38,6 @@ export default function Home(){
 
 
   return <>
-      <div className="mobileTop">
         <header className="siteHeader">
           <div className="shell headerInner">
             <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
@@ -94,7 +93,6 @@ export default function Home(){
             <a href="#" aria-label="Instagram" className="socialIcon socialInstagram">◎</a>
             <a href="#" aria-label="LinkedIn" className="socialIcon socialLinkedin">in</a>
           </div>
-      </div>
       </div>
 
 
