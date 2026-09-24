@@ -1,45 +1,237 @@
 "use client";
-// homepage scroll reveal
-import {useEffect,useMemo,useState} from "react";
-const trades=["Roofing","Plumbing","Electrical","HVAC","Fencing","Building","Landscaping"];
-const services=[
-["◢","Google Ads","Get found when people are ready to hire."],
-["∞","Meta Ads","Create demand in your local area and drive enquiries."],
-["▣","Websites","Turn traffic into leads with a high-converting website."],
-["▤","Follow Up","Stop leads slipping through the cracks with automated follow-up."],
-["⌕","SEO","Build long-term visibility in your service area."]
-];
-export default function Home(){
- const [job,setJob]=useState(8000),[count,setCount]=useState(4);
- const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
- useEffect(()=>{
-   const revealSections=()=>{
-     const sections=document.querySelectorAll("[data-reveal]");
-     sections.forEach((section)=>{
-       const position=section.getBoundingClientRect();
-       if(position.top < window.innerHeight * 0.88){
-         section.setAttribute("data-visible","true");
-       }
-     });
-   };
-   revealSections();
-   window.addEventListener("scroll",revealSections,{passive:true});
-   window.addEventListener("resize",revealSections);
-   return()=>{
-     window.removeEventListener("scroll",revealSections);
-     window.removeEventListener("resize",revealSections);
-   };
- },[]);
 
- return <main>
- <header><a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a><nav><a href="#">Home</a><a href="#services">Services</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a className="pinkBtn top" href="#contact">GET MORE JOBS&nbsp; →</a></header>
- <section className="hero"><div className="heroShade"></div><div className="heroCopy"><small>DIGITAL MARKETING FOR TRADIES</small><h1><span>MORE JOBS.</span><br/>LESS CHASING.</h1><p>We bring you high-quality leads so you<br/>can get on with what you do best.</p><a className="pinkBtn heroBtn" href="#contact">GET MORE JOBS&nbsp; →</a><div className="heroProof"><span>✓ More calls</span><span>✓ More quotes</span><span>✓ More booked jobs</span></div></div></section>
- <div className="tradebar">{[["⌂","ROOFING"],["⌕","PLUMBING"],["ϟ","ELECTRICAL"],["❄","HVAC"],["♜","FENCING"],["▦","BUILDING"],["◒","LANDSCAPING"]].map(([i,t])=><div key={t}><b>{i}</b>{t}</div>)}</div>
- <section className="calculator" data-reveal="true"><div className="calcIntro"><small>HOW MANY MORE JOBS DO YOU WANT?</small><h3>TURN MORE<br/>OPPORTUNITY<br/>INTO <em>REAL WORK.</em></h3><p>See what a few extra jobs could be worth for your business.</p><span className="arrow">↗</span></div><div className="calcBox"><div className="inputs"><label>YOUR TRADE<select><option>Roofing</option>{trades.slice(1).map(t=><option key={t}>{t}</option>)}</select></label><label>AVERAGE JOB VALUE<select value={job} onChange={e=>setJob(e.target.value)}><option value="2000">$2,000</option><option value="5000">$5,000</option><option value="8000">$8,000</option><option value="12000">$12,000</option><option value="20000">$20,000</option></select></label><label>EXTRA JOBS PER MONTH<input type="number" min="1" value={count} onChange={e=>setCount(e.target.value)}/></label></div><div className="calcResult"><div>That’s <strong>${total.toLocaleString()}</strong><span>in potential additional work<br/>for your business each month.</span></div><a href="#contact">SEE HOW WE’D TARGET IT&nbsp; →</a></div></div></section>
- <section id="services" className="services" data-reveal="true"><div className="sectionTitle"><h3>WE BUILD YOUR <em>JOB PIPELINE.</em></h3><p>The right mix of digital strategies to bring you consistent, high-quality leads.</p><span>DIFFERENT TOOLS.<br/><b>ONE GOAL. MORE WORK.</b></span></div><div className="serviceGrid">{services.map(([i,n,d],x)=><article key={n}><b className="serviceIcon">{i}</b><div><h4>{n}</h4><p>{d}</p></div><div className={"servicePhoto p"+x}></div></article>)}</div></section>
- <section id="results" className="results" data-reveal="true"><div className="resultsHead"><div><h3>REAL TRADIES. <em>REAL RESULTS.</em></h3><p>We work with trade businesses across Australia to generate more calls,<br/>more quotes and more booked jobs. Here are some of our results.</p></div><a href="#contact">SEE MORE RESULTS&nbsp; →</a></div><div className="resultCards"><article><b>↗</b><h4>47</h4><p>qualified leads<br/>in 30 days</p><small>ROOFING · QLD</small></article><article><b>☎</b><h4>62%</h4><p>converted to quotes</p><small>PLUMBING · NSW</small></article><article><b>$</b><h4>$28,000</h4><p>in booked work<br/>from 1 campaign</p><small>ELECTRICAL · VIC</small></article><article className="quote"><b>“</b><p>“The guys at Monsta Miami actually understand tradies. We’re busier, better quality leads and way less chasing.”</p><small>— Roofing client, Gold Coast</small></article></div></section>
- <section id="contact" className="leadSection" data-reveal="true"><div className="phoneVisual"><div className="phone"><small>Incoming Call</small><b>New Lead</b><span>Monsta Miami</span><div>● &nbsp;&nbsp; ●</div></div></div><div className="leadCopy"><small>LET’S SEE IF WE CAN GET YOU</small><h3>MORE JOBS.</h3><p>Tell us your trade and where you work.<br/>We’ll show you exactly what we’d do<br/>to get you more jobs.</p><span className="curve">↘</span></div><form className=""><select defaultValue=""><option value="" disabled>Your Trade</option>{trades.map(t=><option key={t}>{t}</option>)}</select><input placeholder="Suburb / Area"/><input placeholder="Phone Number"/><button type="button">SHOW ME THE OPPORTUNITY&nbsp; →</button><small>▣ No spam. No obligation.</small></form></section>
- <section id="about" className="process" data-reveal="true"><div className=""><small>OUR PROCESS</small><h3>SIMPLE. PROVEN. BUILT FOR TRADIES.</h3></div><div className="">{[["▤","1. ENQUIRY","Tell us about your trade and where you work."],["▧","2. PLAN","We show you the best strategy for your area."],["➤","3. LAUNCH","We set everything up and get it live."],["▥","4. MORE JOBS","You get consistent, high-quality enquiries."]].map(([i,n,d])=><article key={n}><b>{i}</b><h4>{n}</h4><p>{d}</p></article>)}</div></section>
- <section className="finalCta" data-reveal="true"><div className="roof"></div><div className=""><small>READY TO GET STARTED?</small><h3>MORE JOBS<br/>ARE OUT THERE.</h3><p>Let’s get you in front of the right customers<br/>and turn more enquiries into real work.</p><a className="pinkBtn" href="#contact">GET MORE JOBS&nbsp; →</a></div></section>
- </main>
+import {useEffect,useMemo,useState} from "react";
+
+const trades=[
+  ["⌂","Roofing"],
+  ["⌕","Plumbing"],
+  ["ϟ","Electrical"],
+  ["❄","HVAC"],
+  ["♜","Fencing"],
+  ["▦","Building"],
+  ["◒","Landscaping"],
+];
+
+const services=[
+  ["◢","Google Ads","Get found when people are actively searching for your trade."],
+  ["∞","Meta Ads","Reach local homeowners and create demand in your service area."],
+  ["▣","Websites","Turn traffic into enquiries with a clear, high-converting website."],
+  ["▤","Follow Up","Respond faster and keep good leads from slipping through the cracks."],
+  ["⌕","SEO","Build long-term local visibility and be found when it matters."],
+];
+
+const steps=[
+  ["01","Enquiry","Tell us about your trade, service area and growth goals."],
+  ["02","Plan","We map the right channel mix and customer journey for your business."],
+  ["03","Launch","We build the campaigns, pages and follow-up needed to go live."],
+  ["04","Grow","We keep improving the system around the jobs you actually want."],
+];
+
+export default function Home(){
+  const [job,setJob]=useState(8000);
+  const [count,setCount]=useState(4);
+  const total=useMemo(()=>Number(job||0)*Number(count||0),[job,count]);
+
+  useEffect(()=>{
+    const reveal=()=>{
+      document.querySelectorAll("[data-reveal]").forEach((el)=>{
+        if(el.getBoundingClientRect().top < window.innerHeight * 0.88){
+          el.setAttribute("data-visible","true");
+        }
+      });
+    };
+    reveal();
+    window.addEventListener("scroll",reveal,{passive:true});
+    window.addEventListener("resize",reveal);
+    return()=>{
+      window.removeEventListener("scroll",reveal);
+      window.removeEventListener("resize",reveal);
+    };
+  },[]);
+
+  return <main>
+    <header className="siteHeader">
+      <div className="shell headerInner">
+        <a className="logo" href="#"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#results">Results</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a className="button buttonSmall" href="#contact">Get More Jobs <span>→</span></a>
+      </div>
+    </header>
+
+    <section className="hero">
+      <div className="heroGlow heroGlowOne"></div>
+      <div className="heroGlow heroGlowTwo"></div>
+      <div className="shell heroGrid">
+        <div className="heroCopy">
+          <div className="eyebrow">Digital marketing for tradies</div>
+          <h1>More jobs.<br/><span>Less chasing.</span></h1>
+          <p>We build the marketing system around your trade business so more of the right people find you, enquire and book.</p>
+          <div className="heroActions">
+            <a className="button" href="#contact">Get More Jobs <span>→</span></a>
+            <a className="textLink" href="#process">See how it works <span>↗</span></a>
+          </div>
+          <div className="proofRow">
+            <span>● More calls</span>
+            <span>● More quotes</span>
+            <span>● More booked jobs</span>
+          </div>
+        </div>
+
+        <div className="heroVisual">
+          <div className="heroPhoto"></div>
+          <div className="floatingCard">
+            <span className="floatingIcon">↗</span>
+            <div><b>Built for tradies</b><small>Clear strategy. Better follow-up. More opportunity.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="tradeSection">
+      <div className="shell tradebar">
+        {trades.map(([icon,name])=><div className="tradeItem" key={name}><b>{icon}</b><span>{name}</span></div>)}
+      </div>
+    </section>
+
+    <section className="section opportunity" data-reveal="true">
+      <div className="shell split">
+        <div className="sectionCopy">
+          <div className="eyebrow">The opportunity</div>
+          <h2>Your next job is already searching.</h2>
+          <p>See what a small lift in booked work could mean for your business. No vanity metrics — just a simple view of potential revenue.</p>
+        </div>
+
+        <div className="calculatorCard">
+          <div className="cardHeading">
+            <div className="iconTile">▣</div>
+            <div><b>See your potential</b><span>Estimate what a few extra jobs could mean each month.</span></div>
+          </div>
+
+          <div className="controlGrid">
+            <label>Average job value
+              <select value={job} onChange={e=>setJob(e.target.value)}>
+                <option value="2000">$2,000</option>
+                <option value="5000">$5,000</option>
+                <option value="8000">$8,000</option>
+                <option value="12000">$12,000</option>
+                <option value="20000">$20,000</option>
+              </select>
+            </label>
+            <label>Extra jobs per month
+              <input type="number" min="1" max="50" value={count} onChange={e=>setCount(e.target.value)}/>
+            </label>
+          </div>
+
+          <div className="potentialResult">
+            <span>Potential additional work</span>
+            <strong>$${total.toLocaleString()}<small>/ month</small></strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" className="section services" data-reveal="true">
+      <div className="shell">
+        <div className="sectionHeader">
+          <div>
+            <div className="eyebrow">Our services</div>
+            <h2>Everything you need for a steady flow of jobs.</h2>
+          </div>
+          <p>A complete digital system built around the way trade businesses actually win work.</p>
+        </div>
+
+        <div className="serviceGrid">
+          {services.map(([icon,name,desc])=>
+            <article className="serviceCard" key={name}>
+              <div className="serviceIcon">{icon}</div>
+              <h3>{name}</h3>
+              <p>{desc}</p>
+              <a href="#contact">Learn more <span>→</span></a>
+            </article>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section id="results" className="section results" data-reveal="true">
+      <div className="shell resultsGrid">
+        <div className="resultsCopy">
+          <div className="eyebrow">What the system is built to improve</div>
+          <h2>More visibility.<br/>Better follow-up.<br/>More booked work.</h2>
+          <p>Every part of the system is designed around one commercial goal: turning attention into real enquiries and real jobs.</p>
+          <div className="metricRow">
+            <div><b>01</b><span>Get found</span></div>
+            <div><b>02</b><span>Convert enquiries</span></div>
+            <div><b>03</b><span>Follow up faster</span></div>
+          </div>
+        </div>
+
+        <div className="resultFeature">
+          <div className="resultGlow"></div>
+          <div className="resultTop">
+            <span className="quoteMark">“</span>
+            <span className="stars">★★★★★</span>
+          </div>
+          <h3>Your verified client story belongs here.</h3>
+          <p>Keep this area for a real testimonial and real numbers once they are ready. The design is built so proof can sit here without making the page feel busy.</p>
+          <div className="clientLine"><span className="avatar">MM</span><div><b>Real client</b><small>Trade business · Australia</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" className="section contact" data-reveal="true">
+      <div className="shell contactCard">
+        <div className="contactCopy">
+          <div className="eyebrow">Ready for more jobs?</div>
+          <h2>Let’s grow your business.</h2>
+          <p>Tell us what you do and where you work. We’ll show you what we’d focus on first.</p>
+          <div className="contactPoints"><span>✓ No obligation</span><span>✓ Tailored to your business</span><span>✓ Clear next step</span></div>
+        </div>
+        <form className="leadForm">
+          <input placeholder="Full name"/>
+          <input placeholder="Phone number"/>
+          <select defaultValue=""><option value="" disabled>Your trade / business type</option>{trades.map(([,t])=><option key={t}>{t}</option>)}</select>
+          <button type="button">Show Me The Opportunity <span>→</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section id="process" className="section process" data-reveal="true">
+      <div className="shell">
+        <div className="sectionHeader processHeader">
+          <div><div className="eyebrow">Our process</div><h2>Simple. Strategic. Effective.</h2></div>
+          <p>A clear four-step path from first conversation to a marketing system that is live and improving.</p>
+        </div>
+        <div className="processGrid">
+          {steps.map(([num,title,desc])=>
+            <article className="processCard" key={num}>
+              <span className="stepNum">{num}</span>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </article>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section className="section finalSection" data-reveal="true">
+      <div className="shell finalCard">
+        <div><div className="eyebrow">More jobs are closer than you think.</div><h2>Build a system that brings the work to you.</h2></div>
+        <a className="button" href="#contact">Get More Jobs <span>→</span></a>
+      </div>
+    </section>
+
+    <footer>
+      <div className="shell footerInner">
+        <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
+        <div className="footerLinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+        <a className="footerCta" href="#contact">Get More Jobs →</a>
+      </div>
+    </footer>
+  </main>;
 }
