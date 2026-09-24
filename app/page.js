@@ -93,40 +93,23 @@ export default function Home(){
         <div className="heroCopy">
           <div className="eyebrow">Digital marketing for tradies</div>
           <h1>More jobs.<br/><span>Less chasing.</span></h1>
-          <p>We build the marketing system around your trade business so more of the right people find you, enquire and book.</p>
+          <p>We help tradies get found, generate more enquiries and turn them into booked work.</p>
           <div className="heroActions">
             <a className="button primaryCta" href="#contact">Get More Jobs <span>→</span></a>
             <a className="offerButton" href="#contact">Free Month Offer</a>
           </div>
         </div>
 
-        <div className="heroVisual">
-          <div className="heroPhoto"></div>
-        </div>
-      </div>
-    </section>
-
-    <section className="tradeSection">
-      <div className="shell tradebar">
-        {trades.map(([icon,name])=><div className="tradeItem" key={name}><b>{icon}</b><span>{name}</span></div>)}
-      </div>
-    </section>
-
-    <section className="section opportunity" data-reveal="true">
-      <div className="shell split">
-        <div className="sectionCopy">
-          <div className="eyebrow">The opportunity</div>
-          <h2>Your next job is already searching.</h2>
-          <p>See what a small lift in booked work could mean for your business. No vanity metrics — just a simple view of potential revenue.</p>
-        </div>
-
-        <div className="calculatorCard">
-          <div className="cardHeading">
-            <div className="iconTile">▣</div>
-            <div><b>See your potential</b><span>Estimate what a few extra jobs could mean each month.</span></div>
+        <div className="heroCalculator">
+          <div className="heroCalcTop">
+            <div>
+              <div className="heroCalcEyebrow">See what more jobs could be worth.</div>
+              <h2>Calculate your opportunity.</h2>
+            </div>
+            <span className="heroCalcIcon">↗</span>
           </div>
 
-          <div className="controlGrid">
+          <div className="heroCalcFields">
             <label>Average job value
               <select value={job} onChange={e=>setJob(e.target.value)}>
                 <option value="2000">$2,000</option>
@@ -141,11 +124,19 @@ export default function Home(){
             </label>
           </div>
 
-          <div className="potentialResult">
+          <div className="heroCalcResult">
             <span>Potential additional work</span>
-            <strong>$${total.toLocaleString()}<small>/ month</small></strong>
+            <strong>${total.toLocaleString()}<small>/ month</small></strong>
           </div>
+
+          <a className="heroCalcCta" href="#contact">Show me how <span>→</span></a>
         </div>
+      </div>
+    </section>
+
+    <section className="tradeSection">
+      <div className="shell tradebar">
+        {trades.map(([icon,name])=><div className="tradeItem" key={name}><b>{icon}</b><span>{name}</span></div>)}
       </div>
     </section>
 
