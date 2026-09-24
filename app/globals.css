@@ -2022,3 +2022,62 @@ footer{padding:0 0 46px}
     padding-top:11px;
   }
 }
+
+/* Simplified mobile header: logo + menu only */
+@media(max-width:640px){
+  .headerInner{
+    height:64px;
+    gap:12px;
+  }
+
+  .logo{
+    width:124px;
+    height:50px;
+    flex:0 0 124px;
+  }
+  .logo img{
+    width:118px;
+    height:48px;
+  }
+
+  .headerActions{
+    margin-left:auto;
+    gap:0;
+  }
+
+  .headerActions .primaryCta,
+  .headerActions .offerButton{
+    display:none;
+  }
+
+  .mobileMenuButton{
+    width:42px;
+    height:42px;
+    margin-left:auto;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#0d0e12;
+    box-shadow:none;
+  }
+
+  .mobileMenuButton span{
+    width:18px;
+    height:2px;
+  }
+
+  .mobileMenu{
+    top:70px;
+  }
+
+  .hero{
+    padding-top:124px;
+  }
+}
+
+@media(max-width:390px){
+  .logo{
+    width:116px;
+    flex-basis:116px;
+  }
+  .logo img{width:112px}
+}
