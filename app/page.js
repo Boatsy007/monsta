@@ -36,22 +36,7 @@ export default function Home(){
   const breakEvenJobs=useMemo(()=>Math.max(1,Math.ceil(Number(spend||0)/Math.max(1,Number(job||0)))),[spend,job]);
   const leadsNeeded=useMemo(()=>Math.max(1,Math.ceil(breakEvenJobs/(Math.max(1,Number(closeRate||0))/100))),[breakEvenJobs,closeRate]);
 
-  useEffect(()=>{
-    const reveal=()=>{
-      document.querySelectorAll("[data-reveal]").forEach((el)=>{
-        if(el.getBoundingClientRect().top < window.innerHeight * 0.88){
-          el.setAttribute("data-visible","true");
-        }
-      });
-    };
-    reveal();
-    window.addEventListener("scroll",reveal,{passive:true});
-    window.addEventListener("resize",reveal);
-    return()=>{
-      window.removeEventListener("scroll",reveal);
-      window.removeEventListener("resize",reveal);
-    };
-  },[]);
+
 
   return <main>
     <div className="promoTicker" aria-label="Current promotion">
@@ -250,7 +235,7 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="services" className="section services" data-reveal="true">
+    <section id="services" className="section services">
       <div className="shell">
         <div className="sectionHeader">
           <div>
@@ -273,7 +258,7 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="results" className="section results" data-reveal="true">
+    <section id="results" className="section results">
       <div className="shell resultsGrid">
         <div className="resultsCopy">
           <div className="eyebrow">What the system is built to improve</div>
@@ -297,7 +282,7 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="contact" className="section contact" data-reveal="true">
+    <section id="contact" className="section contact">
       <div className="shell contactCard">
         <div className="contactCopy">
           <div className="eyebrow">Ready for more jobs?</div>
@@ -314,7 +299,7 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="process" className="section process" data-reveal="true">
+    <section id="process" className="section process">
       <div className="shell">
         <div className="sectionHeader processHeader">
           <div><div className="eyebrow">Our process</div><h2>Simple. Strategic. Effective.</h2></div>
@@ -332,7 +317,7 @@ export default function Home(){
       </div>
     </section>
 
-    <section className="section finalSection" data-reveal="true">
+    <section className="section finalSection">
       <div className="shell finalCard">
         <div><div className="eyebrow">More jobs are closer than you think.</div><h2>Build a system that brings the work to you.</h2></div>
         <a className="button" href="#contact">Get More Jobs <span>→</span></a>
