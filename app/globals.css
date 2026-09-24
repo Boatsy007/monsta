@@ -858,3 +858,79 @@ footer{padding:0 0 46px}
   .heroCalcTop h2{font-size:28px}
   .heroCalcResult strong{font-size:38px}
 }
+
+/* Hero marketing-return planner refinements */
+.heroCalcFieldsThree{grid-template-columns:repeat(3,minmax(0,1fr))}
+.roiResult{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  padding:0;
+  margin-top:24px;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.roiResult>div{
+  padding:20px 20px 20px 0;
+}
+.roiResult>div+div{
+  padding-left:20px;
+  border-left:1px solid rgba(255,255,255,.08);
+}
+.roiResult>div>span{
+  display:block;
+  color:#8f929a;
+  font-size:11px;
+  line-height:1.45;
+}
+.roiResult strong{
+  display:block;
+  margin-top:8px;
+  color:var(--pink);
+  font-size:38px;
+  line-height:1;
+  letter-spacing:-.04em;
+  font-weight:700;
+}
+.roiResult strong small{
+  margin-left:6px;
+  color:#a0a2aa;
+  font-size:12px;
+  font-weight:550;
+}
+.heroPlan{
+  position:relative;
+  z-index:1;
+  padding:20px 0 4px;
+}
+.heroPlanLabel{
+  display:block;
+  margin-bottom:12px;
+  color:#a5a7ae;
+  font-size:11px;
+  font-weight:650;
+}
+.heroPlanItems{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.heroPlanItems span{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
+  color:#d2d3d7;
+  background:rgba(255,255,255,.025);
+  font-size:10px;
+}
+.heroCalcCta{margin-top:18px}
+@media(max-width:1050px){
+  .heroCalcFieldsThree{grid-template-columns:1fr 1fr}
+  .heroCalcFieldsThree label:last-child{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .heroCalcFieldsThree{grid-template-columns:1fr}
+  .heroCalcFieldsThree label:last-child{grid-column:auto}
+  .roiResult{grid-template-columns:1fr}
+  .roiResult>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.08)}
+}
