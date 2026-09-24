@@ -53,10 +53,12 @@ export default function Home(){
     <div className="promoTicker" aria-label="Current promotion">
       <div className="promoTrack">
         {[0,1].map((group)=><div className="promoGroup" key={group}>
-          <span className="promoPink">GET MORE LEADS</span><span className="promoDot">•</span>
-          <span className="promoOffer">FREE MONTH OFFER</span><span className="promoDot">•</span>
-          <span className="promoPink">GET MORE LEADS</span><span className="promoDot">•</span>
-          <span className="promoOffer">FREE MONTH OFFER</span><span className="promoDot">•</span>
+          {Array.from({length:6}).map((_,i)=><span className="promoPair" key={i}>
+            <span className="promoPink">GET MORE LEADS</span>
+            <span className="promoDot">•</span>
+            <span className="promoOffer">FREE MONTH OFFER</span>
+            <span className="promoDot">•</span>
+          </span>)}
         </div>)}
       </div>
     </div>
