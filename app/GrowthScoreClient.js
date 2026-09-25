@@ -133,7 +133,41 @@ export default function GrowthScoreClient({variant="section"}){
       },
     }[weakest.key];
 
-    return {overall,dimensions,...copy};
+    const recommendations=[];
+
+    const addRecommendation=(name,reason)=>{
+      if(!recommendations.some(item=>item.name===name) && recommendations.length<3){
+        recommendations.push({name,reason});
+      }
+    };
+
+    if(leads<62){
+      addRecommendation("Lead generation","Build a more consistent flow of qualified enquiries.");
+    }
+
+    if(visibility<62){
+      addRecommendation("Google Ads + SEO","Get found more often by local customers actively searching.");
+    }
+
+    if(conversion<62){
+      addRecommendation("Appointment setting","Follow up leads faster and turn more enquiries into booked conversations.");
+    }
+
+    if(conversion<68 && answers.response==="Often the next day"){
+      addRecommendation("Lead follow-up","Reduce the gap between a new enquiry and the first response.");
+    }
+
+    if(recommendations.length===0){
+      if(weakest.key==="visibility"){
+        addRecommendation("SEO + Google Ads","Strengthen local visibility and capture more high-intent searches.");
+      }else if(weakest.key==="leads"){
+        addRecommendation("Lead generation","Create a steadier stream of genuine enquiries.");
+      }else{
+        addRecommendation("Appointment setting","Improve follow-up and help more leads progress toward booked work.");
+      }
+    }
+
+    return {overall,dimensions,recommendations,...copy};
   },[answers]);
 
   function choose(option){
@@ -228,6 +262,21 @@ export default function GrowthScoreClient({variant="section"}){
             <span>Biggest opportunity</span>
             <h3>{result.title}</h3>
             <p>{result.text}</p>
+          </div>
+
+          <div className="growthScoreRecommendations">
+            <span className="growthScoreRecommendationsLabel">What we'd look at first</span>
+            <div className="growthScoreRecommendationList">
+              {result.recommendations.map(item=>
+                <div className="growthScoreRecommendation" key={item.name}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <p>{item.reason}</p>
+                  </div>
+                  <span>↗</span>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="growthScoreResultActions">
