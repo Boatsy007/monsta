@@ -2161,3 +2161,181 @@ footer{padding:0 0 40px}
   .founderStoryCopy>p{font-size:15px}
   .founderStoryQuote p{font-size:14px}
 }
+
+
+/* Monsta lowercase-m trade layout */
+.monstaMSection{
+  padding:26px 0 34px;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  overflow:hidden;
+}
+.monstaMStage{
+  position:relative;
+  width:100%;
+  height:520px;
+  max-width:820px;
+  margin:0 auto;
+}
+.monstaMMark{
+  position:absolute;
+  inset:26px 2% 10px;
+  width:96%;
+  height:calc(100% - 36px);
+  overflow:visible;
+  opacity:.96;
+  filter:
+    drop-shadow(0 0 12px rgba(255,0,140,.20))
+    drop-shadow(0 0 34px rgba(255,0,140,.10));
+}
+.monstaMMark path{
+  fill:none;
+  stroke:rgba(255,0,140,.16);
+  stroke-width:14;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.monstaMTrade{
+  position:absolute;
+  z-index:2;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:0 15px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012)),
+    rgba(5,5,7,.90);
+  color:#d7d9de;
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.035);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+.monstaMTrade:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,0,140,.30);
+  background:
+    linear-gradient(145deg,rgba(255,0,140,.08),rgba(255,255,255,.015)),
+    rgba(5,5,7,.92);
+  box-shadow:
+    0 0 22px rgba(255,0,140,.12),
+    0 18px 38px rgba(0,0,0,.34);
+}
+.monstaMTrade:active{transform:scale(.985)}
+.monstaMTrade b{
+  flex:0 0 auto;
+  color:var(--pink);
+  font-size:20px;
+}
+.monstaMTrade span{
+  min-width:0;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.monstaMTrade i{
+  margin-left:auto;
+  color:var(--pink);
+  font-size:26px;
+  font-style:normal;
+  font-weight:500;
+  line-height:1;
+}
+.monstaMWordmark{
+  width:118px;
+  max-width:calc(100% - 28px);
+  height:auto;
+  object-fit:contain;
+}
+
+/* Mobile: cards trace the rounded lower-case m arches */
+.monstaM-roofing{
+  top:2%;
+  left:0;
+  width:43%;
+}
+.monstaM-plumbing{
+  top:2%;
+  right:0;
+  width:43%;
+}
+.monstaM-electrical{
+  top:25%;
+  left:11%;
+  width:39%;
+}
+.monstaM-hvac{
+  top:25%;
+  right:9%;
+  width:39%;
+}
+.monstaM-fencing{
+  top:48%;
+  left:50%;
+  width:42%;
+  transform:translateX(-50%);
+}
+.monstaM-fencing:hover{transform:translate(-50%,-2px)}
+.monstaM-fencing:active{transform:translateX(-50%) scale(.985)}
+.monstaM-building{
+  bottom:2%;
+  left:0;
+  width:39%;
+}
+.monstaM-landscaping{
+  bottom:2%;
+  right:0;
+  width:43%;
+}
+
+@media(max-width:420px){
+  .monstaMStage{height:500px}
+  .monstaMTrade{
+    min-height:68px;
+    padding:0 12px;
+    border-radius:16px;
+  }
+  .monstaMTrade span{font-size:11px}
+  .monstaMTrade b{font-size:18px}
+  .monstaMTrade i{font-size:23px}
+  .monstaMWordmark{width:104px}
+}
+
+@media(min-width:901px){
+  .monstaMSection{padding:38px 0 46px}
+  .monstaMStage{
+    height:500px;
+    max-width:1040px;
+  }
+  .monstaMMark{
+    inset:12px 7% 0;
+    width:86%;
+    height:calc(100% - 12px);
+  }
+  .monstaMMark path{
+    stroke-width:12;
+    stroke:rgba(255,0,140,.13);
+  }
+  .monstaMTrade{
+    min-height:78px;
+    padding:0 20px;
+  }
+  .monstaMTrade span{font-size:14px}
+  .monstaMTrade b{font-size:22px}
+  .monstaM-roofing{top:2%;left:4%;width:28%}
+  .monstaM-plumbing{top:2%;right:4%;width:28%}
+  .monstaM-electrical{top:30%;left:18%;width:24%}
+  .monstaM-hvac{top:30%;right:18%;width:24%}
+  .monstaM-fencing{top:55%;left:50%;width:25%}
+  .monstaM-building{bottom:0;left:5%;width:25%}
+  .monstaM-landscaping{bottom:0;right:5%;width:27%}
+}
