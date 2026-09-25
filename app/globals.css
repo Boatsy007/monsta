@@ -257,26 +257,50 @@ section[id]{scroll-margin-top:16px}
   text-align:center;
 }
 
-/* Calculator: one face in layout at a time, no 3D transforms */
+/* Calculator card flip */
 .heroCalculatorFlip{
   position:relative;
   width:auto;
   margin:0 18px 44px;
+  perspective:1600px;
 }
-.heroCalculatorInner{position:relative;display:block}
+.heroCalculatorInner{
+  position:relative;
+  display:grid;
+  transform-style:preserve-3d;
+  transition:transform 760ms cubic-bezier(.22,.75,.18,1);
+  will-change:transform;
+}
+.heroCalculatorFlip.isFlipped .heroCalculatorInner{
+  transform:rotateY(180deg);
+}
 .heroCalculator{
+  grid-area:1 / 1;
   width:100%;
   padding:22px 20px;
   border:1px solid rgba(255,255,255,.10);
   border-radius:22px;
   background:linear-gradient(135deg,#0d0e12 0%,#180612 100%);
   box-shadow:0 22px 54px rgba(0,0,0,.28);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform-style:preserve-3d;
 }
 .heroCalculator:after{display:none}
-.heroCalculatorFront{display:block}
-.heroCalculatorBack{display:none}
-.heroCalculatorFlip.isFlipped .heroCalculatorFront{display:none}
-.heroCalculatorFlip.isFlipped .heroCalculatorBack{display:block}
+.heroCalculatorFront{
+  transform:rotateY(0deg);
+  pointer-events:auto;
+}
+.heroCalculatorBack{
+  transform:rotateY(180deg);
+  pointer-events:none;
+}
+.heroCalculatorFlip.isFlipped .heroCalculatorFront{
+  pointer-events:none;
+}
+.heroCalculatorFlip.isFlipped .heroCalculatorBack{
+  pointer-events:auto;
+}
 .heroCalcTop{
   display:flex;
   align-items:flex-start;
@@ -846,4 +870,20 @@ footer{padding:0 0 40px}
 
 @media(min-width:901px){
   .tradePicker{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+
+/* Refine flip depth and motion */
+.heroCalculatorFront,
+.heroCalculatorBack{
+  transition:
+    box-shadow 760ms cubic-bezier(.22,.75,.18,1),
+    border-color 760ms cubic-bezier(.22,.75,.18,1);
+}
+.heroCalculatorFlip.isFlipped .heroCalculatorFront,
+.heroCalculatorFlip.isFlipped .heroCalculatorBack{
+  box-shadow:0 30px 72px rgba(0,0,0,.36);
+}
+@media(prefers-reduced-motion:reduce){
+  .heroCalculatorInner{transition:none}
 }
