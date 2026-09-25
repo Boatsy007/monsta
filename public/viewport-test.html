@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monsta viewport test</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#050506;color:#fff;font-family:Arial,sans-serif}
+    header{height:78px;display:flex;align-items:center;padding:0 18px;background:#050506;border-bottom:2px solid #ff008c;font-weight:800}
+    main{min-height:300vh;padding:28px 18px}
+    .marker{padding:18px;border:1px solid #444;border-radius:10px;margin-bottom:18px}
+    .readout{position:fixed;right:8px;bottom:8px;z-index:10;background:#fff;color:#111;padding:8px 10px;border-radius:8px;font:12px/1.4 monospace;max-width:90vw}
+  </style>
+</head>
+<body>
+  <header>HEADER — THIS IS DOCUMENT Y=0</header>
+  <main>
+    <div class="marker">If you can scroll back to this header, the raw static document is behaving normally.</div>
+    <p>Scroll down, let Chrome collapse its bars, then scroll all the way back up.</p>
+    <div style="height:220vh"></div>
+    <p>Bottom test marker.</p>
+  </main>
+  <div class="readout" id="readout">loading…</div>
+  <script>
+    (function(){
+      var el=document.getElementById('readout');
+      function update(){
+        var vv=window.visualViewport;
+        var bodyTop=document.body.getBoundingClientRect().top;
+        var headerTop=document.querySelector('header').getBoundingClientRect().top;
+        el.textContent='scrollY='+Math.round(window.scrollY)+' | docTop='+Math.round(document.documentElement.scrollTop)+' | bodyTop='+Math.round(bodyTop)+' | headerTop='+Math.round(headerTop)+' | vvTop='+(vv?Math.round(vv.offsetTop):'n/a');
+      }
+      addEventListener('scroll',update,{passive:true});
+      addEventListener('resize',update,{passive:true});
+      if(window.visualViewport){
+        visualViewport.addEventListener('scroll',update,{passive:true});
+        visualViewport.addEventListener('resize',update,{passive:true});
+      }
+      update();
+    })();
+  </script>
+</body>
+</html>
