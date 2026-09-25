@@ -6,33 +6,26 @@ export default function ScrollManager(){
   useEffect(()=>{
     window.history.scrollRestoration="manual";
 
-    let userInteracted=false;
+    const mobile=window.matchMedia("(max-width: 900px)").matches;
+    const main=document.querySelector(".site-main");
     const hasDeepAnchor=()=>window.location.hash && window.location.hash!=="#top";
-    const markInteraction=()=>{ userInteracted=true; };
-    const goToTop=()=>{
-      if(!userInteracted && !hasDeepAnchor()){
+
+    const resetTop=()=>{
+      if(hasDeepAnchor()) return;
+      if(mobile && main){
+        main.scrollTo({top:0,left:0,behavior:"auto"});
+      }else{
         window.scrollTo({top:0,left:0,behavior:"auto"});
       }
     };
 
-    const events=["touchstart","pointerdown","wheel","keydown"];
-    events.forEach(event=>window.addEventListener(event,markInteraction,{passive:true,once:true}));
-
-    goToTop();
-    const raf1=window.requestAnimationFrame(()=>{
-      goToTop();
-      window.requestAnimationFrame(goToTop);
-    });
-    const timers=[80,250,700,1400].map(delay=>window.setTimeout(goToTop,delay));
-
-    window.addEventListener("load",goToTop,{once:true});
-    window.addEventListener("pageshow",goToTop);
+    resetTop();
+    const raf=window.requestAnimationFrame(resetTop);
+    window.addEventListener("pageshow",resetTop);
 
     return ()=>{
-      window.cancelAnimationFrame(raf1);
-      timers.forEach(window.clearTimeout);
-      window.removeEventListener("pageshow",goToTop);
-      events.forEach(event=>window.removeEventListener(event,markInteraction));
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener("pageshow",resetTop);
     };
   },[]);
 
