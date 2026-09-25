@@ -126,13 +126,24 @@ function average(values,fallback=60){
   return values.length ? values.reduce((a,b)=>a+b,0)/values.length : fallback;
 }
 
+const serviceLinks={
+  "Growth Packages":"/services/growth-packages",
+  "Meta Ads":"/services/meta-ads",
+  "Google PPC":"/services/google-ppc",
+  "CRM/Lead Nurture Funnels":"/services/crm-lead-nurture",
+  "Website Development":"/services/website-development",
+  "SEO":"/services/seo",
+  "Social Media Management":"/services/social-media-management",
+  "Appointment Setting":"/services/appointment-setting",
+};
+
 function addService(list,name,reason,priority=1){
   const existing=list.find(item=>item.name===name);
   if(existing){
     existing.priority=Math.max(existing.priority,priority);
     return;
   }
-  list.push({name,reason,priority});
+  list.push({name,reason,priority,href:serviceLinks[name]});
 }
 
 export default function GrowthScoreClient({variant="section"}){
@@ -295,7 +306,7 @@ export default function GrowthScoreClient({variant="section"}){
         conversion:["Appointment Setting","Your foundations look solid. Appointment setting could be assessed if you want more consistency between enquiry, quote and booking."],
         systems:["CRM/Lead Nurture Funnels","Your foundations look solid. A CRM review could identify whether any follow-up or tracking can still be streamlined."],
       }[weakest.key];
-      finalRecommendations.push({name:fallback[0],reason:fallback[1],priority:1});
+      finalRecommendations.push({name:fallback[0],reason:fallback[1],priority:1,href:serviceLinks[fallback[0]]});
     }
 
     return {
@@ -468,13 +479,19 @@ export default function GrowthScoreClient({variant="section"}){
             <span className="growthScoreRecommendationsLabel">What we’d prioritise first</span>
             <div className="growthScoreRecommendationList">
               {result.recommendations.map(item=>
-                <div className="growthScoreRecommendation" key={item.name}>
+                <a
+                  className="growthScoreRecommendation"
+                  href={item.href}
+                  key={item.name}
+                  aria-label={`Learn more about ${item.name}`}
+                >
                   <div>
                     <strong>{item.name}</strong>
                     <p>{item.reason}</p>
+                    <span className="growthScoreRecommendationLink">Explore service →</span>
                   </div>
-                  <span>↗</span>
-                </div>
+                  <span className="growthScoreRecommendationArrow">↗</span>
+                </a>
               )}
             </div>
             {result.recommendations.some(item=>item.name==="Appointment Setting") &&
