@@ -2597,3 +2597,26 @@ footer{padding:0 0 40px}
     font-size:10px;
   }
 }
+
+
+/* Growth Score diagnostic refinements */
+.growthScoreMiniBrand{
+  margin-top:22px;
+  color:var(--pink);
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.growthScoreAppointmentNote{
+  margin:10px 2px 0;
+  color:#6f727a;
+  font-size:8px;
+  line-height:1.5;
+}
+.growthScoreResult .growthScoreRecommendationsLabel{
+  color:#9b9ea6;
+}
+@media(min-width:901px){
+  .growthScoreAppointmentNote{font-size:9px}
+}
