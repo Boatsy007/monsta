@@ -110,8 +110,9 @@ export function generateStaticParams(){
   return Object.keys(TRADE_PAGES).map(slug=>({slug}));
 }
 
-export function generateMetadata({params}){
-  const data=TRADE_PAGES[params.slug];
+export async function generateMetadata({params}){
+  const {slug}=await params;
+  const data=TRADE_PAGES[slug];
   if(!data) return {title:"Trade Marketing | Monsta Miami"};
   return {
     title:`${data.name} Marketing | Monsta Miami`,
@@ -119,8 +120,9 @@ export function generateMetadata({params}){
   };
 }
 
-export default function TradePage({params}){
-  const data=TRADE_PAGES[params.slug];
+export default async function TradePage({params}){
+  const {slug}=await params;
+  const data=TRADE_PAGES[slug];
   if(!data) return null;
 
   return (
