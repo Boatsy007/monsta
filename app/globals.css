@@ -268,7 +268,7 @@ section[id]{scroll-margin-top:16px}
   position:relative;
   display:grid;
   transform-style:preserve-3d;
-  transition:transform 760ms cubic-bezier(.22,.75,.18,1);
+  transition:transform 980ms cubic-bezier(.22,.72,.18,1);
   will-change:transform;
 }
 .heroCalculatorFlip.isFlipped .heroCalculatorInner{
@@ -889,8 +889,8 @@ footer{padding:0 0 40px}
 .heroCalculatorFront,
 .heroCalculatorBack{
   transition:
-    box-shadow 760ms cubic-bezier(.22,.75,.18,1),
-    border-color 760ms cubic-bezier(.22,.75,.18,1);
+    box-shadow 980ms cubic-bezier(.22,.72,.18,1),
+    border-color 980ms cubic-bezier(.22,.72,.18,1);
 }
 .heroCalculatorFlip.isFlipped .heroCalculatorFront,
 .heroCalculatorFlip.isFlipped .heroCalculatorBack{
