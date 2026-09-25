@@ -45,48 +45,45 @@ main{
   min-height:0;
 }
 .site-main{
-  grid-row:2;
+  grid-row:1 / -1;
   height:100%;
   min-height:0;
-  padding-top:0;
+  padding-top:var(--header-height);
   overflow-x:hidden;
   overflow-y:auto;
   overscroll-behavior-y:contain;
   -webkit-overflow-scrolling:touch;
-  scroll-padding-top:16px;
+  scroll-padding-top:calc(var(--header-height) + 16px);
 }
 section[id]{scroll-margin-top:16px}
 .shell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
 
-/* Site header is outside <main> and fixed to the viewport.
-   The page receives an equal top offset, so the hero cannot sit underneath it. */
+/* Mobile header overlays the internal page scroller.
+   The page starts below it, then scrolls behind it so real content is blurred through the glass. */
 .site-header{
   position:relative;
   grid-row:1;
   z-index:10000;
   width:100%;
   height:var(--header-height);
-  isolation:isolate;
-  background:
-    linear-gradient(100deg,rgba(255,0,140,.08),rgba(8,223,228,.035) 58%,rgba(255,255,255,.025)),
-    rgba(5,5,7,.34);
-  -webkit-backdrop-filter:blur(24px) saturate(185%);
-  backdrop-filter:blur(24px) saturate(185%);
-  border-bottom:1px solid rgba(255,255,255,.14);
+  background:rgba(6,6,9,.28);
+  -webkit-backdrop-filter:blur(22px) saturate(175%);
+  backdrop-filter:blur(22px) saturate(175%);
+  border-bottom:1px solid rgba(255,255,255,.13);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.07),
-    0 10px 30px rgba(0,0,0,.14);
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 12px 32px rgba(0,0,0,.12);
+  transform:translate3d(0,0,0);
+  transition:
+    transform 420ms cubic-bezier(.16,1,.3,1),
+    background-color 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+  will-change:transform;
+  backface-visibility:hidden;
 }
-.site-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 18% 0%,rgba(255,0,140,.12),transparent 34%),
-    radial-gradient(circle at 82% 100%,rgba(8,223,228,.06),transparent 38%);
-  opacity:.8;
+.site-header.is-hidden{
+  transform:translate3d(0,calc(-100% - 2px),0);
 }
 .header-inner{
   width:calc(100% - 28px);
