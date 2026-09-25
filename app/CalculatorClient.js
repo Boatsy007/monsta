@@ -2,89 +2,64 @@
 
 import {useMemo,useState} from "react";
 
+const ESTIMATED_COST_PER_LEAD=80;
+
 export default function CalculatorClient({trades}){
   const [planOpen,setPlanOpen]=useState(false);
-  const [job,setJob]=useState(8000);
   const [spend,setSpend]=useState(2500);
-  const [closeRate,setCloseRate]=useState(25);
 
-  const breakEvenJobs=useMemo(
-    ()=>Math.max(1,Math.ceil(Number(spend||0)/Math.max(1,Number(job||0)))),
-    [spend,job]
+  const estimatedLeads=useMemo(
+    ()=>Math.max(1,Math.round(Number(spend||0)/ESTIMATED_COST_PER_LEAD)),
+    [spend]
   );
-  const leadsNeeded=useMemo(
-    ()=>Math.max(1,Math.ceil(breakEvenJobs/(Math.max(1,Number(closeRate||0))/100))),
-    [breakEvenJobs,closeRate]
-  );
+
+  const sliderPercent=((spend-1000)/(10000-1000))*100;
 
   return (
     <div className={`heroCalculatorFlip ${planOpen?"isFlipped":""}`}>
       <div className="heroCalculatorInner">
-        <div className="heroCalculator heroCalculatorFront">
-          <div className="heroCalcTop">
-            <div>
-              <div className="heroCalcEyebrow">Make the spend make sense.</div>
-              <h2>What does your marketing need to return?</h2>
-              <p>See what your investment needs to generate to pay for itself.</p>
-            </div>
-            <span className="heroCalcIcon">↗</span>
+        <div className="heroCalculator heroCalculatorFront simpleLeadCalc">
+          <div className="simpleCalcHeader">
+            <span className="simpleCalcKicker">Lead estimator</span>
+            <h2>See what your ad spend could generate.</h2>
+            <p>Choose a monthly ad budget and get a simple lead estimate.</p>
           </div>
 
-          <div className="heroCalcFields heroCalcFieldsThree">
-            <label>Monthly marketing investment
-              <select value={spend} onChange={e=>setSpend(e.target.value)}>
-                <option value="1500">$1,500</option>
-                <option value="2500">$2,500</option>
-                <option value="4000">$4,000</option>
-                <option value="6000">$6,000</option>
-                <option value="10000">$10,000</option>
-              </select>
-            </label>
-            <label>Average job value
-              <select value={job} onChange={e=>setJob(e.target.value)}>
-                <option value="1000">$1,000</option>
-                <option value="2500">$2,500</option>
-                <option value="5000">$5,000</option>
-                <option value="8000">$8,000</option>
-                <option value="12000">$12,000</option>
-                <option value="20000">$20,000</option>
-              </select>
-            </label>
-            <label>Your lead-to-job close rate
-              <select value={closeRate} onChange={e=>setCloseRate(e.target.value)}>
-                <option value="10">10%</option>
-                <option value="20">20%</option>
-                <option value="25">25%</option>
-                <option value="30">30%</option>
-                <option value="40">40%</option>
-                <option value="50">50%</option>
-              </select>
-            </label>
-          </div>
-
-          <div className="breakEvenTarget">
-            <span className="breakEvenLabel">Your break-even target</span>
-            <div className="breakEvenPrimary">
-              <strong>{breakEvenJobs}</strong>
-              <span>{breakEvenJobs===1?"booked job":"booked jobs"}</span>
+          <div className="spendControl">
+            <div className="spendControlTop">
+              <span>Monthly ad spend</span>
+              <strong>$\{Number(spend).toLocaleString()}</strong>
             </div>
-            <div className="breakEvenSecondary">
-              or approximately <b>{leadsNeeded} {leadsNeeded===1?"qualified lead":"qualified leads"}</b>
-            </div>
-            <p>Based on a ${Number(spend).toLocaleString()} investment, ${Number(job).toLocaleString()} average job and {closeRate}% close rate.</p>
-          </div>
 
-          <div className="heroPlan">
-            <span className="heroPlanLabel">Your plan includes</span>
-            <div className="heroPlanColumns">
-              <div><b>Acquire</b><span>Google + Meta</span></div>
-              <div><b>Convert</b><span>Landing pages + tracking</span></div>
-              <div><b>Follow up</b><span>Automation + optimisation</span></div>
+            <input
+              className="spendSlider"
+              type="range"
+              min="1000"
+              max="10000"
+              step="250"
+              value={spend}
+              onChange={e=>setSpend(Number(e.target.value))}
+              style={{"--slider-fill":`${sliderPercent}%`}}
+              aria-label="Monthly ad spend"
+            />
+
+            <div className="spendScale">
+              <span>$1k</span>
+              <span>$10k</span>
             </div>
           </div>
 
-          <button className="heroCalcCta" type="button" onClick={()=>setPlanOpen(true)}>
-            Build my plan <span>→</span>
+          <div className="leadEstimate">
+            <span className="leadEstimateLabel">Estimated monthly leads</span>
+            <div className="leadEstimateNumber">
+              <strong>{estimatedLeads}</strong>
+              <span>leads</span>
+            </div>
+            <p>Planning estimate based on an average cost per lead of about $\{ESTIMATED_COST_PER_LEAD}. Actual results vary by trade, location and competition.</p>
+          </div>
+
+          <button className="heroCalcCta simpleCalcCta" type="button" onClick={()=>setPlanOpen(true)}>
+            Show me how to get there <span>→</span>
           </button>
         </div>
 
