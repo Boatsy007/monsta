@@ -11,7 +11,6 @@ function Header(){
       <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
       <nav className="desktop-nav" aria-label="Primary">
         <a href="/services">Services</a>
-        <a href="/results">Results</a>
         <a href="/university">University</a>
         <a href="/#contact">Contact</a>
       </nav>
