@@ -90,6 +90,46 @@ export default function Home(){
       </div>
     </section>
 
+
+    <section className="section growthFlow">
+      <div className="shell">
+        <div className="sectionHeader growthFlowHeader">
+          <div>
+            <div className="eyebrow">From ad spend to booked jobs</div>
+            <h2>A marketing system built around the outcome that matters.</h2>
+          </div>
+          <p>Not just clicks and impressions. We connect the steps from being found to turning a genuine enquiry into booked work.</p>
+        </div>
+
+        <div className="growthFlowGrid">
+          <article className="growthFlowCard">
+            <span>01</span>
+            <div className="growthFlowIcon">⌕</div>
+            <h3>Get found</h3>
+            <p>Put your business in front of local people already looking for the work you do.</p>
+          </article>
+          <article className="growthFlowCard">
+            <span>02</span>
+            <div className="growthFlowIcon">↗</div>
+            <h3>Generate enquiries</h3>
+            <p>Use focused ads and landing pages designed to turn attention into genuine leads.</p>
+          </article>
+          <article className="growthFlowCard">
+            <span>03</span>
+            <div className="growthFlowIcon">◉</div>
+            <h3>Follow up faster</h3>
+            <p>Keep good opportunities moving instead of letting valuable enquiries go cold.</p>
+          </article>
+          <article className="growthFlowCard">
+            <span>04</span>
+            <div className="growthFlowIcon">✓</div>
+            <h3>Book more work</h3>
+            <p>Measure the system around quoting opportunities and booked jobs, not vanity metrics.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="services" className="section services">
       <div className="shell">
         <div className="sectionHeader">
