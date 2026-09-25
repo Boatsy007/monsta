@@ -2161,3 +2161,309 @@ footer{padding:0 0 40px}
   .founderStoryCopy>p{font-size:15px}
   .founderStoryQuote p{font-size:14px}
 }
+
+
+/* Monsta Growth Score */
+.growthScoreSection{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  background:
+    radial-gradient(circle at 88% 20%,rgba(255,0,140,.08),transparent 28%),
+    #050506;
+}
+.growthScoreShell{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:34px;
+  align-items:start;
+}
+.growthScoreIntro h2{
+  margin:0;
+  max-width:720px;
+  font-size:40px;
+  line-height:1;
+  letter-spacing:-.048em;
+}
+.growthScoreIntro>p{
+  max-width:590px;
+  margin:18px 0 0;
+  color:#979aa2;
+  font-size:14px;
+  line-height:1.65;
+}
+.growthScoreMeta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.growthScoreMeta span{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
+  background:rgba(255,255,255,.022);
+  color:#b9bbc1;
+  font-size:9px;
+  font-weight:800;
+}
+.growthScoreCard{
+  min-width:0;
+  padding:22px 20px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 92% 0%,rgba(255,0,140,.12),transparent 34%),
+    linear-gradient(145deg,#0e0f13,#09090b);
+  box-shadow:0 26px 70px rgba(0,0,0,.28);
+}
+.growthScoreTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  color:#898c94;
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.growthScoreTop strong{color:#ff69bb}
+.growthScoreProgress{
+  height:3px;
+  margin-top:11px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+}
+.growthScoreProgress i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:var(--pink);
+  box-shadow:0 0 14px rgba(255,0,140,.48);
+  transition:width .35s cubic-bezier(.22,.72,.18,1);
+}
+.growthScoreQuestion{
+  animation:growthScoreIn .28s ease both;
+}
+@keyframes growthScoreIn{
+  from{opacity:0;transform:translateY(7px)}
+  to{opacity:1;transform:none}
+}
+.growthScoreQuestion h3{
+  margin:26px 0 8px;
+  font-size:25px;
+  line-height:1.08;
+  letter-spacing:-.035em;
+}
+.growthScoreQuestion>p{
+  margin:0;
+  color:#7f828a;
+  font-size:11px;
+}
+.growthScoreOptions{
+  display:grid;
+  gap:9px;
+  margin-top:22px;
+}
+.growthScoreOptions button{
+  width:100%;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 15px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+  color:#d6d8dc;
+  text-align:left;
+  transition:border-color .18s ease,background .18s ease,transform .16s ease;
+}
+.growthScoreOptions button span{
+  font-size:12px;
+  font-weight:750;
+}
+.growthScoreOptions button b{
+  color:#6f727a;
+  font-size:18px;
+  font-weight:500;
+}
+.growthScoreOptions button.isSelected,
+.growthScoreOptions button:hover{
+  border-color:rgba(255,0,140,.34);
+  background:rgba(255,0,140,.075);
+}
+.growthScoreOptions button:active{transform:scale(.99)}
+.growthScoreOptions button.isSelected b,
+.growthScoreOptions button:hover b{color:var(--pink)}
+.growthScoreFooter{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+}
+.growthScoreFooter button,
+.growthScoreResultActions>button{
+  min-height:40px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#9a9da5;
+  font-size:10px;
+  font-weight:800;
+}
+.growthScoreFooter button:disabled{
+  opacity:.28;
+  cursor:default;
+}
+.growthScoreFooter span{
+  color:#676a72;
+  font-size:9px;
+}
+.growthScoreResult{
+  animation:growthScoreIn .3s ease both;
+}
+.growthScoreResultHero{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:25px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--line-soft);
+}
+.growthScoreResultHero>div>span{
+  display:block;
+  color:#9a9da5;
+  font-size:9px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.growthScoreResultHero strong{
+  display:block;
+  margin-top:8px;
+  color:#fff;
+  font-size:58px;
+  line-height:.92;
+  letter-spacing:-.06em;
+}
+.growthScoreResultHero strong small{
+  color:#72757d;
+  font-size:17px;
+  letter-spacing:-.02em;
+}
+.growthScoreResultHero>p{
+  margin:0;
+  color:#6e7179;
+  font-size:9px;
+  line-height:1.5;
+}
+.growthScoreBars{
+  display:grid;
+  gap:15px;
+  margin-top:20px;
+}
+.growthScoreBar>div{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:#b8bbc2;
+  font-size:10px;
+  font-weight:800;
+}
+.growthScoreBar>div b{color:#f3f3f4}
+.growthScoreBar em{
+  display:block;
+  height:6px;
+  margin-top:8px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+}
+.growthScoreBar em i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--pink),#ff68ba);
+}
+.growthScoreOpportunity{
+  margin-top:22px;
+  padding:18px;
+  border:1px solid rgba(255,0,140,.19);
+  border-radius:14px;
+  background:rgba(255,0,140,.045);
+}
+.growthScoreOpportunity>span{
+  color:#ff69bb;
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.growthScoreOpportunity h3{
+  margin:8px 0 7px;
+  font-size:20px;
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+.growthScoreOpportunity p{
+  margin:0;
+  color:#93969e;
+  font-size:11px;
+  line-height:1.6;
+}
+.growthScoreResultActions{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:6px;
+  margin-top:18px;
+}
+.growthScoreResultActions .button{
+  width:100%;
+  min-height:52px;
+  box-shadow:
+    0 0 18px rgba(255,0,140,.28),
+    0 0 36px rgba(255,0,140,.14);
+}
+.growthScoreResultActions>button{text-align:center}
+
+@media(min-width:901px){
+  .growthScoreShell{
+    grid-template-columns:minmax(0,.86fr) minmax(520px,1.14fr);
+    gap:84px;
+    align-items:center;
+  }
+  .growthScoreIntro h2{
+    font-size:clamp(48px,4.2vw,66px);
+  }
+  .growthScoreIntro>p{font-size:15px}
+  .growthScoreCard{padding:28px 28px}
+  .growthScoreQuestion h3{font-size:31px}
+  .growthScoreOptions{
+    grid-template-columns:1fr 1fr;
+  }
+  .growthScoreOptions button{min-height:58px}
+  .growthScoreResultHero{
+    grid-template-columns:1fr minmax(180px,240px);
+    align-items:end;
+  }
+  .growthScoreResultHero strong{font-size:66px}
+  .growthScoreResultActions{
+    flex-direction:row;
+    align-items:center;
+  }
+  .growthScoreResultActions .button{
+    width:auto;
+    padding:0 22px;
+  }
+  .growthScoreResultActions>button{
+    padding:0 12px;
+  }
+}
