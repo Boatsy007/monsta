@@ -41,8 +41,8 @@ export default function Image(){
           <div style={{fontSize:"22px",fontWeight:800,color:"#ff69bb",letterSpacing:".12em",textTransform:"uppercase",marginBottom:"20px"}}>
             Digital marketing for tradies
           </div>
-          <div style={{fontSize:"88px",lineHeight:.92,fontWeight:900,letterSpacing:"-.055em"}}>
-            More jobs.<br/>
+          <div style={{display:"flex",flexDirection:"column",fontSize:"88px",lineHeight:.92,fontWeight:900,letterSpacing:"-.055em"}}>
+            <span>More jobs.</span>
             <span style={{color:"#ff2c97"}}>Less chasing.</span>
           </div>
           <div style={{fontSize:"26px",lineHeight:1.45,color:"#a5a8af",marginTop:"28px",maxWidth:"820px"}}>
