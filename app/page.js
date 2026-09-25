@@ -38,7 +38,7 @@ export default function Home(){
 
 
   return <>
-        <header className="site-header">
+        <header id="top" className="site-header">
           <div className="header-inner">
             <a className="header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
             <nav className={`desktop-nav ${menuOpen?"mobile-open":""}`}>
@@ -68,7 +68,7 @@ export default function Home(){
 
 
 
-    <main id="top">
+    <main>
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
       <div className="hero-inner">
