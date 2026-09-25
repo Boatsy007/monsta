@@ -10,7 +10,6 @@ export default function ScrollManager(){
     const main=document.querySelector(".site-main");
     const header=document.querySelector(".site-header");
     const mobileNav=document.querySelector(".mobile-nav");
-    const hero=document.querySelector(".hero");
     const hasDeepAnchor=()=>window.location.hash && window.location.hash!=="#top";
 
     const resetTop=()=>{
@@ -41,10 +40,6 @@ export default function ScrollManager(){
       return Number.isFinite(h) && h>0 ? h : 78;
     };
 
-    const hideStart=()=>{
-      if(!hero) return Infinity;
-      return hero.offsetTop + (hero.offsetHeight * 0.5);
-    };
 
     let lastY=Math.max(0,main.scrollTop);
     let offset=0;
@@ -60,21 +55,15 @@ export default function ScrollManager(){
       const y=Math.max(0,main.scrollTop);
       const delta=y-lastY;
       const maxOffset=headerHeight();
-      const start=hideStart();
 
       if(mobileNav?.open || y<=0){
         offset=0;
       }else if(delta>0){
-        // Keep the header fully visible until the scroll reaches halfway through the hero.
-        // After that point, move it up at the exact same pixel pace as the user's scroll.
-        if(y>start){
-          const effectiveDelta=Math.min(delta,Math.max(0,y-start));
-          offset=Math.min(maxOffset,offset+effectiveDelta);
-        }
+        // Scroll down: dismiss the header quickly.
+        offset=Math.min(maxOffset,offset+(delta*2.6));
       }else if(delta<0){
-        // Scroll up: bring the header back at the exact same pixel pace.
-        offset=Math.max(0,offset+delta);
-        if(y<=start) offset=0;
+        // Any upward scroll from anywhere: reveal the header immediately.
+        offset=0;
       }
 
       render();
