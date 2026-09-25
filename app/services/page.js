@@ -10,7 +10,7 @@ export default function ServicesPage(){
     <header className="site-header">
       <div className="header-inner">
         <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-        <nav className="desktop-nav" aria-label="Primary"><a href="/">Home</a><a href="/#results">Results</a><a href="/university">University</a><a href="/#contact">Contact</a></nav>
+        <nav className="desktop-nav" aria-label="Primary"><a href="/">Home</a><a href="/university">University</a><a href="/#contact">Contact</a></nav>
         <div className="headerActions"><a className="button buttonSmall primaryCta" href="/#contact">Get More Jobs <span>→</span></a></div>
       </div>
     </header>
@@ -40,7 +40,7 @@ export default function ServicesPage(){
       <footer>
         <div className="shell footerInner">
           <a href="/"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <div className="footerLinks"><a href="/">Home</a><a href="/#results">Results</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
+          <div className="footerLinks"><a href="/">Home</a><a href="/results">Results</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
           <a className="footerCta" href="/#contact">Get More Jobs →</a>
         </div>
       </footer>
