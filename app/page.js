@@ -37,7 +37,6 @@ export default function Home(){
 
             <nav className="desktop-nav" aria-label="Primary">
               <a href="/services">Services</a>
-              <a href="/results">Results</a>
               <a href="#process">Process</a>
               <a href="/university">University</a>
               <a href="#contact">Contact</a>
@@ -54,7 +53,6 @@ export default function Home(){
               </summary>
               <nav className="mobile-nav-panel" aria-label="Mobile primary">
                 <a href="/services">Services</a>
-                <a href="/results">Results</a>
                 <a href="#process">Process</a>
                 <a href="/university">University</a>
                 <a href="#contact">Contact</a>
@@ -199,41 +197,14 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="results" className="section results proofHomeSection">
-      <div className="shell">
-        <div className="sectionHeader proofHomeHeader">
-          <div>
-            <div className="eyebrow">Proof over promises</div>
-            <h2>Show the numbers that actually matter.</h2>
-          </div>
-          <p>As verified client data becomes available, Monsta Miami case studies will connect marketing activity to genuine enquiries, qualified opportunities and booked work where that outcome can be confirmed.</p>
+    <section id="results" className="proofHomeCompact">
+      <div className="shell proofHomeCompactInner">
+        <div>
+          <span className="eyebrow">Measured properly</span>
+          <h2>Leads are only part of the story.</h2>
+          <p>We care about what happens after the click — enquiry quality, follow-up, quoting opportunities and booked work where it can be measured.</p>
         </div>
-
-        <div className="proofHomeGrid">
-          <article>
-            <span>01 · Acquisition</span>
-            <h3>Where the lead came from</h3>
-            <p>Channel, campaign, spend, service area and the strategy behind the enquiry.</p>
-          </article>
-          <article>
-            <span>02 · Conversion</span>
-            <h3>What happened after the click</h3>
-            <p>Calls, forms, lead quality and the conversion path between attention and a real sales opportunity.</p>
-          </article>
-          <article>
-            <span>03 · Sales</span>
-            <h3>What happened to the opportunity</h3>
-            <p>Follow-up, appointments, quoting and booked-work outcomes where the client can verify them.</p>
-          </article>
-        </div>
-
-        <div className="proofHomeFooter">
-          <div>
-            <b>No fabricated case studies.</b>
-            <span>Real campaign metrics and testimonials will be added only when the underlying evidence is ready.</span>
-          </div>
-          <a href="/results">See how we report results <span>→</span></a>
-        </div>
+        <a href="/results">How we measure results <span>→</span></a>
       </div>
     </section>
 
