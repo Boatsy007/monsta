@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { services, serviceSlugs } from "../serviceData";
+import { absoluteUrl } from "../../siteConfig";
 
 export function generateStaticParams(){
   return serviceSlugs.map(slug=>({slug}));
@@ -8,13 +9,21 @@ export function generateStaticParams(){
 export function generateMetadata({params}){
   const service=services[params.slug];
   if(!service) return {};
+  const canonical=`/services/${params.slug}/`;
   return {
-    title:service.metaTitle,
+    title:{absolute:service.metaTitle},
     description:service.metaDescription,
+    alternates:{canonical},
     openGraph:{
       title:service.metaTitle,
       description:service.metaDescription,
-      type:"website"
+      type:"website",
+      url:canonical
+    },
+    twitter:{
+      card:"summary_large_image",
+      title:service.metaTitle,
+      description:service.metaDescription
     }
   };
 }
@@ -50,14 +59,28 @@ export default function ServicePage({params}){
     }))
   };
 
+  const canonical=`/services/${params.slug}/`;
+
   const serviceSchema={
     "@context":"https://schema.org",
     "@type":"Service",
+    "@id":absoluteUrl(`${canonical}#service`),
+    url:absoluteUrl(canonical),
     name:service.name,
     description:service.description,
-    provider:{"@type":"Organization",name:"Monsta Miami"},
+    provider:{"@id":absoluteUrl("/#organization")},
     areaServed:{"@type":"Country",name:"Australia"},
     audience:{"@type":"BusinessAudience",audienceType:"Trade businesses"}
+  };
+
+  const breadcrumbSchema={
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    itemListElement:[
+      {"@type":"ListItem",position:1,name:"Home",item:absoluteUrl("/")},
+      {"@type":"ListItem",position:2,name:"Services",item:absoluteUrl("/services/")},
+      {"@type":"ListItem",position:3,name:service.shortName,item:absoluteUrl(canonical)}
+    ]
   };
 
   return <>
@@ -181,6 +204,7 @@ export default function ServicePage({params}){
       </footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(serviceSchema)}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumbSchema)}}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     </main>
   </>;
