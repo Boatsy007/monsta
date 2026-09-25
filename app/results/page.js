@@ -1,4 +1,6 @@
 import { publishedCaseStudies, proofFramework } from "./resultData";
+import SiteHeader from "../SiteHeader";
+import SiteFooter from "../SiteFooter";
 
 export const metadata={
   title:"Digital Marketing Results & Case Studies",
@@ -16,25 +18,11 @@ export const metadata={
   }
 };
 
-function Header(){
-  return <header className="site-header">
-    <div className="header-inner">
-      <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-      <nav className="desktop-nav" aria-label="Primary">
-        <a href="/services">Services</a>
-        <a href="/university">University</a>
-        <a href="/#contact">Contact</a>
-      </nav>
-      <div className="headerActions"><a className="button buttonSmall primaryCta" href="/#contact">Get More Jobs <span>→</span></a></div>
-    </div>
-  </header>;
-}
-
 export default function ResultsPage(){
   const hasCases=publishedCaseStudies.length>0;
 
   return <>
-    <Header/>
+    <SiteHeader/>
     <main className="site-main proofPage">
       <section className="proofHero">
         <div className="proofHeroGlow"></div>
@@ -124,13 +112,7 @@ export default function ResultsPage(){
         </div>
       </section>
 
-      <footer>
-        <div className="shell footerInner">
-          <a href="/"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <div className="footerLinks"><a href="/services">Services</a><a href="/results">Results</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
-          <a className="footerCta" href="/#contact">Get More Jobs →</a>
-        </div>
-      </footer>
+      <SiteFooter/>
     </main>
   </>;
 }
