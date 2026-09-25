@@ -77,13 +77,16 @@ export default function Home(){
 
     <section className="tradeSection">
       <div className="shell tradebar">
-        {trades.map(([icon,name])=><div className="tradeItem" key={name}>
-          {name==="Roofing"
-            ? <img className="tradeWordmark" src="/roofing-wordmark.svg" alt="Roofing"/>
-            : name==="Plumbing"
-              ? <img className="tradeWordmark" src="/plumbing-wordmark.webp" alt="Plumbing"/>
-              : <><b>{icon}</b><span>{name}</span></>}
-        </div>)}
+        {trades.map(([icon,name])=>{
+          const slug=name.toLowerCase();
+          return <a className="tradeItem" key={name} href={`/trades/${slug}`} aria-label={`Learn how Monsta helps ${name.toLowerCase()} businesses`}>
+            {name==="Roofing"
+              ? <img className="tradeWordmark" src="/roofing-wordmark.svg" alt="Roofing"/>
+              : name==="Plumbing"
+                ? <img className="tradeWordmark" src="/plumbing-wordmark.webp" alt="Plumbing"/>
+                : <><b>{icon}</b><span>{name}</span></>}
+          </a>
+        })}
       </div>
     </section>
 
