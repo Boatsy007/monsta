@@ -74,7 +74,7 @@ export default function Home(){
           </div>
         </div>
 
-        <CalculatorClient trades={trades}/>
+        <GrowthScoreClient variant="hero"/>
       </div>
     </section>
 
@@ -162,7 +162,16 @@ export default function Home(){
       </div>
     </section>
 
-    <GrowthScoreClient/>
+    <section className="section calculatorSection">
+      <div className="shell calculatorSectionGrid">
+        <div className="calculatorSectionIntro">
+          <div className="eyebrow">Lead potential calculator</div>
+          <h2>Now put some numbers around the opportunity.</h2>
+          <p>Choose your trade and ad spend to see an indicative estimate of how many leads that budget could generate.</p>
+        </div>
+        <CalculatorClient trades={trades}/>
+      </div>
+    </section>
 
     <section id="services" className="section services">
       <div className="shell">
