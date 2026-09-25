@@ -1,5 +1,7 @@
 import CalculatorClient from "./CalculatorClient";
 import GrowthScoreClient from "./GrowthScoreClient";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 
 const trades=[
   ["⌂","Roofing"],
@@ -31,36 +33,7 @@ const steps=[
 
 export default function Home(){
   return <>
-        <header className="site-header">
-          <div className="header-inner">
-            <a className="header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-
-            <nav className="desktop-nav" aria-label="Primary">
-              <a href="/services">Services</a>
-              <a href="#process">Process</a>
-              <a href="/university">University</a>
-              <a href="#contact">Contact</a>
-            </nav>
-
-            <div className="headerActions">
-              <a className="button buttonSmall primaryCta" href="#contact">Get More Jobs <span>→</span></a>
-              <a className="offerButton headerOffer" href="#contact">Free Month Offer</a>
-            </div>
-
-            <details className="mobile-nav">
-              <summary className="menu-button" aria-label="Open menu">
-                <span></span><span></span><span></span>
-              </summary>
-              <nav className="mobile-nav-panel" aria-label="Mobile primary">
-                <a href="/services">Services</a>
-                <a href="#process">Process</a>
-                <a href="/university">University</a>
-                <a href="#contact">Contact</a>
-              </nav>
-            </details>
-          </div>
-        </header>
-
+    <SiteHeader showOffer/>
     <main id="top" className="site-main">
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
@@ -250,13 +223,7 @@ export default function Home(){
       </div>
     </section>
 
-    <footer>
-      <div className="shell footerInner">
-        <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
-        <div className="footerLinks"><a href="/services">Services</a><a href="/results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
-        <a className="footerCta" href="#contact">Get More Jobs →</a>
-      </div>
-    </footer>
+    <SiteFooter/>
   </main>
   </>;
 }
