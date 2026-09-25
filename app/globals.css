@@ -431,61 +431,6 @@ footer{padding:0 0 46px}
 }
 [data-reveal="true"][data-visible="true"]{opacity:1;transform:none}
 
-/* Responsive */
-@media(max-width:1180px){
-  .shell,.hero-inner{width:min(calc(100% - 40px),var(--shell))}
-  .hero-inner{grid-template-columns:1fr 1fr;gap:42px}
-  .hero-copy h1{font-size:66px}
-  .serviceGrid{grid-template-columns:repeat(3,1fr)}
-  .serviceCard:nth-child(3){border-right:0}
-  .serviceCard:nth-child(-n+3){border-bottom:1px solid var(--line-soft)}
-  .serviceCard:nth-child(4),.serviceCard:nth-child(5){border-top:0}
-  .tradebar{grid-template-columns:repeat(4,1fr)}
-  .tradeItem:nth-child(4){border-left:1px solid var(--line-soft)}
-}
-
-@media(max-width:900px){
-  .section{padding:80px 0}
-  .hero-inner{grid-template-columns:1fr;gap:38px}
-  .heroVisual{min-height:450px}
-  .split,.resultsGrid{grid-template-columns:1fr;gap:42px}
-  .sectionHeader{grid-template-columns:1fr;gap:18px}
-  .serviceGrid{grid-template-columns:1fr 1fr}
-  .serviceCard{border-bottom:1px solid var(--line-soft)}
-  .serviceCard:nth-child(2n){border-right:0}
-  .contactCard{grid-template-columns:1fr;gap:40px;padding:46px 0}
-  .leadForm{padding:0;border-left:0}
-  .processGrid{grid-template-columns:1fr 1fr}
-  .processCard:nth-child(3){border-left:0}
-  .processCard:nth-child(n+3){border-top:1px solid var(--line-soft)}
-}
-
-@media(max-width:640px){
-  .shell,.hero-inner{width:min(calc(100% - 28px),var(--shell))}
-  .buttonSmall{padding:0 13px;font-size:10px}
-  .hero-copy h1{font-size:50px}
-  .hero-copy>p{font-size:15px}
-  .heroVisual{min-height:360px}
-  .tradebar{grid-template-columns:1fr 1fr}
-  .tradeItem{min-height:52px}
-  .tradeItem:nth-child(2n){border-left:1px solid var(--line-soft)}
-  .tradeItem:nth-child(odd){border-left:0}
-  .sectionCopy h2,.sectionHeader h2,.resultsCopy h2,.contactCopy h2,.processHeader h2{font-size:38px}
-  .controlGrid{grid-template-columns:1fr}
-  .potentialResult strong{font-size:33px}
-  .serviceGrid,.processGrid,.metricRow{grid-template-columns:1fr}
-  .serviceCard,.serviceCard:nth-child(n){border-right:0;border-bottom:1px solid var(--line-soft)}
-  .metricRow div+div{padding-left:0;border-left:0;border-top:1px solid var(--line-soft)}
-  .resultFeature{padding-left:0;border-left:0;border-top:1px solid var(--line)}
-  .contactPoints{flex-direction:column;gap:8px}
-  .processCard,.processCard+ .processCard,.processCard:nth-child(n){padding:24px 0;border-left:0;border-top:1px solid var(--line-soft)}
-  .finalCard{align-items:flex-start;flex-direction:column;padding:28px 0}
-  .finalCard h2{font-size:28px}
-  .footerInner{align-items:flex-start;flex-direction:column}
-  .footerLinks{margin-left:0;flex-wrap:wrap}
-  .footerCta{margin-left:0}
-}
-
 /* Large desktop navigation — Bondi-style scale */
 @media(min-width:901px){
   .site-header{background:rgba(5,5,6,.88)}
@@ -547,10 +492,7 @@ footer{padding:0 0 46px}
   }
 }
 
-@media(max-width:640px){
-  .heroActions{align-items:flex-start;flex-wrap:wrap}
-  .offerButton{min-height:48px}
-}
+
 
 /* Hero conversion calculator */
 @media(min-width:681px){
@@ -699,15 +641,8 @@ footer{padding:0 0 46px}
 }
 .heroCalcCta:hover{transform:translateY(-2px);background:#f3f3f3}
 
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:42px}
-  .heroCalculator{padding:24px}
-}
-@media(max-width:640px){
-  .heroCalcFields{grid-template-columns:1fr}
-  .heroCalcTop h2{font-size:28px}
-  .heroCalcResult strong{font-size:38px}
-}
+
+
 
 /* Hero marketing-return planner refinements */
 .heroCalcFieldsThree{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -774,16 +709,8 @@ footer{padding:0 0 46px}
   font-size:10px;
 }
 .heroCalcCta{margin-top:18px}
-@media(max-width:1050px){
-  .heroCalcFieldsThree{grid-template-columns:1fr 1fr}
-  .heroCalcFieldsThree label:last-child{grid-column:1/-1}
-}
-@media(max-width:640px){
-  .heroCalcFieldsThree{grid-template-columns:1fr}
-  .heroCalcFieldsThree label:last-child{grid-column:auto}
-  .roiResult{grid-template-columns:1fr}
-  .roiResult>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.08)}
-}
+
+
 
 
 /* Header Free Month attention flash */
@@ -805,9 +732,7 @@ footer{padding:0 0 46px}
   }
 }
 
-@media(max-width:900px){
-  .heroCalculator{top:0}
-}
+
 
 /* Cleaner hero calculator hierarchy */
 .heroCalcTop{margin-bottom:26px}
@@ -944,14 +869,7 @@ footer{padding:0 0 46px}
   min-height:54px;
   border:1px solid rgba(255,255,255,.08);
 }
-@media(max-width:640px){
-  .breakEvenTarget{padding-left:18px}
-  .breakEvenPrimary strong{font-size:46px}
-  .breakEvenPrimary span{font-size:15px}
-  .heroPlanColumns{grid-template-columns:1fr}
-  .heroPlanColumns>div{padding:12px 0}
-  .heroPlanColumns>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.065)}
-}
+
 
 /* Keep the complete calculator visible above the fold */
 @media(min-width:901px){
@@ -1016,15 +934,7 @@ footer{padding:0 0 46px}
   50%{transform:translate3d(-28px,18px,0) scale(1.03);opacity:.82}
   100%{transform:translate3d(18px,-12px,0) scale(1);opacity:.66}
 }
-@media(max-width:900px){
-  .hero:after{
-    right:-28%;
-    top:46%;
-    width:82vw;
-    height:44%;
-    opacity:.5;
-  }
-}
+
 @media(prefers-reduced-motion:reduce){
   .hero:after{animation:none;transform:none}
 }
@@ -1060,40 +970,7 @@ footer{padding:0 0 46px}
   height:auto;
   object-fit:contain;
 }
-@media(max-width:640px){
-  .tradeWordmark{width:116px}
-}
 
-/* MOBILE STRUCTURE — copied from Storeman, Monsta styling only */
-@media(max-width:680px){
-  html{max-width:100%;overflow-x:clip;overflow-y:auto!important;height:auto!important;scroll-behavior:auto!important}
-  body{max-width:100%;overflow:visible!important;overflow-x:clip!important;height:auto!important;min-height:0!important;background:#050506;padding-top:0!important}
-  main{display:block!important;position:relative!important;overflow:visible!important;height:auto!important;min-height:0!important;padding-top:0!important}
-  .shell,.header-inner{width:calc(100% - 28px)!important}
-
-  .site-header{height:78px!important;position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:100%!important;z-index:999!important;display:block!important;background:#050506!important;border-bottom:1px solid var(--line-soft)!important;transform:none!important;visibility:visible!important;opacity:1!important}
-  .header-inner{height:78px!important;gap:12px!important;display:flex!important;align-items:center!important;margin:0 auto!important;position:relative}
-  .header-brand{width:124px!important;max-width:68vw!important;display:flex!important;align-items:center!important;height:auto!important;flex:0 0 auto!important}
-  .header-logo{display:block!important;width:100%!important;height:auto!important;max-height:56px!important;object-fit:contain!important;object-position:left center!important}
-  .headerActions{display:none!important}
-  .desktop-nav{display:none!important;position:absolute!important;left:-14px!important;right:-14px!important;top:78px!important;z-index:1000!important;margin:0!important;padding:18px 14px!important;background:#050506!important;border-top:1px solid #222!important;border-bottom:1px solid var(--line-soft)!important;box-shadow:0 18px 34px rgba(0,0,0,.28)!important;flex-direction:column!important;align-items:stretch!important;gap:0!important}
-  .desktop-nav.mobile-open{display:flex!important}
-  .desktop-nav a{display:flex!important;align-items:center!important;width:100%!important;min-height:52px!important;padding:0 8px!important;border-bottom:1px solid #242424!important;color:#fff!important;font-size:13px!important}
-  .desktop-nav a:last-child{border-bottom:0!important}
-  .menu-button{width:42px;height:42px;padding:0!important;border:1px solid #3a3a3a!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;margin-left:auto!important;background:#111!important;color:#fff!important;border-radius:9px!important;position:relative!important;z-index:1001!important}
-  .menu-button span{width:18px;height:2px;background:#fff}
-
-  .hero{position:relative!important;z-index:1!important}
-  .hero-inner{display:block!important;width:100%!important;max-width:none!important;min-height:auto!important;margin:0!important;padding:0!important;overflow:hidden!important}
-  .hero-copy{width:100%!important;max-width:none!important;min-width:0!important;min-height:auto!important;margin:0!important;padding:30px 18px 26px!important;background:#050506!important;transform:none!important}
-  .hero-copy h1{font-size:clamp(46px,14vw,62px)}
-  .heroCalculatorFlip{width:auto!important;margin:0 18px 54px!important;top:0!important}
-  .heroCalcFieldsThree,.heroCalcFields{grid-template-columns:1fr}
-  .heroCalcFieldsThree label:last-child{grid-column:auto}
-  .tradebar{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .sectionHeader,.split,.resultsGrid,.contactCard{grid-template-columns:1fr}
-  .serviceGrid,.processGrid,.metricRow{grid-template-columns:1fr}
-}
 
 /* Calculator two-face card — front and back occupy the same grid area */
 .heroCalculatorFlip{position:relative;perspective:1400px}
@@ -1126,71 +1003,270 @@ footer{padding:0 0 46px}
   display:flex;align-items:center;justify-content:space-between;background:#fff;color:#111;font-weight:800;cursor:pointer
 }
 .callTrustRow{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:16px;color:#b8bac1;font-size:11px;font-weight:650}
-@media(max-width:680px){
-  .calculatorLeadForm{grid-template-columns:1fr}
-  .bookCallCta{grid-column:auto}
+
+
+
+
+/* =========================================================
+   RESPONSIVE REBUILD — clean mobile/tablet system
+   Header remains in normal document flow on mobile.
+   ========================================================= */
+
+@media (max-width:1180px){
+  .shell,.hero-inner{width:min(calc(100% - 40px),var(--shell))}
+  .hero-inner{grid-template-columns:1fr 1fr;gap:42px}
+  .hero-copy h1{font-size:66px}
+  .serviceGrid{grid-template-columns:repeat(3,1fr)}
+  .serviceCard{border-bottom:1px solid var(--line-soft)}
+  .tradebar{grid-template-columns:repeat(4,1fr)}
 }
 
-/* Mobile compositor reset: keep Storeman's simple sticky document flow */
-@media(max-width:680px){
+@media (max-width:900px){
+  .section{padding:80px 0}
+  .desktop-nav{display:none}
+  .menu-button{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    width:46px;
+    height:46px;
+    margin-left:auto;
+    padding:0;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:9px;
+    background:#111;
+  }
+  .menu-button span{width:18px;height:2px;background:#fff}
+  .headerActions{margin-left:auto}
+  .hero-inner{grid-template-columns:1fr;gap:38px}
+  .heroCalculator{top:0}
+  .split,.resultsGrid,.contactCard,.sectionHeader{grid-template-columns:1fr}
+  .sectionHeader{gap:18px}
+  .resultsGrid,.split{gap:42px}
+  .contactCard{gap:40px}
+  .leadForm{padding-left:0;border-left:0}
+  .serviceGrid{grid-template-columns:1fr 1fr}
+  .processGrid{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width:680px){
+  html{
+    width:100%;
+    max-width:100%;
+    scroll-behavior:auto;
+  }
+  body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    background:#050506;
+  }
+  main{
+    display:block;
+    width:100%;
+    max-width:100%;
+    overflow:visible;
+  }
+
+  .shell{width:calc(100% - 28px);margin:0 auto}
+
+  /* Normal website header: first element in the document, not sticky or fixed */
   .site-header{
-    backdrop-filter:none!important;
-    -webkit-backdrop-filter:none!important;
-    will-change:auto!important;
+    position:relative;
+    inset:auto;
+    top:auto;
+    left:auto;
+    right:auto;
+    width:100%;
+    height:78px;
+    z-index:20;
+    display:block;
+    background:#050506;
+    border-bottom:1px solid var(--line-soft);
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    transform:none;
+  }
+  .header-inner{
+    position:relative;
+    width:calc(100% - 28px);
+    height:78px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .header-brand{
+    width:124px;
+    max-width:68vw;
+    height:auto;
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+  }
+  .header-logo{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:56px;
+    object-fit:contain;
+    object-position:left center;
+  }
+  .headerActions{display:none}
+  .menu-button{
+    display:flex;
+    width:42px;
+    height:42px;
+    margin-left:auto;
+    flex:0 0 42px;
+  }
+  .desktop-nav{
+    display:none;
+    position:absolute;
+    top:78px;
+    left:-14px;
+    right:-14px;
+    z-index:30;
+    margin:0;
+    padding:14px;
+    background:#050506;
+    border-top:1px solid #222;
+    border-bottom:1px solid var(--line-soft);
+    flex-direction:column;
+    gap:0;
+  }
+  .desktop-nav.mobile-open{display:flex}
+  .desktop-nav a{
+    display:flex;
+    align-items:center;
+    width:100%;
+    min-height:52px;
+    padding:0 8px;
+    border-bottom:1px solid #242424;
+    font-size:13px;
+  }
+  .desktop-nav a:last-child{border-bottom:0}
+
+  /* Hero begins immediately after the 78px header in normal document flow */
+  .hero{
+    position:relative;
+    min-height:0;
+    padding:0;
+    display:block;
+    background:#050506;
+  }
+  .heroGlow,.hero:after,.heroCalculator:after{display:none}
+  .hero-inner{
+    position:relative;
+    display:block;
+    width:100%;
+    max-width:none;
+    min-height:0;
+    margin:0;
+    padding:0;
+  }
+  .hero-copy{
+    width:100%;
+    max-width:none;
+    min-width:0;
+    min-height:0;
+    margin:0;
+    padding:30px 18px 26px;
+    transform:none;
+  }
+  .hero-copy .eyebrow{margin-bottom:14px;font-size:10px}
+  .hero-copy h1{font-size:clamp(46px,14vw,62px);line-height:.92}
+  .hero-copy>p{margin-top:22px;font-size:15px;line-height:1.6}
+  .heroActions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:28px;
+  }
+  .heroActions .button,.heroActions .offerButton{
+    width:100%;
+    min-width:0;
+    min-height:50px;
+    padding:0 12px;
+    font-size:12px;
+    text-align:center;
   }
 
-  .heroGlow,
-  .hero:after,
-  .heroCalculator:after{
-    display:none!important;
-  }
-
-  .heroCalculator{
-    backdrop-filter:none!important;
-    -webkit-backdrop-filter:none!important;
-  }
-
+  /* Calculator is ordinary stacked content on mobile; only one face exists in layout at a time */
   .heroCalculatorFlip{
-    perspective:none!important;
-    transform:none!important;
+    position:relative;
+    width:auto;
+    margin:0 18px 44px;
+    perspective:none;
+    transform:none;
   }
-
   .heroCalculatorInner{
-    display:block!important;
-    transform:none!important;
-    transform-style:flat!important;
+    position:relative;
+    display:block;
+    transform:none;
+    transform-style:flat;
   }
+  .heroCalculator{
+    top:0;
+    width:100%;
+    padding:22px 20px;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  .heroCalculatorFront,.heroCalculatorBack{
+    position:relative;
+    grid-area:auto;
+    width:100%;
+    transform:none;
+    transition:none;
+    backface-visibility:visible;
+    -webkit-backface-visibility:visible;
+    opacity:1;
+  }
+  .heroCalculatorFront{display:block;pointer-events:auto}
+  .heroCalculatorBack{display:none;pointer-events:auto}
+  .heroCalculatorFlip.isFlipped .heroCalculatorFront{display:none;transform:none;opacity:1}
+  .heroCalculatorFlip.isFlipped .heroCalculatorBack{display:block;transform:none;opacity:1}
+  .heroCalcTop{gap:14px;margin-bottom:22px}
+  .heroCalcTop h2{font-size:30px}
+  .heroCalcFields,.heroCalcFieldsThree{grid-template-columns:1fr;gap:14px}
+  .heroCalcFieldsThree label:last-child{grid-column:auto}
+  .breakEvenTarget{padding-left:18px}
+  .breakEvenPrimary strong{font-size:46px}
+  .breakEvenPrimary span{font-size:15px}
+  .heroPlanColumns{grid-template-columns:1fr}
+  .heroPlanColumns>div{padding:12px 0}
+  .heroPlanColumns>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.065)}
+  .calculatorLeadForm{grid-template-columns:1fr}
+  .bookCallCta{grid-column:auto}
 
-  .heroCalculatorFront,
-  .heroCalculatorBack{
-    grid-area:auto!important;
-    transform:none!important;
-    transition:none!important;
-    backface-visibility:visible!important;
-    -webkit-backface-visibility:visible!important;
-  }
+  .tradebar{grid-template-columns:1fr 1fr}
+  .tradeItem{min-height:58px}
+  .tradeItem:nth-child(odd){border-left:0}
+  .tradeWordmark{width:116px}
 
-  .heroCalculatorFront{
-    display:block!important;
-    opacity:1!important;
-    pointer-events:auto!important;
-  }
+  .section{padding:64px 0}
+  .sectionCopy h2,.sectionHeader h2,.resultsCopy h2,.contactCopy h2,.processHeader h2{font-size:38px}
+  .split,.resultsGrid,.contactCard,.sectionHeader{grid-template-columns:1fr;gap:30px}
+  .controlGrid,.serviceGrid,.processGrid,.metricRow{grid-template-columns:1fr}
+  .serviceCard,.serviceCard:nth-child(n){min-height:0;padding:24px 0;border-right:0;border-bottom:1px solid var(--line-soft)}
+  .metricRow div+div{padding-left:0;border-left:0;border-top:1px solid var(--line-soft)}
+  .resultFeature{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .contactCard{padding:40px 0}
+  .contactPoints{flex-direction:column;gap:8px}
+  .leadForm{padding:0;border-left:0}
+  .processCard,.processCard+ .processCard,.processCard:nth-child(n){min-height:0;padding:24px 0;border-left:0;border-top:1px solid var(--line-soft)}
+  .finalCard{align-items:flex-start;flex-direction:column;gap:24px;padding:28px 0}
+  .finalCard h2{font-size:28px}
+  .footerInner{align-items:flex-start;flex-direction:column}
+  .footerLinks{margin-left:0;flex-wrap:wrap}
+  .footerCta{margin-left:0}
+}
 
-  .heroCalculatorBack{
-    display:none!important;
-    opacity:1!important;
-    pointer-events:auto!important;
-  }
-
-  .heroCalculatorFlip.isFlipped .heroCalculatorFront{
-    display:none!important;
-    transform:none!important;
-    opacity:1!important;
-  }
-
-  .heroCalculatorFlip.isFlipped .heroCalculatorBack{
-    display:block!important;
-    transform:none!important;
-    opacity:1!important;
-  }
+@media (max-width:420px){
+  .hero-copy h1{font-size:clamp(42px,13vw,54px)}
+  .heroActions{grid-template-columns:1fr}
 }
