@@ -108,8 +108,8 @@ section[id]{scroll-margin-top:16px}
   gap:12px;
 }
 .header-brand{
-  width:124px;
-  flex:0 0 124px;
+  width:140px;
+  flex:0 0 140px;
   display:flex;
   align-items:center;
 }
@@ -187,6 +187,10 @@ section[id]{scroll-margin-top:16px}
   border:0;
   background:var(--pink);
   color:#fff;
+  box-shadow:
+    0 0 18px rgba(255,0,140,.42),
+    0 0 36px rgba(255,0,140,.24),
+    0 10px 28px rgba(255,0,140,.22);
 }
 .primaryCta{background:#f4f4f4;color:#111}
 .offerButton{
@@ -194,6 +198,10 @@ section[id]{scroll-margin-top:16px}
   border:1px solid rgba(255,255,255,.42);
   background:#f00082;
   color:#fff;
+  box-shadow:
+    0 0 20px rgba(255,0,140,.50),
+    0 0 42px rgba(255,0,140,.28),
+    0 10px 30px rgba(255,0,140,.22);
 }
 .buttonSmall{min-height:44px;padding:0 16px;font-size:12px}
 
@@ -497,6 +505,10 @@ section[id]{scroll-margin-top:16px}
   background:var(--pink);
   color:#fff;
   font-weight:800;
+  box-shadow:
+    0 0 18px rgba(255,0,140,.42),
+    0 0 36px rgba(255,0,140,.24),
+    0 10px 28px rgba(255,0,140,.22);
 }
 .processHeader{margin-bottom:24px}
 .processGrid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
@@ -544,7 +556,7 @@ footer{padding:0 0 40px}
   section[id]{scroll-margin-top:calc(var(--header-height) + 16px)}
   .shell{width:min(calc(100% - 64px),var(--shell))}
   .header-inner{width:min(calc(100% - 64px),1440px);height:100%;gap:38px}
-  .header-brand{width:190px;flex-basis:190px}
+  .header-brand{width:205px;flex-basis:205px}
   .header-logo{width:182px;max-height:68px}
   .mobile-nav{display:none}
   .menu-button{display:none}
