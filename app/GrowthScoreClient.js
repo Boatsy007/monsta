@@ -139,6 +139,8 @@ export default function GrowthScoreClient({variant="section"}){
   const [step,setStep]=useState(0);
   const [answers,setAnswers]=useState({});
   const [finished,setFinished]=useState(false);
+  const [breakdownUnlocked,setBreakdownUnlocked]=useState(false);
+  const [leadDetails,setLeadDetails]=useState({name:"",phone:"",email:""});
 
   const current=questions[step];
   const progress=finished ? 100 : Math.round((step/questions.length)*100);
@@ -326,6 +328,17 @@ export default function GrowthScoreClient({variant="section"}){
     setAnswers({});
     setStep(0);
     setFinished(false);
+    setBreakdownUnlocked(false);
+    setLeadDetails({name:"",phone:"",email:""});
+  }
+
+  function unlockBreakdown(event){
+    event.preventDefault();
+    const name=leadDetails.name.trim();
+    const phone=leadDetails.phone.trim();
+    const email=leadDetails.email.trim();
+    if(!name || !phone || !email) return;
+    setBreakdownUnlocked(true);
   }
 
   const isHero=variant==="hero";
@@ -370,7 +383,7 @@ export default function GrowthScoreClient({variant="section"}){
 
         <div className="growthScoreFooter">
           <button type="button" onClick={goBack} disabled={step===0}>← Back</button>
-          <span>No email required</span>
+          <span>See your score instantly</span>
         </div>
       </> : <div className="growthScoreResult">
         <div className="growthScoreResultHero">
@@ -390,34 +403,81 @@ export default function GrowthScoreClient({variant="section"}){
           )}
         </div>
 
-        <div className="growthScoreOpportunity">
-          <span>What your answers suggest</span>
-          <h3>{result.title}</h3>
-          <p>{result.text}</p>
-        </div>
-
-        <div className="growthScoreRecommendations">
-          <span className="growthScoreRecommendationsLabel">Services worth looking at</span>
-          <div className="growthScoreRecommendationList">
-            {result.recommendations.map(item=>
-              <div className="growthScoreRecommendation" key={item.name}>
-                <div>
-                  <strong>{item.name}</strong>
-                  <p>{item.reason}</p>
-                </div>
-                <span>↗</span>
-              </div>
-            )}
+        {!breakdownUnlocked ? <div className="growthScoreUnlock">
+          <div className="growthScoreUnlockCopy">
+            <span>Free personalised breakdown</span>
+            <h3>Unlock your free breakdown</h3>
+            <p>See what your answers suggest, the areas we’d prioritise first and which Monsta services may help.</p>
           </div>
-          {result.recommendations.some(item=>item.name==="Appointment Setting") &&
-            <p className="growthScoreAppointmentNote">Appointment Setting can include follow-up of new leads and outstanding quotes where needed.</p>
-          }
-        </div>
 
-        <div className="growthScoreResultActions">
-          <a className="button" href="#contact">Build my growth plan <span>→</span></a>
-          <button type="button" onClick={restart}>Retake score</button>
-        </div>
+          <form className="growthScoreUnlockForm" onSubmit={unlockBreakdown}>
+            <label>
+              <span>Name</span>
+              <input
+                required
+                value={leadDetails.name}
+                onChange={e=>setLeadDetails(prev=>({...prev,name:e.target.value}))}
+                placeholder="Your name"
+                autoComplete="name"
+              />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input
+                required
+                type="tel"
+                value={leadDetails.phone}
+                onChange={e=>setLeadDetails(prev=>({...prev,phone:e.target.value}))}
+                placeholder="Phone number"
+                autoComplete="tel"
+              />
+            </label>
+            <label>
+              <span>Email</span>
+              <input
+                required
+                type="email"
+                value={leadDetails.email}
+                onChange={e=>setLeadDetails(prev=>({...prev,email:e.target.value}))}
+                placeholder="Email address"
+                autoComplete="email"
+              />
+            </label>
+            <button className="button growthScoreUnlockButton" type="submit">
+              Unlock your free breakdown <span>→</span>
+            </button>
+          </form>
+          <small>Your score stays visible. Your details unlock the personalised breakdown below.</small>
+        </div> : <>
+          <div className="growthScoreOpportunity">
+            <span>What your answers suggest</span>
+            <h3>{result.title}</h3>
+            <p>{result.text}</p>
+          </div>
+
+          <div className="growthScoreRecommendations">
+            <span className="growthScoreRecommendationsLabel">Services worth looking at</span>
+            <div className="growthScoreRecommendationList">
+              {result.recommendations.map(item=>
+                <div className="growthScoreRecommendation" key={item.name}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <p>{item.reason}</p>
+                  </div>
+                  <span>↗</span>
+                </div>
+              )}
+            </div>
+            {result.recommendations.some(item=>item.name==="Appointment Setting") &&
+              <p className="growthScoreAppointmentNote">Appointment Setting can include follow-up of new leads and outstanding quotes where needed.</p>
+            }
+          </div>
+
+          <div className="growthScoreResultActions">
+            <a className="button" href="#contact">Build my growth plan <span>→</span></a>
+            <button type="button" onClick={restart}>Retake score</button>
+          </div>
+        </>}
       </div>}
     </div>
   </div>;
