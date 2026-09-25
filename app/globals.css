@@ -912,3 +912,284 @@ footer{padding:0 0 40px}
 .formMessageField{
   grid-column:1/-1;
 }
+
+
+/* Clickable trade strip */
+.tradeItem{
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+}
+.tradeItem:hover{
+  background:rgba(255,255,255,.025);
+  color:#fff;
+}
+.tradeItem:active{transform:scale(.985)}
+
+/* Dedicated trade pages */
+.tradePageHeader{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(6,6,9,.72);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  backdrop-filter:blur(22px) saturate(170%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.tradePageHeaderInner{
+  width:min(calc(100% - 28px),var(--shell));
+  min-height:76px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.tradePageLogo{width:138px}
+.tradePageLogo img{width:100%;height:auto}
+.tradePageHeaderCta{
+  min-height:42px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:0 14px;
+  border-radius:10px;
+  background:#fff;
+  color:#111;
+  font-size:11px;
+  font-weight:800;
+}
+.tradePage{background:#050506}
+.tradePageShell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
+.tradeHero{
+  position:relative;
+  overflow:hidden;
+  padding:54px 0 64px;
+}
+.tradeHeroGlow{
+  position:absolute;
+  width:320px;
+  height:320px;
+  right:-120px;
+  top:120px;
+  border-radius:50%;
+  background:var(--pink);
+  filter:blur(140px);
+  opacity:.12;
+  pointer-events:none;
+}
+.tradeHeroGrid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:34px;
+}
+.tradeBack{
+  display:inline-flex;
+  margin-bottom:28px;
+  color:#8d9098;
+  font-size:11px;
+  font-weight:700;
+}
+.tradeHeroCopy h1{
+  margin:0;
+  max-width:760px;
+  font-size:clamp(46px,12vw,72px);
+  line-height:.94;
+  letter-spacing:-.05em;
+}
+.tradeHeroCopy>p{
+  max-width:620px;
+  margin:22px 0 0;
+  color:#a0a2aa;
+  font-size:15px;
+  line-height:1.65;
+}
+.tradeHeroActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+.tradeSecondaryCta{
+  min-height:50px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  color:#d8d9dd;
+  font-size:12px;
+  font-weight:750;
+}
+.tradeHeroPanel{
+  padding:24px 22px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 90% 8%,rgba(255,0,140,.12),transparent 32%),
+    rgba(255,255,255,.025);
+}
+.tradePanelLabel{
+  color:var(--pink);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.tradeHeroPanel h2{
+  margin:10px 0 20px;
+  font-size:28px;
+  line-height:1.08;
+  letter-spacing:-.035em;
+}
+.tradeProblemList{display:grid}
+.tradeProblemList>div{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:10px;
+  padding:14px 0;
+  border-top:1px solid var(--line-soft);
+}
+.tradeProblemList span{color:var(--pink);font-size:11px;font-weight:800}
+.tradeProblemList p{margin:0;color:#a0a2aa;font-size:12px;line-height:1.5}
+
+.tradeDetailSection,
+.tradeSearchSection,
+.tradeProcessSection,
+.tradeFinalSection{
+  padding:64px 0;
+}
+.tradeDetailSection{border-top:1px solid var(--line-soft)}
+.tradeSectionIntro{max-width:760px}
+.tradeSectionIntro h2,
+.tradeSearchGrid h2,
+.tradeFinalCard h2{
+  margin:0;
+  font-size:clamp(38px,9vw,56px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+}
+.tradeSectionIntro>p,
+.tradeSearchGrid>div>p,
+.tradeFinalCard p{
+  margin:18px 0 0;
+  color:#9699a1;
+  font-size:14px;
+  line-height:1.65;
+}
+.tradeServiceCards{
+  display:grid;
+  grid-template-columns:1fr;
+  margin-top:34px;
+  border-top:1px solid var(--line);
+}
+.tradeServiceCard{
+  padding:24px 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.tradeServiceCard>span{
+  color:var(--pink);
+  font-size:11px;
+  font-weight:800;
+}
+.tradeServiceCard h3{
+  margin:14px 0 8px;
+  font-size:20px;
+}
+.tradeServiceCard p{
+  margin:0;
+  color:#8f929a;
+  font-size:13px;
+  line-height:1.6;
+}
+.tradeSearchSection{
+  background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);
+}
+.tradeSearchGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:32px;
+}
+.tradeSearchTerms{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-content:flex-start;
+}
+.tradeSearchTerms span{
+  padding:11px 13px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
+  background:rgba(255,255,255,.025);
+  color:#d5d6da;
+  font-size:11px;
+}
+.tradeProcessGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  margin-top:30px;
+  border-top:1px solid var(--line);
+}
+.tradeProcessGrid>div{
+  padding:24px 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.tradeProcessGrid span{
+  color:var(--pink);
+  font-size:11px;
+  font-weight:800;
+}
+.tradeProcessGrid h3{
+  margin:16px 0 8px;
+  font-size:19px;
+}
+.tradeProcessGrid p{
+  margin:0;
+  color:#8f929a;
+  font-size:13px;
+  line-height:1.6;
+}
+.tradeFinalCard{
+  padding:30px 0;
+  border-top:1px solid rgba(255,0,140,.2);
+  border-bottom:1px solid rgba(255,0,140,.16);
+}
+.tradeFinalCard .button{margin-top:24px}
+
+@media(min-width:901px){
+  .tradePageHeaderInner{min-height:88px}
+  .tradePageLogo{width:182px}
+  .tradePageHeaderCta{min-height:48px;padding:0 20px;font-size:13px}
+  .tradeHero{padding:88px 0 92px}
+  .tradeHeroGrid{
+    grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
+    gap:74px;
+    align-items:center;
+  }
+  .tradeHeroCopy h1{font-size:clamp(64px,5.6vw,88px)}
+  .tradeHeroCopy>p{font-size:17px}
+  .tradeHeroPanel{padding:30px}
+  .tradeDetailSection,
+  .tradeSearchSection,
+  .tradeProcessSection,
+  .tradeFinalSection{padding:96px 0}
+  .tradeServiceCards{grid-template-columns:repeat(4,1fr)}
+  .tradeServiceCard{padding:28px 24px;border-right:1px solid var(--line-soft)}
+  .tradeServiceCard:first-child{padding-left:0}
+  .tradeServiceCard:last-child{border-right:0}
+  .tradeSearchGrid{grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);gap:80px;align-items:center}
+  .tradeProcessGrid{grid-template-columns:repeat(4,1fr)}
+  .tradeProcessGrid>div{padding:28px 24px;border-right:1px solid var(--line-soft);border-bottom:0}
+  .tradeProcessGrid>div:first-child{padding-left:0}
+  .tradeProcessGrid>div:last-child{border-right:0}
+  .tradeFinalCard{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:70px;
+    padding:42px 0;
+  }
+  .tradeFinalCard>div{max-width:760px}
+  .tradeFinalCard .button{margin-top:0;flex:0 0 auto}
+}
