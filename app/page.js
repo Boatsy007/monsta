@@ -35,6 +35,7 @@ export default function Home(){
               <a href="#services">Services</a>
               <a href="#results">Results</a>
               <a href="#process">Process</a>
+              <a href="/university">University</a>
               <a href="#contact">Contact</a>
             </nav>
 
@@ -51,6 +52,7 @@ export default function Home(){
                 <a href="#services">Services</a>
                 <a href="#results">Results</a>
                 <a href="#process">Process</a>
+                <a href="/university">University</a>
                 <a href="#contact">Contact</a>
               </nav>
             </details>
@@ -222,7 +224,7 @@ export default function Home(){
     <footer>
       <div className="shell footerInner">
         <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
-        <div className="footerLinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+        <div className="footerLinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
         <a className="footerCta" href="#contact">Get More Jobs →</a>
       </div>
     </footer>
