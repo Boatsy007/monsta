@@ -1320,59 +1320,22 @@ footer{padding:0 0 40px}
 }
 
 
-/* CPL benchmark comparison */
-.cplComparison{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin:14px 0 6px;
-}
-.cplComparison>div{
-  padding:12px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  background:rgba(255,255,255,.025);
-}
-.cplComparison span{
-  display:block;
-  color:#8f929a;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.cplComparison strong{
-  display:block;
-  margin-top:5px;
-  color:#d7d8dc;
-  font-size:13px;
-  line-height:1.2;
-}
-.cplComparison .monstaCpl{
-  border-color:rgba(255,0,140,.24);
-  background:rgba(255,0,140,.07);
-}
-.cplComparison .monstaCpl span,
-.cplComparison .monstaCpl strong{
-  color:#ff69bb;
-}
 
 
-/* Lead volume comparison */
-.leadComparison{
+/* Compact estimator result */
+.leadResultCompare{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
   margin-top:14px;
 }
-.leadComparison>div{
-  padding:14px 12px;
+.leadResultCell{
+  padding:16px 14px;
   border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
+  border-radius:14px;
   background:rgba(255,255,255,.025);
 }
-.leadComparison span,
-.leadDifference span{
+.leadResultCell>span{
   display:block;
   color:#8f929a;
   font-size:9px;
@@ -1380,48 +1343,50 @@ footer{padding:0 0 40px}
   letter-spacing:.06em;
   text-transform:uppercase;
 }
-.leadComparison strong{
+.leadResultCell>strong{
   display:block;
-  margin-top:5px;
-  color:#d9dade;
-  font-size:28px;
-  line-height:1;
-  letter-spacing:-.04em;
+  margin-top:8px;
+  color:#f1f2f4;
+  font-size:38px;
+  line-height:.95;
+  letter-spacing:-.05em;
 }
-.leadComparison small{
+.leadResultCell>small{
   display:block;
-  margin-top:4px;
-  color:#74777f;
-  font-size:9px;
+  margin-top:7px;
+  color:#858890;
+  font-size:10px;
+  font-weight:700;
 }
-.leadComparison .leadComparisonMonsta{
-  border-color:rgba(255,0,140,.24);
-  background:rgba(255,0,140,.07);
+.leadResultCellMonsta{
+  border-color:rgba(255,0,140,.28);
+  background:rgba(255,0,140,.075);
 }
-.leadComparison .leadComparisonMonsta span,
-.leadComparison .leadComparisonMonsta strong{
+.leadResultCellMonsta>span,
+.leadResultCellMonsta>strong{
   color:#ff69bb;
 }
-.leadDifference{
-  margin-top:10px;
-  padding:14px;
+.leadDifferenceCompact{
+  margin-top:12px;
+  padding:14px 16px;
   border:1px solid rgba(255,0,140,.18);
-  border-radius:12px;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(255,0,140,.13),transparent 50%),
-    rgba(255,255,255,.02);
+  border-radius:14px;
+  background:rgba(255,0,140,.045);
 }
-.leadDifference strong{
+.leadDifferenceCompact strong{
   display:block;
-  margin-top:4px;
   color:var(--pink);
-  font-size:22px;
+  font-size:20px;
   letter-spacing:-.03em;
 }
-.leadDifference small{
+.leadDifferenceCompact small{
   display:block;
   margin-top:4px;
   color:#858890;
   font-size:9px;
-  line-height:1.45;
+}
+.compactDisclaimer{
+  margin-top:12px !important;
+  color:#6f727a !important;
+  font-size:9px !important;
 }
