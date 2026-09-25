@@ -12,11 +12,14 @@ const trades=[
 ];
 
 const services=[
-  ["◢","Google Ads","Get found when people are actively searching for your trade."],
-  ["∞","Meta Ads","Reach local homeowners and create demand in your service area."],
-  ["▣","Websites","Turn traffic into enquiries with a clear, high-converting website."],
-  ["▤","Follow Up","Respond faster and keep good leads from slipping through the cracks."],
-  ["⌕","SEO","Build long-term local visibility and be found when it matters."],
+  ["◎","Growth Packages","A connected system across acquisition, conversion and follow-up.","growth-packages"],
+  ["∞","Meta Ads","Reach local homeowners and create demand in your service area.","meta-ads"],
+  ["◢","Google PPC","Get found when people are actively searching for your trade.","google-ppc"],
+  ["▤","CRM & Lead Nurture","Track, nurture and follow up opportunities more consistently.","crm-lead-nurture"],
+  ["▣","Website Development","Turn traffic into enquiries with a clear, scalable website.","website-development"],
+  ["⌕","SEO","Build long-term local visibility and be found when it matters.","seo"],
+  ["◉","Social Media","Stay visible with proof, useful content and consistent activity.","social-media-management"],
+  ["↗","Appointment Setting","Work new leads and follow up outstanding quotes more consistently.","appointment-setting"],
 ];
 
 const steps=[
@@ -33,7 +36,7 @@ export default function Home(){
             <a className="header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
 
             <nav className="desktop-nav" aria-label="Primary">
-              <a href="#services">Services</a>
+              <a href="/services">Services</a>
               <a href="#results">Results</a>
               <a href="#process">Process</a>
               <a href="/university">University</a>
@@ -50,7 +53,7 @@ export default function Home(){
                 <span></span><span></span><span></span>
               </summary>
               <nav className="mobile-nav-panel" aria-label="Mobile primary">
-                <a href="#services">Services</a>
+                <a href="/services">Services</a>
                 <a href="#results">Results</a>
                 <a href="#process">Process</a>
                 <a href="/university">University</a>
@@ -184,12 +187,12 @@ export default function Home(){
         </div>
 
         <div className="serviceGrid">
-          {services.map(([icon,name,desc])=>
+          {services.map(([icon,name,desc,slug])=>
             <article className="serviceCard" key={name}>
               <div className="serviceIcon">{icon}</div>
               <h3>{name}</h3>
               <p>{desc}</p>
-              <a href="#contact">Learn more <span>→</span></a>
+              <a href={`/services/${slug}`}>Learn more <span>→</span></a>
             </article>
           )}
         </div>
@@ -265,7 +268,7 @@ export default function Home(){
     <footer>
       <div className="shell footerInner">
         <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
-        <div className="footerLinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
+        <div className="footerLinks"><a href="/services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
         <a className="footerCta" href="#contact">Get More Jobs →</a>
       </div>
     </footer>
