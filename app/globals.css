@@ -1318,3 +1318,41 @@ footer{padding:0 0 40px}
   .growthFlowCard+ .growthFlowCard{padding-left:26px}
   .growthFlowCard:last-child{border-right:0}
 }
+
+
+/* CPL benchmark comparison */
+.cplComparison{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:14px 0 6px;
+}
+.cplComparison>div{
+  padding:12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+}
+.cplComparison span{
+  display:block;
+  color:#8f929a;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.cplComparison strong{
+  display:block;
+  margin-top:5px;
+  color:#d7d8dc;
+  font-size:13px;
+  line-height:1.2;
+}
+.cplComparison .monstaCpl{
+  border-color:rgba(255,0,140,.24);
+  background:rgba(255,0,140,.07);
+}
+.cplComparison .monstaCpl span,
+.cplComparison .monstaCpl strong{
+  color:#ff69bb;
+}
