@@ -12,9 +12,17 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{
+  width:100%;
+  min-height:100%;
+  scroll-behavior:auto;
+  overflow-x:clip;
+}
 body{
+  width:100%;
+  min-height:100%;
   margin:0;
+  overflow-x:clip;
   background:var(--bg);
   color:var(--text);
   font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -25,7 +33,13 @@ a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
 button{cursor:pointer}
 img{display:block;max-width:100%}
-main{display:block}
+main{
+  display:block;
+  width:100%;
+  min-height:100vh;
+  overflow:visible;
+}
+section[id]{scroll-margin-top:110px}
 .shell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
 
 /* Mobile top-of-page: deliberately simple document flow.
