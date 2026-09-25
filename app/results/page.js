@@ -1,8 +1,19 @@
 import { publishedCaseStudies, proofFramework } from "./resultData";
 
 export const metadata={
-  title:"Digital Marketing Results & Case Studies | Monsta Miami",
-  description:"See how Monsta Miami measures digital marketing performance for Australian tradies, with verified case studies covering acquisition, conversion, follow-up and booked-work outcomes."
+  title:"Digital Marketing Results & Case Studies",
+  description:"See how Monsta Miami measures digital marketing performance for Australian tradies, with verified case studies covering acquisition, conversion, follow-up and booked-work outcomes.",
+  alternates:{canonical:"/results/"},
+  openGraph:{
+    title:"Digital Marketing Results & Case Studies | Monsta Miami",
+    description:"How Monsta Miami measures acquisition, conversion, follow-up and booked-work outcomes for Australian tradies.",
+    url:"/results/",
+  },
+  twitter:{
+    card:"summary_large_image",
+    title:"Digital Marketing Results & Case Studies | Monsta Miami",
+    description:"How Monsta Miami measures acquisition, conversion, follow-up and booked-work outcomes for Australian tradies.",
+  }
 };
 
 function Header(){
