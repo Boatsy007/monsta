@@ -28,21 +28,25 @@ img{display:block;max-width:100%}
 main{display:block}
 .shell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
 
-/* Header: normal sticky website header, no transforms, filters, spacers or viewport hacks */
+/* Mobile top-of-page: deliberately simple document flow.
+   Header has no sticky/fixed/absolute positioning, no spacer and no viewport compensation.
+   The hero begins only after the header has finished in normal layout flow. */
 .site-header{
   position:static;
   width:100%;
-  height:78px;
+  min-height:78px;
+  height:auto;
   background:#050506;
   border-bottom:1px solid var(--line-soft);
 }
 .header-inner{
-  position:relative;
   width:calc(100% - 28px);
   max-width:var(--shell);
-  height:78px;
+  min-height:78px;
+  height:auto;
   margin:0 auto;
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
   gap:12px;
 }
@@ -63,17 +67,22 @@ main{display:block}
 .desktop-nav{display:none}
 .mobile-nav{
   margin-left:auto;
-  position:relative;
 }
 .mobile-nav summary{list-style:none}
 .mobile-nav summary::-webkit-details-marker{display:none}
+.mobile-nav[open]{
+  flex:0 0 100%;
+  width:100%;
+  margin-left:0;
+  padding-bottom:14px;
+}
+.mobile-nav[open] .menu-button{
+  margin-left:auto;
+}
 .mobile-nav-panel{
-  position:absolute;
-  top:50px;
-  right:0;
-  width:min(320px,calc(100vw - 28px));
-  z-index:1001;
-  margin:0;
+  position:static;
+  width:100%;
+  margin:10px 0 0;
   padding:12px 14px 16px;
   background:#050506;
   border:1px solid var(--line);
