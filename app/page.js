@@ -26,7 +26,7 @@ const steps=[
 ];
 
 export default function Home(){
-  return <main id="top">
+  return <>
         <header className="site-header">
           <div className="header-inner">
             <a className="header-brand" href="#top"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
@@ -57,7 +57,7 @@ export default function Home(){
           </div>
         </header>
 
-
+    <main id="top" className="site-main">
     <section className="hero">
       <div className="heroGlow heroGlowOne"></div>
       <div className="hero-inner">
@@ -183,5 +183,6 @@ export default function Home(){
         <a className="footerCta" href="#contact">Get More Jobs →</a>
       </div>
     </footer>
-  </main>;
+  </main>
+  </>;
 }
