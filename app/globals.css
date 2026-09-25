@@ -25,14 +25,12 @@ a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
 button{cursor:pointer}
 img{display:block;max-width:100%}
-main{overflow-x:clip}
+main{display:block}
 .shell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
 
 /* Header: normal sticky website header, no transforms, filters, spacers or viewport hacks */
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:static;
   width:100%;
   height:78px;
   background:#050506;
@@ -467,7 +465,7 @@ footer{padding:0 0 40px}
 /* Desktop enhancement only. Mobile above is the canonical base. */
 @media(min-width:901px){
   .shell{width:min(calc(100% - 64px),var(--shell))}
-  .site-header{height:92px}
+  .site-header{height:92px;position:sticky;top:0;z-index:1000}
   .header-inner{width:min(calc(100% - 64px),1440px);height:92px;gap:38px}
   .header-brand{width:190px;flex-basis:190px}
   .header-logo{width:182px;max-height:68px}
