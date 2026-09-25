@@ -2709,3 +2709,43 @@ footer{padding:0 0 40px}
   }
   .growthScoreUnlockCopy p{font-size:11px}
 }
+
+
+/* More explicit personalised Growth Score breakdown */
+.growthScoreEvidence{
+  margin-top:14px;
+  padding-top:13px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.growthScoreEvidence>span{
+  display:block;
+  margin-bottom:7px;
+  color:#777a82;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.growthScoreEvidence ul{
+  display:grid;
+  gap:5px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.growthScoreEvidence li{
+  color:#83868e;
+  font-size:9px;
+  line-height:1.45;
+}
+.growthScoreEvidence li b{
+  color:#c7c9ce;
+  font-weight:750;
+}
+@media(min-width:901px){
+  .growthScoreEvidence ul{
+    grid-template-columns:1fr 1fr;
+    column-gap:18px;
+  }
+  .growthScoreEvidence li{font-size:10px}
+}
