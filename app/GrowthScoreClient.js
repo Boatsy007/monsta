@@ -407,7 +407,7 @@ export default function GrowthScoreClient({variant="section"}){
           <div className="growthScoreUnlockCopy">
             <span>Free personalised breakdown</span>
             <h3>Unlock your free breakdown</h3>
-            <p>See what your answers suggest, the areas we’d prioritise first and which Monsta services may help.</p>
+            <p>See where you may be losing opportunities, what we’d prioritise first, and which Monsta services could help.</p>
           </div>
 
           <form className="growthScoreUnlockForm" onSubmit={unlockBreakdown}>
@@ -450,13 +450,22 @@ export default function GrowthScoreClient({variant="section"}){
           <small>Your score stays visible. Your details unlock the personalised breakdown below.</small>
         </div> : <>
           <div className="growthScoreOpportunity">
-            <span>What your answers suggest</span>
+            <span>Your personalised diagnosis</span>
             <h3>{result.title}</h3>
             <p>{result.text}</p>
+            <div className="growthScoreEvidence">
+              <span>Based on your answers:</span>
+              <ul>
+                {answers.leadVolume && <li>Lead flow: <b>{answers.leadVolume}</b></li>}
+                {answers.response && <li>Lead response: <b>{answers.response}</b></li>}
+                {answers.quoteFollowup && <li>Quote follow-up: <b>{answers.quoteFollowup}</b></li>}
+                {answers.tracking && <li>Tracking: <b>{answers.tracking}</b></li>}
+              </ul>
+            </div>
           </div>
 
           <div className="growthScoreRecommendations">
-            <span className="growthScoreRecommendationsLabel">Services worth looking at</span>
+            <span className="growthScoreRecommendationsLabel">What we’d prioritise first</span>
             <div className="growthScoreRecommendationList">
               {result.recommendations.map(item=>
                 <div className="growthScoreRecommendation" key={item.name}>
