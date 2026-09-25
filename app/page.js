@@ -37,7 +37,7 @@ export default function Home(){
 
             <nav className="desktop-nav" aria-label="Primary">
               <a href="/services">Services</a>
-              <a href="#results">Results</a>
+              <a href="/results">Results</a>
               <a href="#process">Process</a>
               <a href="/university">University</a>
               <a href="#contact">Contact</a>
@@ -54,7 +54,7 @@ export default function Home(){
               </summary>
               <nav className="mobile-nav-panel" aria-label="Mobile primary">
                 <a href="/services">Services</a>
-                <a href="#results">Results</a>
+                <a href="/results">Results</a>
                 <a href="#process">Process</a>
                 <a href="/university">University</a>
                 <a href="#contact">Contact</a>
@@ -199,26 +199,40 @@ export default function Home(){
       </div>
     </section>
 
-    <section id="results" className="section results">
-      <div className="shell resultsGrid">
-        <div className="resultsCopy">
-          <div className="eyebrow">What the system is built to improve</div>
-          <h2>More visibility.<br/>Better follow-up.<br/>More booked work.</h2>
-          <p>Every part of the system is designed around one commercial goal: turning attention into real enquiries and real jobs.</p>
-          <div className="metricRow">
-            <div><b>01</b><span>Get found</span></div>
-            <div><b>02</b><span>Convert enquiries</span></div>
-            <div><b>03</b><span>Follow up faster</span></div>
+    <section id="results" className="section results proofHomeSection">
+      <div className="shell">
+        <div className="sectionHeader proofHomeHeader">
+          <div>
+            <div className="eyebrow">Proof over promises</div>
+            <h2>Show the numbers that actually matter.</h2>
           </div>
+          <p>As verified client data becomes available, Monsta Miami case studies will connect marketing activity to genuine enquiries, qualified opportunities and booked work where that outcome can be confirmed.</p>
         </div>
 
-        <div className="resultFeature">
-          <div className="resultLabel">What we optimise</div>
-          <div className="optimiseList">
-            <div><span>01</span><div><b>Visibility</b><p>Show up when local customers are actively looking for your trade.</p></div></div>
-            <div><span>02</span><div><b>Conversion</b><p>Turn more of that attention into genuine enquiries and quoting opportunities.</p></div></div>
-            <div><span>03</span><div><b>Follow-up</b><p>Respond faster and keep valuable leads moving instead of going cold.</p></div></div>
+        <div className="proofHomeGrid">
+          <article>
+            <span>01 · Acquisition</span>
+            <h3>Where the lead came from</h3>
+            <p>Channel, campaign, spend, service area and the strategy behind the enquiry.</p>
+          </article>
+          <article>
+            <span>02 · Conversion</span>
+            <h3>What happened after the click</h3>
+            <p>Calls, forms, lead quality and the conversion path between attention and a real sales opportunity.</p>
+          </article>
+          <article>
+            <span>03 · Sales</span>
+            <h3>What happened to the opportunity</h3>
+            <p>Follow-up, appointments, quoting and booked-work outcomes where the client can verify them.</p>
+          </article>
+        </div>
+
+        <div className="proofHomeFooter">
+          <div>
+            <b>No fabricated case studies.</b>
+            <span>Real campaign metrics and testimonials will be added only when the underlying evidence is ready.</span>
           </div>
+          <a href="/results">See how we report results <span>→</span></a>
         </div>
       </div>
     </section>
@@ -268,7 +282,7 @@ export default function Home(){
     <footer>
       <div className="shell footerInner">
         <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
-        <div className="footerLinks"><a href="/services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
+        <div className="footerLinks"><a href="/services">Services</a><a href="/results">Results</a><a href="#process">Process</a><a href="/university">University</a><a href="#contact">Contact</a></div>
         <a className="footerCta" href="#contact">Get More Jobs →</a>
       </div>
     </footer>
