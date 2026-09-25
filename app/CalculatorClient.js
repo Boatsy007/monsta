@@ -62,11 +62,19 @@ export default function CalculatorClient({trades}){
   const selected=TRADE_DATA[trade];
 
   const monstaCpl=selected.baseCpl;
+  const marketHighCpl=Number(selected.range.match(/\$(\d+)[^\d]+\$(\d+)/)?.[2]||monstaCpl);
 
   const estimatedLeads=useMemo(
     ()=>Math.max(1,Math.floor(Number(spend||0)/monstaCpl)),
     [spend,monstaCpl]
   );
+
+  const marketEstimatedLeads=useMemo(
+    ()=>Math.max(1,Math.floor(Number(spend||0)/marketHighCpl)),
+    [spend,marketHighCpl]
+  );
+
+  const leadDifference=Math.max(0,estimatedLeads-marketEstimatedLeads);
 
   const sliderPercent=((spend-1000)/(10000-1000))*100;
 
@@ -151,8 +159,27 @@ export default function CalculatorClient({trades}){
               <strong>{estimatedLeads}</strong>
               <span>leads</span>
             </div>
+
+            <div className="leadComparison">
+              <div>
+                <span>Market benchmark</span>
+                <strong>{marketEstimatedLeads}</strong>
+                <small>potential leads</small>
+              </div>
+              <div className="leadComparisonMonsta">
+                <span>Monsta target</span>
+                <strong>{estimatedLeads}</strong>
+                <small>potential leads</small>
+              </div>
+            </div>
+
+            <div className="leadDifference">
+              <span>Potential difference</span>
+              <strong>+{leadDifference} leads</strong>
+              <small>from the same $\{Number(spend).toLocaleString()} monthly ad spend</small>
+            </div>
             <p className="estimateDisclaimer">
-              Indicative estimate only. Monsta target CPL uses the lowest value in the cited real-market benchmark range for the selected trade. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
+              Indicative comparison only. Market lead volume uses the high end of the cited benchmark CPL range and Monsta target uses the low end. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
             </p>
             <details className="calcMethod">
               <summary>How we calculate this</summary>
