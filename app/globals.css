@@ -9,6 +9,7 @@
   --pink:#ff008c;
   --cyan:#08dfe4;
   --shell:1320px;
+  --header-height:78px;
 }
 
 *{box-sizing:border-box}
@@ -16,6 +17,7 @@ html{
   width:100%;
   min-height:100%;
   scroll-behavior:auto;
+  scroll-padding-top:calc(var(--header-height) + 16px);
   overflow-x:clip;
 }
 body{
@@ -36,31 +38,34 @@ img{display:block;max-width:100%}
 main{
   display:block;
   width:100%;
-  min-height:100vh;
+  min-height:100svh;
   overflow:visible;
 }
-section[id]{scroll-margin-top:110px}
+.site-main{
+  padding-top:var(--header-height);
+}
+section[id]{scroll-margin-top:calc(var(--header-height) + 16px)}
 .shell{width:min(calc(100% - 28px),var(--shell));margin:0 auto}
 
-/* Mobile top-of-page: deliberately simple document flow.
-   Header has no sticky/fixed/absolute positioning, no spacer and no viewport compensation.
-   The hero begins only after the header has finished in normal layout flow. */
+/* Site header is outside <main> and fixed to the viewport.
+   The page receives an equal top offset, so the hero cannot sit underneath it. */
 .site-header{
-  position:static;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index:10000;
   width:100%;
-  min-height:78px;
-  height:auto;
+  height:var(--header-height);
   background:#050506;
   border-bottom:1px solid var(--line-soft);
 }
 .header-inner{
   width:calc(100% - 28px);
   max-width:var(--shell);
-  min-height:78px;
-  height:auto;
+  height:100%;
   margin:0 auto;
   display:flex;
-  flex-wrap:wrap;
   align-items:center;
   gap:12px;
 }
@@ -84,23 +89,21 @@ section[id]{scroll-margin-top:110px}
 }
 .mobile-nav summary{list-style:none}
 .mobile-nav summary::-webkit-details-marker{display:none}
-.mobile-nav[open]{
-  flex:0 0 100%;
-  width:100%;
-  margin-left:0;
-  padding-bottom:14px;
-}
-.mobile-nav[open] .menu-button{
-  margin-left:auto;
-}
 .mobile-nav-panel{
-  position:static;
-  width:100%;
-  margin:10px 0 0;
+  position:fixed;
+  top:calc(var(--header-height) + 8px);
+  right:14px;
+  left:14px;
+  z-index:10001;
+  width:auto;
+  max-height:calc(100svh - var(--header-height) - 24px);
+  overflow:auto;
+  margin:0;
   padding:12px 14px 16px;
   background:#050506;
   border:1px solid var(--line);
   border-radius:10px;
+  box-shadow:0 18px 50px rgba(0,0,0,.45);
   display:flex;
   flex-direction:column;
 }
@@ -494,9 +497,9 @@ footer{padding:0 0 40px}
 
 /* Desktop enhancement only. Mobile above is the canonical base. */
 @media(min-width:901px){
+  :root{--header-height:92px}
   .shell{width:min(calc(100% - 64px),var(--shell))}
-  .site-header{height:92px;position:sticky;top:0;z-index:1000}
-  .header-inner{width:min(calc(100% - 64px),1440px);height:92px;gap:38px}
+  .header-inner{width:min(calc(100% - 64px),1440px);height:100%;gap:38px}
   .header-brand{width:190px;flex-basis:190px}
   .header-logo{width:182px;max-height:68px}
   .mobile-nav{display:none}
