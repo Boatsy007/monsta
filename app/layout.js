@@ -10,7 +10,7 @@ export default function RootLayout({children}){
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html:`(function(){try{history.scrollRestoration="manual";var top=function(){if(!location.hash||location.hash==="#top"){scrollTo(0,0)}};top();addEventListener("DOMContentLoaded",top,{once:true});addEventListener("load",top,{once:true});addEventListener("pageshow",top);addEventListener("pagehide",top)}catch(e){}})();`
+            __html:`try{history.scrollRestoration="manual"}catch(e){}`
           }}
         />
       </head>
