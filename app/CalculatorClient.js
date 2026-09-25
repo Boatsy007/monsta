@@ -145,47 +145,36 @@ export default function CalculatorClient({trades}){
             <div className="leadEstimateTopline">
               <span className="leadEstimateLabel">Estimated monthly leads</span>
             </div>
-            <div className="cplComparison">
-              <div>
-                <span>Market benchmark</span>
-                <strong>{selected.range} CPL</strong>
-              </div>
-              <div className="monstaCpl">
-                <span>Monsta target</span>
-                <strong>$\{monstaCpl} CPL</strong>
-              </div>
-            </div>
-            <div className="leadEstimateNumber">
-              <strong>{estimatedLeads}</strong>
-              <span>leads</span>
-            </div>
 
-            <div className="leadComparison">
-              <div>
+            <div className="leadResultCompare">
+              <div className="leadResultCell">
                 <span>Market benchmark</span>
                 <strong>{marketEstimatedLeads}</strong>
-                <small>potential leads</small>
+                <small>{marketHighCpl} CPL</small>
               </div>
-              <div className="leadComparisonMonsta">
+              <div className="leadResultCell leadResultCellMonsta">
                 <span>Monsta target</span>
                 <strong>{estimatedLeads}</strong>
-                <small>potential leads</small>
+                <small>{monstaCpl} CPL</small>
               </div>
             </div>
 
-            <div className="leadDifference">
-              <span>Potential difference</span>
-              <strong>+{leadDifference} leads</strong>
-              <small>from the same $\{Number(spend).toLocaleString()} monthly ad spend</small>
+            <div className="leadDifferenceCompact">
+              <strong>+{leadDifference} potential leads</strong>
+              <small>from the same $\{Number(spend).toLocaleString()} ad spend</small>
             </div>
-            <p className="estimateDisclaimer">
-              Indicative comparison only. Market lead volume uses the high end of the cited benchmark CPL range and Monsta target uses the low end. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
+
+            <p className="estimateDisclaimer compactDisclaimer">
+              Indicative estimate only. Results vary.
             </p>
+
             <details className="calcMethod">
               <summary>How we calculate this</summary>
               <div>
                 <p><b>{selected.label} benchmark:</b> {selected.range} CPL.</p>
-                <p><b>Market:</b> {city} selected for campaign context. Monsta target does not go below the lowest cited benchmark CPL.</p>
+                <p><b>Market comparison:</b> uses the high end of the cited benchmark range.</p>
+                <p><b>Monsta target:</b> uses the lowest cited benchmark CPL for the selected trade.</p>
+                <p><b>Market:</b> {city} selected for campaign context.</p>
                 <p><b>Source reference:</b> {selected.source}.</p>
               </div>
             </details>
