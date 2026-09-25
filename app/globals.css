@@ -2537,3 +2537,63 @@ footer{padding:0 0 40px}
   }
   .calculatorSectionIntro>p{font-size:15px}
 }
+
+
+/* Subtle service recommendations inside Growth Score */
+.growthScoreRecommendations{
+  margin-top:18px;
+}
+.growthScoreRecommendationsLabel{
+  display:block;
+  margin-bottom:9px;
+  color:#858890;
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.growthScoreRecommendationList{
+  display:grid;
+  gap:8px;
+}
+.growthScoreRecommendation{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:13px 14px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:12px;
+  background:rgba(255,255,255,.02);
+}
+.growthScoreRecommendation>div{
+  min-width:0;
+}
+.growthScoreRecommendation strong{
+  display:block;
+  color:#e4e5e8;
+  font-size:11px;
+  font-weight:800;
+}
+.growthScoreRecommendation p{
+  margin:4px 0 0;
+  color:#7f828a;
+  font-size:9px;
+  line-height:1.45;
+}
+.growthScoreRecommendation>span{
+  flex:0 0 auto;
+  color:rgba(255,0,140,.78);
+  font-size:16px;
+}
+@media(min-width:901px){
+  .growthScoreRecommendation{
+    padding:14px 15px;
+  }
+  .growthScoreRecommendation strong{
+    font-size:12px;
+  }
+  .growthScoreRecommendation p{
+    font-size:10px;
+  }
+}
