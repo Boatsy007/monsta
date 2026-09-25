@@ -1,6 +1,8 @@
 "use client";
 
 import {useEffect,useState} from "react";
+import SiteHeader from "../SiteHeader";
+import SiteFooter from "../SiteFooter";
 
 const benefits=[
   ["01","Practical lessons","Straightforward education on Google Ads, Meta, websites, SEO, follow-up and growth."],
@@ -29,27 +31,7 @@ export default function UniversityClient(){
   };
 
   return <>
-    <header className="site-header universityHeader">
-      <div className="header-inner">
-        <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-        <nav className="desktop-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/#services">Services</a>
-          <a href="/university" aria-current="page">University</a>
-          <a href="/#contact">Contact</a>
-        </nav>
-        <div className="headerActions">
-          <a className="button buttonSmall primaryCta" href="/#contact">Get More Jobs <span>→</span></a>
-        </div>
-        <details className="mobile-nav">
-          <summary className="menu-button" aria-label="Open menu"><span></span><span></span><span></span></summary>
-          <nav className="mobile-nav-panel" aria-label="Mobile primary">
-            <a href="/">Home</a><a href="/#services">Services</a><a href="/university">University</a><a href="/#contact">Contact</a>
-          </nav>
-        </details>
-      </div>
-    </header>
-
+    <SiteHeader/>
     <main id="top" className="site-main universityLanding">
       {!unlocked ? (
         <>
@@ -159,13 +141,7 @@ export default function UniversityClient(){
         </section>
       )}
 
-      <footer className="universityFooter">
-        <div className="universityGateShell footerInner">
-          <img src="/monsta-miami-logo.png" alt="Monsta Miami"/>
-          <div className="footerLinks"><a href="/">Home</a><a href="/#services">Services</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
-          <a className="footerCta" href="/#contact">Get More Jobs →</a>
-        </div>
-      </footer>
+      <SiteFooter/>
     </main>
   </>;
 }
