@@ -779,3 +779,71 @@ footer{padding:0 0 40px}
     font-size:72px;
   }
 }
+
+
+/* Trade + metro lead estimator controls */
+.tradePicker{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:22px;
+}
+.tradeChoice,
+.cityChoice{
+  min-height:42px;
+  padding:0 12px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+  color:#b9bbc2;
+  font-size:11px;
+  font-weight:750;
+  transition:border-color .16s ease,background .16s ease,color .16s ease,box-shadow .16s ease,transform .16s ease;
+}
+.tradeChoice:active,
+.cityChoice:active{transform:scale(.985)}
+.tradeChoice.active,
+.cityChoice.active{
+  color:#fff;
+  border-color:rgba(255,0,140,.45);
+  background:rgba(255,0,140,.11);
+  box-shadow:
+    0 0 0 1px rgba(255,0,140,.05) inset,
+    0 0 20px rgba(255,0,140,.14);
+}
+.cityPickerWrap{margin-top:16px}
+.pickerLabel{
+  display:block;
+  margin-bottom:8px;
+  color:#898c94;
+  font-size:10px;
+  font-weight:750;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.cityPicker{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.cityChoice{min-height:40px}
+.leadEstimateTopline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.cplBadge{
+  flex:0 0 auto;
+  padding:7px 9px;
+  border:1px solid rgba(255,0,140,.18);
+  border-radius:999px;
+  background:rgba(255,0,140,.08);
+  color:#ff69bb;
+  font-size:10px;
+  font-weight:800;
+}
+
+@media(min-width:901px){
+  .tradePicker{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
