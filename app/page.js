@@ -93,6 +93,35 @@ export default function Home(){
     </section>
 
 
+    <section className="section founderStory">
+      <div className="shell founderStoryGrid">
+        <div className="founderStoryVideoWrap">
+          <div className="founderStoryVideo">
+            <div className="founderStoryVideoGlow"></div>
+            <div className="founderStoryVideoOverlay">
+              <span className="founderStoryKicker">Meet Rohan</span>
+              <button className="founderStoryPlay" type="button" aria-label="Play introduction video">▶</button>
+              <span className="founderStoryVideoLabel">Video coming soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="founderStoryCopy">
+          <div className="eyebrow">From the tools to digital</div>
+          <h2>I might not have been the best welder.<br/><span>I sucked as a fabricator.</span></h2>
+          <p>But working as a boilermaker taught me what life on the tools is actually like — long days, early starts, quoting after hours and constantly needing the next job lined up.</p>
+          <p>Eventually I realised my real strength was marketing. That’s what led me to Monsta: helping tradies grow online instead of trying to be the bloke building everything myself.</p>
+
+          <div className="founderStoryQuote">
+            <span>“</span>
+            <p>I might not be the bloke you want welding your next job — but if you want more leads coming into your business, that’s a different story.</p>
+          </div>
+
+          <a className="founderStoryLink" href="#contact">See how Monsta can help <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
     <section className="section growthFlow">
       <div className="shell">
         <div className="sectionHeader growthFlowHeader">
