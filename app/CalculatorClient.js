@@ -3,53 +3,53 @@
 import {useMemo,useState} from "react";
 
 const CITY_FACTORS={
-  Sydney:1.046,
-  Melbourne:0.851,
-  Brisbane:1.103,
+  Sydney:1.12,
+  Melbourne:1.08,
+  Brisbane:1.00,
 };
 
 const TRADE_DATA={
   Roofing:{
     label:"Roofing",
-    baseCpl:28,
-    range:"$28–$42",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:100,
+    cplHigh:180,
+    source:"Australian 2026 trade/home-service benchmarks",
   },
   Plumbing:{
     label:"Plumbing",
-    baseCpl:18,
-    range:"$18–$32",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:60,
+    cplHigh:100,
+    source:"Australian 2025–2026 trade benchmarks",
   },
   Electrical:{
     label:"Electrical",
-    baseCpl:22,
-    range:"$22–$36",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:70,
+    cplHigh:120,
+    source:"Australian 2025–2026 trade benchmarks",
   },
   HVAC:{
     label:"HVAC / Aircon",
-    baseCpl:25,
-    range:"$25–$40",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:80,
+    cplHigh:150,
+    source:"Australian 2025–2026 home-service benchmarks",
   },
   Fencing:{
     label:"Fencing",
-    baseCpl:16,
-    range:"$16–$28",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:80,
+    cplHigh:150,
+    source:"Australian 2026 trade benchmarks",
   },
   Building:{
     label:"Builder",
-    baseCpl:50,
-    range:"$50–$100",
-    source:"Optimised Tradies Australian benchmark",
+    cplLow:120,
+    cplHigh:220,
+    source:"Australian construction/home-service benchmark range",
   },
   Landscaping:{
     label:"Landscaping",
-    baseCpl:20,
-    range:"$20–$32",
-    source:"BuzzPilot 2025 optimised Australian campaigns",
+    cplLow:80,
+    cplHigh:140,
+    source:"Australian 2025–2026 home-service benchmarks",
   },
 };
 
@@ -61,20 +61,19 @@ export default function CalculatorClient({trades}){
 
   const selected=TRADE_DATA[trade];
 
-  const monstaCpl=selected.baseCpl;
-  const marketHighCpl=Number(selected.range.match(/\$(\d+)[^\d]+\$(\d+)/)?.[2]||monstaCpl);
+  const cityFactor=CITY_FACTORS[city]||1;
+  const adjustedLowCpl=Math.round(selected.cplLow*cityFactor);
+  const adjustedHighCpl=Math.round(selected.cplHigh*cityFactor);
 
-  const estimatedLeads=useMemo(
-    ()=>Math.max(1,Math.floor(Number(spend||0)/monstaCpl)),
-    [spend,monstaCpl]
+  const estimatedLeadLow=useMemo(
+    ()=>Math.max(1,Math.floor(Number(spend||0)/adjustedHighCpl)),
+    [spend,adjustedHighCpl]
   );
 
-  const marketEstimatedLeads=useMemo(
-    ()=>Math.max(1,Math.floor(Number(spend||0)/marketHighCpl)),
-    [spend,marketHighCpl]
+  const estimatedLeadHigh=useMemo(
+    ()=>Math.max(1,Math.floor(Number(spend||0)/adjustedLowCpl)),
+    [spend,adjustedLowCpl]
   );
-
-  const leadDifference=Math.max(0,estimatedLeads-marketEstimatedLeads);
 
   const sliderPercent=((spend-1000)/(10000-1000))*100;
 
@@ -85,7 +84,7 @@ export default function CalculatorClient({trades}){
           <div className="simpleCalcHeader">
             <span className="simpleCalcKicker">Live lead estimator</span>
             <h2>What could your ad spend generate?</h2>
-            <p>Choose your trade, market and monthly ad spend to see an indicative lead range for your campaign.</p>
+            <p>Choose your trade, metro market and monthly ad spend to see a conservative indicative range based on published Australian benchmarks.</p>
           </div>
 
           <div className="tradePicker" aria-label="Choose your trade">
@@ -115,12 +114,13 @@ export default function CalculatorClient({trades}){
                 </button>
               ))}
             </div>
+            <small className="cityBenchmarkNote">Metro selection adjusts the benchmark range. It is not a quote or campaign forecast.</small>
           </div>
 
           <div className="spendControl">
             <div className="spendControlTop">
               <span>Monthly ad spend</span>
-              <strong>$\{Number(spend).toLocaleString()}</strong>
+              <strong>{`${Number(spend).toLocaleString()}`}</strong>
             </div>
 
             <input
@@ -148,34 +148,34 @@ export default function CalculatorClient({trades}){
 
             <div className="leadResultCompare">
               <div className="leadResultCell">
-                <span>Market benchmark</span>
-                <strong>{marketEstimatedLeads}</strong>
-                <small>{marketHighCpl} CPL</small>
+                <span>Estimated CPL range</span>
+                <strong>${adjustedLowCpl}–${adjustedHighCpl}</strong>
+                <small>{city} · {selected.label}</small>
               </div>
               <div className="leadResultCell leadResultCellMonsta">
-                <span>Monsta target</span>
-                <strong>{estimatedLeads}</strong>
-                <small>{monstaCpl} CPL</small>
+                <span>Estimated monthly leads</span>
+                <strong>{estimatedLeadLow}–{estimatedLeadHigh}</strong>
+                <small>from your selected spend</small>
               </div>
             </div>
 
             <div className="leadDifferenceCompact">
-              <strong>+{leadDifference} potential leads</strong>
-              <small>from the same $\{Number(spend).toLocaleString()} ad spend</small>
+              <strong>Indicative range only</strong>
+              <small>Based on ${Number(spend).toLocaleString()} monthly ad spend</small>
             </div>
 
             <p className="estimateDisclaimer compactDisclaimer">
-              Indicative estimate only. Results vary.
+              Indicative benchmark estimate only. Actual CPL and lead volume can vary materially by location, service, competition, landing page, tracking and campaign quality.
             </p>
 
             <details className="calcMethod">
               <summary>How we calculate this</summary>
               <div>
-                <p><b>{selected.label} benchmark:</b> {selected.range} CPL.</p>
-                <p><b>Market comparison:</b> uses the high end of the cited benchmark range.</p>
-                <p><b>Monsta target:</b> uses the lowest cited benchmark CPL for the selected trade.</p>
-                <p><b>Market:</b> {city} selected for campaign context.</p>
-                <p><b>Source reference:</b> {selected.source}.</p>
+                <p><b>{selected.label} base range:</b> ${selected.cplLow}–${selected.cplHigh} CPL before the metro adjustment.</p>
+                <p><b>{city} adjustment:</b> {Math.round((cityFactor-1)*100)}% relative to the Brisbane baseline used in this estimator.</p>
+                <p><b>Estimated CPL:</b> ${adjustedLowCpl}–${adjustedHighCpl}.</p>
+                <p><b>Estimated leads:</b> spend divided by the adjusted CPL range, rounded down.</p>
+                <p><b>Source basis:</b> {selected.source}. Published benchmarks vary considerably, so this calculator intentionally uses broader, conservative ranges rather than a best-case target.</p>
               </div>
             </details>
           </div>
