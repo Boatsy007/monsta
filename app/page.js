@@ -1,4 +1,5 @@
 import CalculatorClient from "./CalculatorClient";
+import GrowthScoreClient from "./GrowthScoreClient";
 
 const trades=[
   ["⌂","Roofing"],
@@ -160,6 +161,8 @@ export default function Home(){
         </div>
       </div>
     </section>
+
+    <GrowthScoreClient/>
 
     <section id="services" className="section services">
       <div className="shell">
