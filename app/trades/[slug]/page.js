@@ -1,3 +1,5 @@
+import { absoluteUrl } from "../../siteConfig";
+
 const TRADE_PAGES={
   roofing:{
     name:"Roofing",
@@ -254,10 +256,22 @@ export async function generateMetadata({params}){
   const {slug}=await params;
   const data=TRADE_PAGES[slug];
   if(!data) return {title:"Trade Marketing | Monsta Miami"};
+  const canonical=`/trades/${slug}/`;
   return {
-    title:data.metaTitle,
+    title:{absolute:data.metaTitle},
     description:data.metaDescription,
-    openGraph:{title:data.metaTitle,description:data.metaDescription,type:"website"}
+    alternates:{canonical},
+    openGraph:{
+      title:data.metaTitle,
+      description:data.metaDescription,
+      type:"website",
+      url:canonical
+    },
+    twitter:{
+      card:"summary_large_image",
+      title:data.metaTitle,
+      description:data.metaDescription
+    }
   };
 }
 
@@ -265,6 +279,8 @@ export default async function TradePage({params}){
   const {slug}=await params;
   const data=TRADE_PAGES[slug];
   if(!data) return null;
+
+  const canonical=`/trades/${slug}/`;
 
   const faqSchema={
     "@context":"https://schema.org",
@@ -274,6 +290,15 @@ export default async function TradePage({params}){
       name:question,
       acceptedAnswer:{"@type":"Answer",text:answer}
     }))
+  };
+
+  const breadcrumbSchema={
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    itemListElement:[
+      {"@type":"ListItem",position:1,name:"Home",item:absoluteUrl("/")},
+      {"@type":"ListItem",position:2,name:data.name,item:absoluteUrl(canonical)}
+    ]
   };
 
   return (
@@ -393,6 +418,7 @@ export default async function TradePage({params}){
           </div>
         </section>
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumbSchema)}}/>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
       </main>
     </>
