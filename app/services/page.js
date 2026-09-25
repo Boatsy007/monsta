@@ -1,4 +1,6 @@
 import { services, serviceSlugs } from "./serviceData";
+import SiteHeader from "../SiteHeader";
+import SiteFooter from "../SiteFooter";
 
 export const metadata={
   title:"Digital Marketing Services for Tradies",
@@ -18,13 +20,7 @@ export const metadata={
 
 export default function ServicesPage(){
   return <>
-    <header className="site-header">
-      <div className="header-inner">
-        <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-        <nav className="desktop-nav" aria-label="Primary"><a href="/">Home</a><a href="/university">University</a><a href="/#contact">Contact</a></nav>
-        <div className="headerActions"><a className="button buttonSmall primaryCta" href="/#contact">Get More Jobs <span>→</span></a></div>
-      </div>
-    </header>
+    <SiteHeader/>
     <main className="site-main servicePage serviceHubPage">
       <section className="serviceHero">
         <div className="serviceHeroGlow"></div>
@@ -48,13 +44,7 @@ export default function ServicesPage(){
           })}
         </div>
       </section>
-      <footer>
-        <div className="shell footerInner">
-          <a href="/"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <div className="footerLinks"><a href="/">Home</a><a href="/results">Results</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
-          <a className="footerCta" href="/#contact">Get More Jobs →</a>
-        </div>
-      </footer>
+      <SiteFooter/>
     </main>
   </>;
 }
