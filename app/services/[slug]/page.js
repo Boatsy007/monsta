@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { services, serviceSlugs } from "../serviceData";
 import { absoluteUrl } from "../../siteConfig";
+import SiteHeader from "../../SiteHeader";
+import SiteFooter from "../../SiteFooter";
 
 export function generateStaticParams(){
   return serviceSlugs.map(slug=>({slug}));
@@ -26,23 +28,6 @@ export function generateMetadata({params}){
       description:service.metaDescription
     }
   };
-}
-
-function Header(){
-  return <header className="site-header">
-    <div className="header-inner">
-      <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-      <nav className="desktop-nav" aria-label="Primary">
-        <a href="/#services">Services</a>
-        <a href="/#process">Process</a>
-        <a href="/university">University</a>
-        <a href="/#contact">Contact</a>
-      </nav>
-      <div className="headerActions">
-        <a className="button buttonSmall primaryCta" href="/#contact">Get More Jobs <span>→</span></a>
-      </div>
-    </div>
-  </header>;
 }
 
 export default function ServicePage({params}){
@@ -84,7 +69,7 @@ export default function ServicePage({params}){
   };
 
   return <>
-    <Header/>
+    <SiteHeader/>
     <main className="site-main servicePage">
       <section className="serviceHero">
         <div className="serviceHeroGlow"></div>
@@ -195,13 +180,7 @@ export default function ServicePage({params}){
         </div>
       </section>
 
-      <footer>
-        <div className="shell footerInner">
-          <a href="/"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <div className="footerLinks"><a href="/services">Services</a><a href="/results">Results</a><a href="/#process">Process</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
-          <a className="footerCta" href="/#contact">Get More Jobs →</a>
-        </div>
-      </footer>
+      <SiteFooter/>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(serviceSchema)}}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumbSchema)}}/>
