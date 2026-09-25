@@ -19,7 +19,9 @@ export default function ScrollManager(){
       }else{
         window.scrollTo({top:0,left:0,behavior:"auto"});
       }
-      header?.classList.remove("is-hidden");
+      if(header){
+        header.style.setProperty("--header-offset","0px");
+      }
     };
 
     resetTop();
@@ -33,16 +35,17 @@ export default function ScrollManager(){
       };
     }
 
-    let lastY=main.scrollTop;
-    let direction=0;
-    let travelled=0;
-    let ticking=false;
-    let hidden=false;
+    const headerHeight=()=>{
+      const h=header.getBoundingClientRect().height;
+      return Number.isFinite(h) && h>0 ? h : 78;
+    };
 
-    const setHidden=(next)=>{
-      if(hidden===next) return;
-      hidden=next;
-      header.classList.toggle("is-hidden",next);
+    let lastY=Math.max(0,main.scrollTop);
+    let offset=0;
+    let ticking=false;
+
+    const render=()=>{
+      header.style.setProperty("--header-offset",`${offset}px`);
     };
 
     const updateHeader=()=>{
@@ -50,32 +53,19 @@ export default function ScrollManager(){
 
       const y=Math.max(0,main.scrollTop);
       const delta=y-lastY;
+      const maxOffset=headerHeight();
 
-      if(Math.abs(delta)<0.5){
-        lastY=y;
-        return;
+      if(mobileNav?.open || y<=0){
+        offset=0;
+      }else if(delta>0){
+        // Scroll down: move the header up at the exact same pixel pace.
+        offset=Math.min(maxOffset,offset+delta);
+      }else if(delta<0){
+        // Scroll up: bring the header back at the exact same pixel pace.
+        offset=Math.max(0,offset+delta);
       }
 
-      const nextDirection=delta>0 ? 1 : -1;
-
-      if(nextDirection!==direction){
-        direction=nextDirection;
-        travelled=0;
-      }
-
-      travelled+=Math.abs(delta);
-
-      if(y<=8 || mobileNav?.open){
-        setHidden(false);
-        travelled=0;
-      }else if(direction>0 && y>48 && travelled>=14){
-        setHidden(true);
-        travelled=0;
-      }else if(direction<0 && travelled>=8){
-        setHidden(false);
-        travelled=0;
-      }
-
+      render();
       lastY=y;
     };
 
@@ -87,7 +77,8 @@ export default function ScrollManager(){
 
     const onNavToggle=()=>{
       if(mobileNav?.open){
-        setHidden(false);
+        offset=0;
+        render();
       }
     };
 
@@ -99,7 +90,7 @@ export default function ScrollManager(){
       window.removeEventListener("pageshow",resetTop);
       main.removeEventListener("scroll",onScroll);
       mobileNav?.removeEventListener("toggle",onNavToggle);
-      header.classList.remove("is-hidden");
+      header.style.removeProperty("--header-offset");
     };
   },[]);
 
