@@ -25,7 +25,6 @@ function Header(){
       <a className="header-brand" href="/"><img className="header-logo" src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
       <nav className="desktop-nav" aria-label="Primary">
         <a href="/#services">Services</a>
-        <a href="/#results">Results</a>
         <a href="/#process">Process</a>
         <a href="/university">University</a>
         <a href="/#contact">Contact</a>
@@ -176,7 +175,7 @@ export default function ServicePage({params}){
       <footer>
         <div className="shell footerInner">
           <a href="/"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <div className="footerLinks"><a href="/services">Services</a><a href="/#results">Results</a><a href="/#process">Process</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
+          <div className="footerLinks"><a href="/services">Services</a><a href="/results">Results</a><a href="/#process">Process</a><a href="/university">University</a><a href="/#contact">Contact</a></div>
           <a className="footerCta" href="/#contact">Get More Jobs →</a>
         </div>
       </footer>
