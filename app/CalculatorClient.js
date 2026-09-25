@@ -80,7 +80,7 @@ export default function CalculatorClient({trades}){
           <div className="simpleCalcHeader">
             <span className="simpleCalcKicker">Live lead estimator</span>
             <h2>What could your ad spend generate?</h2>
-            <p>Pick your trade and metro market. We’ll estimate leads using real Australian CPL benchmarks and 2026 Google auction data.</p>
+            <p>Choose your trade, market and monthly ad spend to see an indicative lead range for your campaign.</p>
           </div>
 
           <div className="tradePicker" aria-label="Choose your trade">
@@ -145,10 +145,17 @@ export default function CalculatorClient({trades}){
               <strong>{estimatedLeads}</strong>
               <span>leads</span>
             </div>
-            <p>
-              Based on {selected.label} benchmarks in {city}. Australian optimised benchmark: {selected.range} CPL.
-              City adjustment uses 2026 Google Keyword Planner metro auction data. This is an estimate, not a guarantee.
+            <p className="estimateDisclaimer">
+              Indicative estimate only. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
             </p>
+            <details className="calcMethod">
+              <summary>How we calculate this</summary>
+              <div>
+                <p><b>{selected.label} benchmark:</b> {selected.range} CPL.</p>
+                <p><b>Market:</b> {city} metro adjustment applied to the benchmark.</p>
+                <p><b>Source reference:</b> {selected.source}.</p>
+              </div>
+            </details>
           </div>
 
           <button className="heroCalcCta simpleCalcCta" type="button" onClick={()=>setPlanOpen(true)}>
@@ -157,7 +164,7 @@ export default function CalculatorClient({trades}){
         </div>
 
         <div className="heroCalculator heroCalculatorBack">
-          <button className="calcBackButton" type="button" onClick={()=>setPlanOpen(false)} aria-label="Back to calculator">←</button>
+          <button className="calcBackButton" type="button" onClick={()=>setPlanOpen(false)} aria-label="Back to calculator"><span>←</span> Back to estimate</button>
           <div className="heroCalcTop backTop">
             <div>
               <div className="heroCalcEyebrow">Your plan starts here.</div>
@@ -171,17 +178,17 @@ export default function CalculatorClient({trades}){
               <input type="text" name="name" placeholder="Your name"/>
             </label>
 
-            <label>Phone Number *
-              <input type="tel" name="phone" placeholder="Phone Number"/>
+            <label>Phone number
+              <input type="tel" name="phone" placeholder="Phone number"/>
             </label>
 
             <label>Email
               <input type="email" name="email" placeholder="you@business.com"/>
             </label>
 
-            <label>What Service are You After?
+            <label>What do you need help with?
               <select name="service" defaultValue="">
-                <option value="" disabled>Service</option>
+                <option value="" disabled>Choose a service</option>
                 <option value="Growth Packages">Growth Packages</option>
                 <option value="Meta Ads">Meta Ads</option>
                 <option value="Google PPC">Google PPC</option>
@@ -191,21 +198,6 @@ export default function CalculatorClient({trades}){
                 <option value="Social Media Management">Social Media Management</option>
                 <option value="Appointment Setting">Appointment Setting</option>
               </select>
-            </label>
-
-            <label>Current Monthly Revenue?
-              <select name="monthlyRevenue" defaultValue="">
-                <option value="" disabled>Monthly Revenue</option>
-                <option value="0-10k">0-10k</option>
-                <option value="10-25k">10-25k</option>
-                <option value="25-50k">25-50k</option>
-                <option value="50-100k">50-100k</option>
-                <option value="100k+">100k+</option>
-              </select>
-            </label>
-
-            <label className="formMessageField">Message
-              <textarea name="message" rows="5" placeholder="Type your message..."/>
             </label>
 
             <button type="button" className="bookCallCta">
