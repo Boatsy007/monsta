@@ -887,3 +887,28 @@ footer{padding:0 0 40px}
 @media(prefers-reduced-motion:reduce){
   .heroCalculatorInner{transition:none}
 }
+
+
+/* Strategy call form additions */
+.calculatorLeadForm textarea{
+  width:100%;
+  min-height:140px;
+  margin-top:8px;
+  padding:16px 14px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:10px;
+  outline:none;
+  resize:vertical;
+  background:#14161b;
+  color:#fff;
+  font:inherit;
+}
+.calculatorLeadForm textarea::placeholder{
+  color:#7f828a;
+}
+.calculatorLeadForm textarea:focus{
+  border-color:rgba(255,0,140,.34);
+}
+.formMessageField{
+  grid-column:1/-1;
+}
