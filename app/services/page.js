@@ -1,8 +1,19 @@
 import { services, serviceSlugs } from "./serviceData";
 
 export const metadata={
-  title:"Digital Marketing Services for Tradies | Monsta Miami",
-  description:"Explore Monsta Miami digital marketing services for Australian tradies, including Google PPC, Meta Ads, SEO, websites, CRM, lead nurture and appointment setting."
+  title:"Digital Marketing Services for Tradies",
+  description:"Explore Monsta Miami digital marketing services for Australian tradies, including Google PPC, Meta Ads, SEO, websites, CRM, lead nurture and appointment setting.",
+  alternates:{canonical:"/services/"},
+  openGraph:{
+    title:"Digital Marketing Services for Tradies | Monsta Miami",
+    description:"Google PPC, Meta Ads, SEO, websites, CRM, lead nurture and appointment setting for Australian tradies.",
+    url:"/services/",
+  },
+  twitter:{
+    card:"summary_large_image",
+    title:"Digital Marketing Services for Tradies | Monsta Miami",
+    description:"Google PPC, Meta Ads, SEO, websites, CRM, lead nurture and appointment setting for Australian tradies.",
+  }
 };
 
 export default function ServicesPage(){
