@@ -3477,3 +3477,16 @@ a.growthScoreRecommendation:hover .growthScoreRecommendationArrow{
   .proofFrameworkCard,.proofHomeGrid article{min-height:210px}
   .proofFrameworkCard h3,.proofHomeGrid h3{margin-top:30px}
 }
+
+
+/* Calculator benchmark note */
+.cityBenchmarkNote{
+  display:block;
+  margin-top:8px;
+  color:#686b73;
+  font-size:8px;
+  line-height:1.45;
+}
+@media(min-width:901px){
+  .cityBenchmarkNote{font-size:9px}
+}
