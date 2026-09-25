@@ -1,3 +1,5 @@
+export const dynamic="force-static";
+
 import { siteConfig } from "./siteConfig";
 import { serviceSlugs } from "./services/serviceData";
 
