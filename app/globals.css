@@ -1356,3 +1356,72 @@ footer{padding:0 0 40px}
 .cplComparison .monstaCpl strong{
   color:#ff69bb;
 }
+
+
+/* Lead volume comparison */
+.leadComparison{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+.leadComparison>div{
+  padding:14px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+}
+.leadComparison span,
+.leadDifference span{
+  display:block;
+  color:#8f929a;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.leadComparison strong{
+  display:block;
+  margin-top:5px;
+  color:#d9dade;
+  font-size:28px;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.leadComparison small{
+  display:block;
+  margin-top:4px;
+  color:#74777f;
+  font-size:9px;
+}
+.leadComparison .leadComparisonMonsta{
+  border-color:rgba(255,0,140,.24);
+  background:rgba(255,0,140,.07);
+}
+.leadComparison .leadComparisonMonsta span,
+.leadComparison .leadComparisonMonsta strong{
+  color:#ff69bb;
+}
+.leadDifference{
+  margin-top:10px;
+  padding:14px;
+  border:1px solid rgba(255,0,140,.18);
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,0,140,.13),transparent 50%),
+    rgba(255,255,255,.02);
+}
+.leadDifference strong{
+  display:block;
+  margin-top:4px;
+  color:var(--pink);
+  font-size:22px;
+  letter-spacing:-.03em;
+}
+.leadDifference small{
+  display:block;
+  margin-top:4px;
+  color:#858890;
+  font-size:9px;
+  line-height:1.45;
+}
