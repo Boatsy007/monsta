@@ -77,26 +77,18 @@ export default function Home(){
       </div>
     </section>
 
-    <section className="tradeSection monstaMSection">
-      <div className="shell">
-        <div className="monstaMStage" aria-label="Trades we service">
-          <svg className="monstaMMark" viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M12 84V36C12 23 20 16 31 16C42 16 49 23 49 36V84V36C49 23 57 16 68 16C79 16 88 24 88 38V84"/>
-          </svg>
-
-          {trades.map(([icon,name])=>{
-            const slug=name.toLowerCase();
-            const positionClass=`monstaM-${slug}`;
-            return <a className={`monstaMTrade ${positionClass}`} key={name} href={`/trades/${slug}`} aria-label={`Learn how Monsta helps ${name.toLowerCase()} businesses`}>
-              {name==="Roofing"
-                ? <img className="monstaMWordmark" src="/roofing-wordmark.svg" alt="Roofing"/>
-                : name==="Plumbing"
-                  ? <img className="monstaMWordmark" src="/plumbing-wordmark.webp" alt="Plumbing"/>
-                  : <><b>{icon}</b><span>{name}</span></>}
-              <i aria-hidden="true">›</i>
-            </a>
-          })}
-        </div>
+    <section className="tradeSection">
+      <div className="shell tradebar">
+        {trades.map(([icon,name])=>{
+          const slug=name.toLowerCase();
+          return <a className="tradeItem" key={name} href={`/trades/${slug}`} aria-label={`Learn how Monsta helps ${name.toLowerCase()} businesses`}>
+            {name==="Roofing"
+              ? <img className="tradeWordmark" src="/roofing-wordmark.svg" alt="Roofing"/>
+              : name==="Plumbing"
+                ? <img className="tradeWordmark" src="/plumbing-wordmark.webp" alt="Plumbing"/>
+                : <><b>{icon}</b><span>{name}</span></>}
+          </a>
+        })}
       </div>
     </section>
 
