@@ -61,14 +61,11 @@ export default function CalculatorClient({trades}){
 
   const selected=TRADE_DATA[trade];
 
-  const cityCpl=useMemo(
-    ()=>Math.max(1,Math.round(selected.baseCpl*CITY_FACTORS[city])),
-    [selected,city]
-  );
+  const monstaCpl=selected.baseCpl;
 
   const estimatedLeads=useMemo(
-    ()=>Math.max(1,Math.floor(Number(spend||0)/cityCpl)),
-    [spend,cityCpl]
+    ()=>Math.max(1,Math.floor(Number(spend||0)/monstaCpl)),
+    [spend,monstaCpl]
   );
 
   const sliderPercent=((spend-1000)/(10000-1000))*100;
@@ -139,20 +136,29 @@ export default function CalculatorClient({trades}){
           <div className="leadEstimate">
             <div className="leadEstimateTopline">
               <span className="leadEstimateLabel">Estimated monthly leads</span>
-              <span className="cplBadge">Best CPL ≈ $\{cityCpl}</span>
+            </div>
+            <div className="cplComparison">
+              <div>
+                <span>Market benchmark</span>
+                <strong>{selected.range} CPL</strong>
+              </div>
+              <div className="monstaCpl">
+                <span>Monsta target</span>
+                <strong>$\{monstaCpl} CPL</strong>
+              </div>
             </div>
             <div className="leadEstimateNumber">
               <strong>{estimatedLeads}</strong>
               <span>leads</span>
             </div>
             <p className="estimateDisclaimer">
-              Indicative estimate only. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
+              Indicative estimate only. Monsta target CPL uses the lowest value in the cited real-market benchmark range for the selected trade. Actual CPL and lead volume vary by offer, competition, location, landing page and campaign quality.
             </p>
             <details className="calcMethod">
               <summary>How we calculate this</summary>
               <div>
                 <p><b>{selected.label} benchmark:</b> {selected.range} CPL.</p>
-                <p><b>Market:</b> {city} metro adjustment applied to the benchmark.</p>
+                <p><b>Market:</b> {city} selected for campaign context. Monsta target does not go below the lowest cited benchmark CPL.</p>
                 <p><b>Source reference:</b> {selected.source}.</p>
               </div>
             </details>
