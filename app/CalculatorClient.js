@@ -168,19 +168,46 @@ export default function CalculatorClient({trades}){
 
           <form className="calculatorLeadForm">
             <label>Full name
-              <input type="text" placeholder="Your name"/>
+              <input type="text" name="name" placeholder="Your name"/>
             </label>
-            <label>Phone number
-              <input type="tel" placeholder="Your phone"/>
+
+            <label>Phone Number *
+              <input type="tel" name="phone" placeholder="Phone Number"/>
             </label>
+
             <label>Email
-              <input type="email" placeholder="you@business.com"/>
+              <input type="email" name="email" placeholder="you@business.com"/>
             </label>
-            <label>Trade / business type
-              <select value={trade} onChange={e=>setTrade(e.target.value)}>
-                {Object.entries(TRADE_DATA).map(([key,item])=><option key={key} value={key}>{item.label}</option>)}
+
+            <label>What Service are You After?
+              <select name="service" defaultValue="">
+                <option value="" disabled>Service</option>
+                <option value="Growth Packages">Growth Packages</option>
+                <option value="Meta Ads">Meta Ads</option>
+                <option value="Google PPC">Google PPC</option>
+                <option value="CRM/Lead Nurture Funnels">CRM/Lead Nurture Funnels</option>
+                <option value="Website Development">Website Development</option>
+                <option value="SEO">SEO</option>
+                <option value="Social Media Management">Social Media Management</option>
+                <option value="Appointment Setting">Appointment Setting</option>
               </select>
             </label>
+
+            <label>Current Monthly Revenue?
+              <select name="monthlyRevenue" defaultValue="">
+                <option value="" disabled>Monthly Revenue</option>
+                <option value="0-10k">0-10k</option>
+                <option value="10-25k">10-25k</option>
+                <option value="25-50k">25-50k</option>
+                <option value="50-100k">50-100k</option>
+                <option value="100k+">100k+</option>
+              </select>
+            </label>
+
+            <label className="formMessageField">Message
+              <textarea name="message" rows="5" placeholder="Type your message..."/>
+            </label>
+
             <button type="button" className="bookCallCta">
               Book a 30 min call <span>→</span>
             </button>
