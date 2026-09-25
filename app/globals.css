@@ -3042,3 +3042,116 @@ a.growthScoreRecommendation:hover .growthScoreRecommendationArrow{
 @media(min-width:901px){
   .growthScoreRecommendationLink{font-size:9px}
 }
+
+
+/* Stage 3: richer trade pages */
+.tradePageNav{
+  display:flex;
+  gap:22px;
+  margin-left:auto;
+  margin-right:22px;
+}
+.tradePageNav a{
+  color:#9a9da5;
+  font-size:11px;
+  font-weight:750;
+  text-decoration:none;
+}
+.tradePageNav a:hover{color:#fff}
+.tradeProblemListDetailed>div{
+  align-items:flex-start;
+}
+.tradeProblemListDetailed>div>div{min-width:0}
+.tradeProblemListDetailed b{
+  display:block;
+  margin-bottom:4px;
+  color:#f1f2f4;
+  font-size:12px;
+}
+.tradeProblemListDetailed p{
+  margin:0;
+  color:#7f828a;
+  font-size:10px;
+  line-height:1.5;
+}
+.tradeServiceCardsRich{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+.tradeServiceCardsRich .tradeServiceCard{
+  display:flex;
+  min-height:270px;
+  flex-direction:column;
+  color:inherit;
+  text-decoration:none;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease;
+}
+.tradeServiceCardsRich .tradeServiceCard:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,44,151,.28);
+  background:rgba(255,44,151,.035);
+}
+.tradeServiceCardsRich .tradeServiceCard b{
+  margin-top:auto;
+  padding-top:18px;
+  color:#ff69bb;
+  font-size:9px;
+}
+.tradeFaqSection{
+  padding:88px 0;
+  background:#060607;
+}
+.tradeFaqGrid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:72px;
+  align-items:start;
+}
+.tradeFaqGrid>div:first-child{
+  position:sticky;
+  top:118px;
+}
+.tradeFaqGrid h2{
+  margin:10px 0 0;
+  max-width:500px;
+  font-size:clamp(32px,4vw,52px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.tradeFaqList details{
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.tradeFaqList summary{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:21px 0;
+  cursor:pointer;
+  list-style:none;
+  color:#f4f4f5;
+  font-size:14px;
+  font-weight:800;
+}
+.tradeFaqList summary::-webkit-details-marker{display:none}
+.tradeFaqList summary span{color:#ff2c97;font-size:19px}
+.tradeFaqList details[open] summary span{transform:rotate(45deg)}
+.tradeFaqList p{
+  margin:-4px 0 22px;
+  color:#888b93;
+  font-size:12px;
+  line-height:1.7;
+}
+@media(max-width:1100px){
+  .tradeServiceCardsRich{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .tradePageNav{display:none}
+  .tradeServiceCardsRich{grid-template-columns:1fr 1fr}
+  .tradeFaqGrid{grid-template-columns:1fr;gap:28px}
+  .tradeFaqGrid>div:first-child{position:static}
+}
+@media(max-width:620px){
+  .tradeServiceCardsRich{grid-template-columns:1fr}
+  .tradeServiceCardsRich .tradeServiceCard{min-height:210px}
+  .tradeProblemListDetailed b{font-size:11px}
+  .tradeProblemListDetailed p{font-size:9px}
+}
