@@ -3490,3 +3490,47 @@ a.growthScoreRecommendation:hover .growthScoreRecommendationArrow{
 @media(min-width:901px){
   .cityBenchmarkNote{font-size:9px}
 }
+
+
+/* Results are intentionally low-key until verified case studies are published */
+.proofHomeCompact{
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,.055);
+  border-bottom:1px solid rgba(255,255,255,.055);
+  background:#070708;
+}
+.proofHomeCompactInner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:34px;
+}
+.proofHomeCompactInner>div{max-width:780px}
+.proofHomeCompact .eyebrow{display:block;margin-bottom:7px}
+.proofHomeCompact h2{
+  margin:0 0 7px;
+  font-size:clamp(22px,2.8vw,34px);
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.proofHomeCompact p{
+  margin:0;
+  max-width:700px;
+  color:#858890;
+  font-size:11px;
+  line-height:1.6;
+}
+.proofHomeCompact a{
+  flex:0 0 auto;
+  color:#b9bbc0;
+  font-size:10px;
+  font-weight:800;
+  text-decoration:none;
+  transition:color .2s ease;
+}
+.proofHomeCompact a:hover{color:#ff69bb}
+@media(max-width:700px){
+  .proofHomeCompact{padding:24px 0}
+  .proofHomeCompactInner{align-items:flex-start;flex-direction:column;gap:16px}
+  .proofHomeCompact p{font-size:10px}
+}
