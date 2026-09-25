@@ -83,7 +83,7 @@ function clampScore(value){
   return Math.max(28,Math.min(96,Math.round(value)));
 }
 
-export default function GrowthScoreClient(){
+export default function GrowthScoreClient({variant="section"}){
   const [step,setStep]=useState(0);
   const [answers,setAnswers]=useState({});
   const [finished,setFinished]=useState(false);
@@ -163,18 +163,19 @@ export default function GrowthScoreClient(){
     setFinished(false);
   }
 
-  return <section id="growth-score" className="section growthScoreSection">
-    <div className="shell growthScoreShell">
-      <div className="growthScoreIntro">
-        <div className="eyebrow">Monsta Growth Score</div>
-        <h2>How much work is your marketing leaving on the table?</h2>
-        <p>Answer six quick questions and get an instant snapshot of where your biggest growth opportunity may be.</p>
-        <div className="growthScoreMeta">
-          <span>6 questions</span>
-          <span>≈ 45 seconds</span>
-          <span>Instant result</span>
-        </div>
+  const isHero=variant==="hero";
+
+  return <div id={isHero ? "growth-score" : undefined} className={isHero ? "growthScoreHeroWrap" : "growthScoreSectionInner"}>
+    {!isHero && <div className="growthScoreIntro">
+      <div className="eyebrow">Monsta Growth Score</div>
+      <h2>How much work is your marketing leaving on the table?</h2>
+      <p>Answer six quick questions and get an instant snapshot of where your biggest growth opportunity may be.</p>
+      <div className="growthScoreMeta">
+        <span>6 questions</span>
+        <span>≈ 45 seconds</span>
+        <span>Instant result</span>
       </div>
+    </div>}
 
       <div className="growthScoreCard">
         <div className="growthScoreTop">
@@ -235,6 +236,5 @@ export default function GrowthScoreClient(){
           </div>
         </div>}
       </div>
-    </div>
-  </section>;
+  </div>;
 }
