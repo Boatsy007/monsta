@@ -2467,3 +2467,73 @@ footer{padding:0 0 40px}
     padding:0 12px;
   }
 }
+
+
+/* Growth Score / Calculator swap */
+.growthScoreHeroWrap{
+  width:auto;
+  margin:0 18px 44px;
+}
+.growthScoreHeroWrap .growthScoreCard{
+  margin:0;
+}
+.growthScoreSectionInner{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:34px;
+  align-items:start;
+}
+.calculatorSection{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  background:
+    radial-gradient(circle at 12% 18%,rgba(8,223,228,.055),transparent 28%),
+    #050506;
+}
+.calculatorSectionGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:34px;
+  align-items:start;
+}
+.calculatorSectionIntro h2{
+  margin:0;
+  max-width:720px;
+  font-size:40px;
+  line-height:1;
+  letter-spacing:-.048em;
+}
+.calculatorSectionIntro>p{
+  max-width:590px;
+  margin:18px 0 0;
+  color:#979aa2;
+  font-size:14px;
+  line-height:1.65;
+}
+.calculatorSection .heroCalculatorFlip{
+  width:100%;
+  margin:0;
+}
+@media(min-width:901px){
+  .growthScoreHeroWrap{
+    width:100%;
+    margin:0;
+  }
+  .growthScoreHeroWrap .growthScoreCard{
+    min-height:560px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .calculatorSectionGrid{
+    grid-template-columns:minmax(0,.86fr) minmax(520px,1.14fr);
+    gap:84px;
+    align-items:center;
+  }
+  .calculatorSectionIntro h2{
+    font-size:clamp(48px,4.2vw,66px);
+  }
+  .calculatorSectionIntro>p{font-size:15px}
+}
