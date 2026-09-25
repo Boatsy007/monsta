@@ -1,4 +1,6 @@
 import { absoluteUrl } from "../../siteConfig";
+import SiteHeader from "../../SiteHeader";
+import SiteFooter from "../../SiteFooter";
 
 const TRADE_PAGES={
   roofing:{
@@ -303,18 +305,8 @@ export default async function TradePage({params}){
 
   return (
     <>
-      <header className="tradePageHeader">
-        <div className="tradePageHeaderInner">
-          <a href="/" className="tradePageLogo"><img src="/monsta-miami-logo.png" alt="Monsta Miami"/></a>
-          <nav className="tradePageNav" aria-label="Trade page navigation">
-            <a href="/services">Services</a>
-            <a href="/university">University</a>
-          </nav>
-          <a href="/#contact" className="tradePageHeaderCta">Get More Jobs <span>→</span></a>
-        </div>
-      </header>
-
-      <main className="tradePage">
+      <SiteHeader/>
+      <main className="site-main tradePage">
         <section className="tradeHero">
           <div className="tradeHeroGlow"></div>
           <div className="tradePageShell tradeHeroGrid">
@@ -418,6 +410,7 @@ export default async function TradePage({params}){
           </div>
         </section>
 
+        <SiteFooter/>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumbSchema)}}/>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
       </main>
